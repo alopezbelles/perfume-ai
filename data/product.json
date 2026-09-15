@@ -1,24 +1,25 @@
 {
-  "name": "Agua de Vetiver (YLY)",
-  "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
-  "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
+  "name": "Dulce Nardo (GIT)",
+  "url": "https://perfumarte.com/products/dulce-nardo-git",
+  "gender": "female",
+  "bottle_reference": "references/bottles/female/bottle-gold-cap.png",
+  "description": "Dulce Nardo (GIT): un perfume dulce de mujer, floral intenso y atrevido\n\nDulce Nardo (GIT) es un perfume dulce de mujer creado para mujeres que no siguen reglas, con una personalidad fuerte, libre y llena de carácter. Una fragancia floral intensa que combina elegancia y atrevimiento en un aroma envolvente y sofisticado.\n\nEste perfume dulce de mujer destaca por su composición de flores blancas y acordes profundos, que aportan una estela femenina, intensa y muy magnética.\n\n \n\n \n\n¿A qué huele Dulce Nardo (GIT)?\n\nDulce Nardo (GIT) es un perfume dulce de mujer donde el nardo, el jazmín y la flor de naranjo se combinan con vetiver y pachulí para crear una fragancia floral intensa, elegante y con carácter.\n\nUna salida floral luminosa y elegante\n\nLa fragancia se abre con flor de naranjo y jazmín, aportando un inicio brillante, femenino y sofisticado que marca presencia desde el primer instante.\n\nUn corazón floral intenso y envolvente\n\nEn el desarrollo aparece el nardo como protagonista, aportando una intensidad floral profunda, sensual y muy característica que define el carácter de la fragancia.\n\nUn fondo amaderado, terroso y duradero\n\nEl secado combina vetiver y pachulí, creando una base elegante, ligeramente terrosa y muy persistente que aporta equilibrio y profundidad.",
   "notes": {
     "top": [
-      "Jengibre",
       "Bergamota",
-      "Manzana"
+      "Cereza",
+      "Pera"
     ],
     "heart": [
-      "Bayas de enebro",
-      "Geranio",
-      "Salvia"
+      "Flor de naranjo",
+      "Jazmin",
+      "Nardo"
     ],
     "base": [
       "Ambar",
-      "Cedro",
-      "Haba de tonka",
-      "Incienso",
-      "Vetiver"
+      "Caramelo",
+      "Patchouli",
+      "Vainilla"
     ]
   }
 }

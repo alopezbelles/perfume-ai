@@ -2,7 +2,16 @@ const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const url = "https://perfumarte.com/products/agua-de-vetiver-yly";
+const url = process.argv[2];
+
+if (!url) {
+  console.error("❌ Debes proporcionar la URL de un perfume.");
+  console.error("Ejemplo:");
+  console.error(
+    "node scraper.js https://perfumarte.com/products/agua-de-vetiver-yly"
+  );
+  process.exit(1);
+}
 
 function splitNotes(value) {
   return value
@@ -49,6 +58,38 @@ function extractNotes(text) {
   return notes;
 }
 
+function detectGender(description) {
+  const text = description.toLowerCase();
+
+  if (
+    text.includes("masculino") ||
+    text.includes("hombre")
+  ) {
+    return "male";
+  }
+
+  if (
+    text.includes("femenino") ||
+    text.includes("mujer")
+  ) {
+    return "female";
+  }
+
+  return "unknown";
+}
+
+function getBottleReference(gender) {
+  if (gender === "male") {
+    return "references/bottles/male/bottle-black-cap.png";
+  }
+
+  if (gender === "female") {
+    return "references/bottles/female/bottle-gold-cap.png";
+  }
+
+  return null;
+}
+
 async function scrape() {
   console.log("🚀 Iniciando scraper...\n");
 
@@ -66,8 +107,6 @@ async function scrape() {
       timeout: 60000,
     });
 
-    // Esperamos a que existan los contenidos de las pestañas,
-    // aunque estén ocultos inicialmente.
     await page.waitForSelector("#tab-notas", {
       state: "attached",
       timeout: 60000,
@@ -81,7 +120,7 @@ async function scrape() {
     console.log("✅ Página cargada\n");
 
     // --------------------------------
-    // 1. NOMBRE
+    // EXTRAER NOMBRE
     // --------------------------------
 
     const titleMeta = await page
@@ -95,7 +134,7 @@ async function scrape() {
     const name = titleMeta.split("|")[0].trim();
 
     // --------------------------------
-    // 2. DESCRIPCIÓN
+    // EXTRAER DESCRIPCIÓN
     // --------------------------------
 
     const description = (
@@ -103,7 +142,7 @@ async function scrape() {
     ).trim();
 
     // --------------------------------
-    // 3. NOTAS OLFATIVAS
+    // EXTRAER NOTAS
     // --------------------------------
 
     const notesText = await page.locator("#tab-notas").innerText();
@@ -111,18 +150,32 @@ async function scrape() {
     const notes = extractNotes(notesText);
 
     // --------------------------------
-    // 4. CREAR OBJETO FINAL
+    // DETECTAR GÉNERO
+    // --------------------------------
+
+    const gender = detectGender(description);
+
+    // --------------------------------
+    // ASIGNAR BOTELLA
+    // --------------------------------
+
+    const bottleReference = getBottleReference(gender);
+
+    // --------------------------------
+    // CREAR PRODUCTO
     // --------------------------------
 
     const product = {
       name,
       url,
+      gender,
+      bottle_reference: bottleReference,
       description,
       notes,
     };
 
     // --------------------------------
-    // 5. GUARDAR JSON
+    // GUARDAR JSON
     // --------------------------------
 
     const dataDirectory = path.join(__dirname, "data");
@@ -131,7 +184,10 @@ async function scrape() {
       recursive: true,
     });
 
-    const outputPath = path.join(dataDirectory, "product.json");
+    const outputPath = path.join(
+      dataDirectory,
+      "product.json"
+    );
 
     fs.writeFileSync(
       outputPath,
@@ -140,13 +196,21 @@ async function scrape() {
     );
 
     // --------------------------------
-    // 6. MOSTRAR RESULTADO
+    // MOSTRAR RESULTADO
     // --------------------------------
 
     console.log("📦 Producto extraído:\n");
+
     console.log(JSON.stringify(product, null, 2));
 
+    console.log("\n🔎 Género detectado:");
+    console.log(gender);
+
+    console.log("\n🍾 Referencia de botella:");
+    console.log(bottleReference);
+
     console.log(`\n💾 Guardado en: ${outputPath}`);
+
     console.log("\n✅ Scraping completado correctamente.");
 
   } catch (error) {
@@ -154,6 +218,7 @@ async function scrape() {
     console.error(error);
 
     process.exitCode = 1;
+
   } finally {
     await browser.close();
   }
