@@ -20,5 +20,7 @@
       "Incienso",
       "Vetiver"
     ]
-  }
+  },
+  "gender": "male",
+  "bottle_reference": "references/bottles/male/bottle-black-cap.png"
 }

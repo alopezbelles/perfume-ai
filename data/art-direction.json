@@ -1,11 +1,10 @@
 {
   "campaign": {
     "name": "Perfumarte AI Art Direction",
-    "objective": "Generate two visually coherent premium campaign images for every perfume.",
+    "objective": "Generate two visually coherent premium campaign images for Agua de Vetiver (YLY), expressing its fresh aromatic opening, refined green floral heart and deep smoky vetiver-incense base.",
     "image_count": 2,
-
     "visual_relationship": {
-      "rule": "Both images must represent the same fragrance concept and olfactive identity.",
+      "rule": "Both images must represent the same fragrance concept and olfactive identity, contrasting a refined grounded still life with a controlled suspended atmosphere.",
       "editorial_role": "Primary hero image.",
       "surreal_role": "Dynamic conceptual companion image.",
       "consistency": [
@@ -17,19 +16,16 @@
       ]
     }
   },
-
   "format": {
     "orientation": "horizontal",
     "aspect_ratio": "5:4"
   },
-
   "hero_product": {
     "type": "perfume_bottle",
     "role": "main protagonist",
-
+    "bottle_reference": "references/bottles/male/bottle-black-cap.png",
     "reference_rule": {
       "use_reference_image": true,
-      "reference_path": "references/bottles/male/bottle-black-cap.png",
       "preserve_exact_design": true,
       "preserve_shape": true,
       "preserve_proportions": true,
@@ -37,16 +33,14 @@
       "preserve_label": true,
       "preserve_material": true
     },
-
     "composition_rules": {
-      "scale": "medium_dominant",
-      "visibility": "fully_visible",
+      "scale": "medium-dominant",
+      "visibility": "fully visible",
       "must_not_be_covered": true,
       "must_not_be_distorted": true,
       "must_not_be_duplicated": true
     }
   },
-
   "physical_scale_system": {
     "bottle_height_cm": 19,
     "bottle_width_cm": 3.5,
@@ -54,14 +48,13 @@
     "scale_reference": "The perfume bottle establishes the physical scale of the entire scene.",
     "element_scale_rule": "All surrounding olfactive elements must be physically and visually proportional to the reference bottle.",
     "relative_scale": "Use realistic real-world proportions between the perfume bottle and every surrounding ingredient.",
-    "artistic_scale_override": "Oversized ingredients are not permitted for this fragrance."
+    "artistic_scale_override": "Oversized ingredients are not permitted."
   },
-
   "fragrance_data": {
     "name": "Agua de Vetiver (YLY)",
     "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
     "gender": "male",
-    "description": "Agua de Vetiver (YLY) is a fresh masculine perfume that combines an initial feeling of freshness with a deep and sensual base. Geranium, incense and vetiver create a clean, aromatic fragrance with a warm, sophisticated and slightly smoky dry-down.",
+    "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
     "notes": {
       "top": [
         "Jengibre",
@@ -82,11 +75,8 @@
       ]
     }
   },
-
   "olfactive_translation": {
-
     "principle": "Translate the fragrance into a visual story rather than literally representing every listed note.",
-
     "selection_rules": [
       "Select only the most visually expressive olfactive elements.",
       "Prioritize elements that communicate the fragrance identity.",
@@ -95,107 +85,81 @@
       "Never introduce ingredients that are not supported by the fragrance data.",
       "The selected visual elements must work coherently across both campaign images."
     ],
-
     "selected_visual_notes": [
-
-      {
-        "note": "Geranio",
-        "olfactive_role": "Central heart note",
-        "visual_representation": "Realistic red geranium flowers and green stems",
-        "reason": "The geranium is explicitly described as a refined floral-green element that gives structure and modern masculine character to the fragrance.",
-        "editorial_use": "A small group of realistic red geranium flowers placed naturally beside and slightly behind the bottle.",
-        "surreal_use": "Individual geranium flowers and petals suspended dynamically around the floating bottle."
-      },
-
-      {
-        "note": "Vetiver",
-        "olfactive_role": "Key base note",
-        "visual_representation": "Realistic vetiver roots and fine green grass-like leaves",
-        "reason": "Vetiver is one of the defining notes of the fragrance and communicates its earthy, woody and sophisticated character.",
-        "editorial_use": "A small cluster of realistic vetiver roots and foliage integrated naturally into the still life.",
-        "surreal_use": "Fine vetiver roots and leaves suspended around the bottle with subtle movement."
-      },
-
-      {
-        "note": "Incienso",
-        "olfactive_role": "Atmospheric base note",
-        "visual_representation": "Subtle translucent incense smoke",
-        "reason": "Incense contributes to the deep, sophisticated and slightly smoky character described in the product description.",
-        "editorial_use": "Very subtle smoke in the background, never obscuring the bottle.",
-        "surreal_use": "A controlled ribbon of translucent smoke flowing around the suspended bottle."
-      },
-
-      {
-        "note": "Cedro",
-        "olfactive_role": "Woody base note",
-        "visual_representation": "Small pieces of natural cedar wood",
-        "reason": "Cedar reinforces the dry woody character of the base and provides a physical structural material for the composition.",
-        "editorial_use": "One or two small cedar fragments integrated into the surface composition.",
-        "surreal_use": "Small cedar fragments suspended with restrained movement."
-      },
-
-      {
-        "note": "Bayas de enebro",
-        "olfactive_role": "Fresh aromatic heart note",
-        "visual_representation": "Realistic juniper berries",
-        "reason": "Juniper reinforces the fresh, aromatic and clean character of the fragrance.",
-        "editorial_use": "A small cluster of juniper berries placed near the botanical elements.",
-        "surreal_use": "A few individual juniper berries floating around the bottle."
-      },
-
       {
         "note": "Bergamota",
-        "olfactive_role": "Fresh citrus top note",
-        "visual_representation": "Small bergamot peel accents",
-        "reason": "Bergamot contributes to the fresh and luminous opening but should remain secondary to the fragrance's green and woody identity.",
-        "editorial_use": "Minimal peel accent, used sparingly.",
-        "surreal_use": "Small suspended peel fragments with subtle movement."
+        "olfactive_role": "Frescor cítrico y luminoso de salida.",
+        "visual_representation": "Una bergamota fresca de tamaño real, discretamente situada junto a la botella, con piel verde amarillenta y brillo natural.",
+        "reason": "Aporta una señal visual inmediata de frescura, luz y energía sin dominar la composición.",
+        "editorial_use": "Pequeño acento cítrico en primer plano sobre la superficie de piedra.",
+        "surreal_use": "Una bergamota realista suspendida a distancia, siguiendo una trayectoria curva y sutil alrededor de la botella."
+      },
+      {
+        "note": "Geranio",
+        "olfactive_role": "Corazón floral-verde elegante y estructurado.",
+        "visual_representation": "Un tallo fino de geranio con pocas hojas verdes y una flor contenida en tonos rosados apagados.",
+        "reason": "Comunica la faceta floral-verde refinada y masculina descrita para la fragancia.",
+        "editorial_use": "Elemento botánico vertical y escaso en el fondo lateral, sin ocultar la botella.",
+        "surreal_use": "Hojas y una flor de geranio separadas con delicadeza en una corriente de aire controlada."
+      },
+      {
+        "note": "Incienso",
+        "olfactive_role": "Profundidad cálida, ahumada y espiritual.",
+        "visual_representation": "Una hebra muy fina de humo translúcido, gris cálido, procedente de una pequeña fuente de incienso fuera de campo.",
+        "reason": "Permite representar la dimensión atmosférica y ligeramente ahumada sin introducir un objeto adicional visible dominante.",
+        "editorial_use": "Humo tenue detrás de la botella, integrado en el fondo y claramente separado del producto.",
+        "surreal_use": "Cintas de humo fino y realista envolviendo el espacio alrededor de la botella sin cubrirla."
+      },
+      {
+        "note": "Vetiver",
+        "olfactive_role": "Base seca, terrosa, elegante y profunda.",
+        "visual_representation": "Un pequeño grupo de raíces secas de vetiver y finas hojas herbáceas, en proporción realista con la botella.",
+        "reason": "Es la firma conceptual del perfume y aporta textura terrosa, verticalidad y carácter.",
+        "editorial_use": "Raíces y hojas colocadas sobre la superficie, formando un anclaje natural junto a la botella.",
+        "surreal_use": "Raíces finas y hojas suspendidas lentamente, como fragmentos botánicos arrastrados por una corriente de aire."
       }
     ]
   },
-
   "shared_visual_identity": {
-    "concept": "A sophisticated masculine fragrance that moves visually from a fresh, luminous green opening into a deep woody and subtly smoky atmosphere.",
+    "concept": "La dualidad del vetiver: una columna de frescura luminosa atravesada por una profundidad verde, terrosa y ahumada.",
     "mood": [
-      "fresh",
-      "elegant",
-      "masculine",
-      "aromatic",
-      "sophisticated",
-      "creative",
-      "deep"
+      "fresco",
+      "masculino",
+      "elegante",
+      "contemplativo",
+      "sofisticado",
+      "misterioso"
     ],
-    "emotional_goal": "Express the duality described by the fragrance: light and fresh on the surface, intense and sophisticated underneath.",
+    "emotional_goal": "Transmitir la sensación de un hombre moderno, ligero y luminoso en la superficie, pero intenso, decidido y sensual en su interior.",
     "palette": [
-      "deep botanical green",
-      "sage green",
-      "cool grey",
-      "charcoal black",
-      "natural cedar brown",
-      "muted red"
+      "verde vetiver apagado",
+      "verde salvia",
+      "amarillo bergamota suave",
+      "gris humo",
+      "marfil mineral",
+      "marrón raíz",
+      "negro carbón"
     ],
     "key_materials": [
-      "natural stone",
-      "cedar wood",
-      "botanical foliage",
-      "glass",
-      "subtle smoke"
+      "piedra caliza mate",
+      "vidrio de la botella",
+      "raíces secas de vetiver",
+      "hojas verdes",
+      "piel cítrica natural",
+      "humo translúcido"
     ],
-    "environmental_identity": "Cool, refined and natural masculine atmosphere combining botanical freshness with mineral and woody depth.",
+    "environmental_identity": "Un paisaje mineral y botánico de inspiración mediterránea, sobrio y silencioso, donde la luz fresca se encuentra con una atmósfera ahumada y profunda.",
     "visual_anchor_elements": [
-      "red geranium",
-      "vetiver",
-      "cedar",
-      "subtle incense smoke"
+      "botella negra de Agua de Vetiver (YLY)",
+      "línea vertical de hojas de vetiver",
+      "acento de bergamota",
+      "geranio verde-floral",
+      "humo fino de incienso"
     ]
   },
-
   "editorial_still_life": {
-
     "role": "Primary hero image",
-
-    "concept": "A refined botanical and woody still life where the perfume bottle rests on a natural stone surface surrounded by carefully selected green and red botanical elements, cedar wood and subtle incense smoke.",
-
+    "concept": "La botella apoyada sobre una losa de piedra caliza oscura, en un paisaje de estudio mineral y botánico donde una luz fresca revela la bergamota y el geranio mientras un humo tenue sugiere el incienso y el vetiver.",
     "visual_language": [
       "premium editorial product photography",
       "realistic luxury still life",
@@ -203,28 +167,26 @@
       "elegant",
       "extreme photorealism"
     ],
-
     "product_position": {
       "physical_support": true,
       "floating": false,
       "surface_required": true
     },
-
     "environment": {
-      "type": "refined natural studio setting",
-      "description": "A sophisticated cool-toned environment with a natural stone surface, subtle botanical depth and a softly atmospheric background.",
-      "background_rule": "The background should feel like a premium photographic environment rather than a generic landscape."
+      "type": "minimal mineral botanical studio",
+      "description": "Una superficie real de piedra caliza gris verdosa, con una pared de fondo mate en degradado desde marfil mineral a verde humo. La botella se apoya verticalmente sobre la piedra, completamente visible, acompañada por raíces de vetiver, un tallo escaso de geranio y una bergamota pequeña de proporción realista.",
+      "background_rule": "The environment may be a studio wall, architectural setting, elegant interior, natural landscape, stone setting or other appropriate environment depending on the fragrance."
     },
-
     "visual_elements": [
-      "red geranium flowers",
-      "vetiver roots and foliage",
-      "juniper berries",
-      "small cedar wood fragments",
-      "minimal bergamot peel",
-      "subtle incense smoke"
+      "botella de Agua de Vetiver (YLY) completamente visible y sin obstrucciones",
+      "losa de piedra caliza gris verdosa",
+      "pequeño grupo de raíces secas de vetiver",
+      "hojas finas de vetiver",
+      "tallo contenido de geranio",
+      "una bergamota de tamaño real",
+      "hilo delicado de humo de incienso",
+      "sombras botánicas suaves en el fondo"
     ],
-
     "composition": {
       "style": "balanced premium still life",
       "element_density": "low",
@@ -232,69 +194,59 @@
       "depth": "foreground_midground_background",
       "bottle_priority": "highest"
     },
-
     "materials": [
-      "natural stone",
-      "cedar wood",
-      "botanical foliage",
-      "glass"
+      "piedra caliza mate",
+      "vidrio y material exactos de la botella de referencia",
+      "raíces secas",
+      "hojas naturales",
+      "piel cítrica",
+      "humo translúcido"
     ],
-
     "palette": [
-      "deep botanical green",
-      "sage green",
-      "cool grey",
-      "charcoal black",
-      "natural cedar brown",
-      "muted red"
+      "verde vetiver apagado",
+      "gris piedra",
+      "marfil mineral",
+      "amarillo bergamota suave",
+      "rosa geranio desaturado",
+      "gris humo",
+      "negro carbón"
     ],
-
     "lighting": {
       "style": "premium commercial photography",
-      "direction": "soft directional side lighting",
-      "contrast": "medium",
+      "direction": "luz lateral suave desde la izquierda, con un contraluz tenue que define el contorno de la botella y las hojas",
+      "contrast": "medio, con negros profundos controlados y altas luces suaves",
       "quality": "naturalistic and controlled"
     },
-
     "typography": {
       "enabled": true,
       "language": "Spanish",
-
       "elements": [
         "EQUIVALENCIA",
-        "Agua de Vetiver",
-        "Frescura por fuera. Intensidad por dentro.",
-        "Perfume fresco masculino, elegante y con carácter.",
-        "NOTAS DE SALIDA",
-        "Jengibre · Bergamota · Manzana",
-        "NOTAS DE CORAZÓN",
-        "Bayas de enebro · Geranio · Salvia",
-        "NOTAS DE FONDO",
-        "Ámbar · Cedro · Haba de tonka · Incienso · Vetiver"
+        "Agua de Vetiver (YLY)",
+        "Ligero por fuera. Intenso por dentro.",
+        "Fresco, aromático y profundamente elegante.",
+        "NOTAS DE SALIDA: Jengibre · Bergamota · Manzana",
+        "NOTAS DE CORAZÓN: Bayas de enebro · Geranio · Salvia",
+        "NOTAS DE FONDO: Ambar · Cedro · Haba de tonka · Incienso · Vetiver"
       ],
-
       "style": {
         "primary": "elegant editorial serif",
         "secondary": "refined minimalist sans-serif",
         "tracking": "generous",
         "hierarchy": "clear and sophisticated"
       },
-
       "rules": [
         "Typography must never cover the perfume bottle.",
         "Text must remain legible.",
         "Text must integrate naturally with the composition.",
-        "Do not overload the image with text."
+        "Do not overload the image with text.",
+        "Place typography only in the generous negative space, preferably on the upper left or right side away from the bottle."
       ]
     }
   },
-
   "immersive_surreal": {
-
     "role": "Dynamic conceptual companion image",
-
-    "concept": "The same fresh botanical and woody fragrance identity transformed into a dynamic atmospheric scene, with the perfume bottle suspended in space while geranium, vetiver, juniper, cedar and incense smoke move naturally around it.",
-
+    "concept": "La botella suspendida en una corriente invisible entre luz cítrica y humo de incienso, rodeada por fragmentos botánicos reales de vetiver y geranio que expresan la evolución de la fragancia sin perder su sobriedad masculina.",
     "visual_language": [
       "cinematic product photography",
       "dynamic surrealism",
@@ -302,27 +254,24 @@
       "immersive atmosphere",
       "controlled movement"
     ],
-
     "product_position": {
       "physical_support": false,
       "floating": true,
       "suspended": true
     },
-
     "environment": {
-      "type": "atmospheric botanical environment",
-      "description": "A cool green-grey cinematic environment with subtle mineral depth and controlled atmospheric smoke."
+      "type": "suspended mineral atmosphere",
+      "description": "Un espacio oscuro y profundo de tonalidad verde humo, sin superficie visible, con una atmósfera volumétrica sutil. La botella permanece vertical, suspendida en el centro dominante y completamente visible, mientras elementos botánicos de escala realista siguen una corriente circular lenta a su alrededor."
     },
-
     "visual_elements": [
-      "red geranium flowers and petals",
-      "vetiver roots and fine foliage",
-      "juniper berries",
-      "small cedar wood fragments",
-      "minimal bergamot peel",
-      "translucent incense smoke"
+      "botella de Agua de Vetiver (YLY) suspendida y completamente visible",
+      "una bergamota realista flotando lejos de la botella",
+      "hojas finas y pequeñas raíces de vetiver",
+      "una flor y hojas de geranio separadas en el aire",
+      "hilos delicados de humo de incienso",
+      "partículas minerales muy sutiles iluminadas por el contraluz",
+      "halo de luz verde amarillenta inspirado en la frescura de la bergamota"
     ],
-
     "movement": {
       "enabled": true,
       "types": [
@@ -333,7 +282,6 @@
       ],
       "intensity": "controlled"
     },
-
     "composition": {
       "style": "dynamic asymmetrical composition",
       "element_density": "low_to_medium",
@@ -341,36 +289,33 @@
       "bottle_priority": "highest",
       "negative_space": "controlled"
     },
-
     "materials": [
-      "botanical elements",
-      "cedar wood",
-      "glass",
-      "smoke",
-      "natural mineral textures"
+      "vidrio y material exactos de la botella de referencia",
+      "raíces naturales de vetiver",
+      "hojas de geranio",
+      "piel cítrica natural",
+      "humo translúcido",
+      "partículas minerales atmosféricas"
     ],
-
     "palette": [
-      "deep botanical green",
-      "sage green",
-      "cool grey",
-      "charcoal black",
-      "natural cedar brown",
-      "muted red"
+      "verde profundo",
+      "verde salvia",
+      "amarillo cítrico tenue",
+      "gris humo",
+      "marrón raíz",
+      "negro carbón",
+      "destellos marfil"
     ],
-
     "lighting": {
       "style": "cinematic commercial lighting",
-      "direction": "controlled directional light",
-      "contrast": "medium-high",
+      "direction": "contraluz lateral desde la izquierda con un haz frío verdoso y una luz cálida muy tenue sobre los bordes botánicos",
+      "contrast": "alto pero controlado, con separación precisa entre la botella oscura y el fondo atmosférico",
       "quality": "dramatic but photorealistic"
     },
-
     "typography": {
       "enabled": false
     }
   },
-
   "camera": {
     "lens": "50mm",
     "depth_of_field": "medium shallow",
@@ -378,21 +323,19 @@
     "orientation": "horizontal",
     "aspect_ratio": "5:4"
   },
-
   "photorealism": {
     "level": "extreme",
-
     "requirements": [
       "photorealistic materials",
       "realistic lighting",
       "realistic shadows",
       "realistic reflections",
+      "realistic water",
       "realistic smoke",
       "realistic botanical textures",
       "realistic physical proportions"
     ]
   },
-
   "negative_constraints": [
     "no people",
     "no hands",
@@ -411,7 +354,6 @@
     "no illustration",
     "no obvious CGI",
     "no flat catalog photography",
-    "no generic stock photography",
-    "no typography in the immersive surreal image"
+    "no generic stock photography"
   ]
 }

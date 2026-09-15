@@ -2,7 +2,24 @@ const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const url = "https://perfumarte.com/products/agua-de-vetiver-yly";
+// --------------------------------
+// URL
+// --------------------------------
+
+const url = process.argv[2];
+
+if (!url) {
+  console.error("❌ Debes proporcionar la URL de un perfume.");
+  console.error("Ejemplo:");
+  console.error(
+    "node scraper.js https://perfumarte.com/products/agua-de-vetiver-yly"
+  );
+  process.exit(1);
+}
+
+// --------------------------------
+// UTILIDADES
+// --------------------------------
 
 function splitNotes(value) {
   return value
@@ -49,6 +66,50 @@ function extractNotes(text) {
   return notes;
 }
 
+// --------------------------------
+// GÉNERO
+// --------------------------------
+
+function detectGender(description) {
+  const text = description.toLowerCase();
+
+  if (
+    text.includes("masculino") ||
+    text.includes("hombre")
+  ) {
+    return "male";
+  }
+
+  if (
+    text.includes("femenino") ||
+    text.includes("mujer")
+  ) {
+    return "female";
+  }
+
+  return "unknown";
+}
+
+// --------------------------------
+// REFERENCIA DE BOTELLA
+// --------------------------------
+
+function getBottleReference(gender) {
+  if (gender === "male") {
+    return "references/bottles/male/bottle-black-cap.png";
+  }
+
+  if (gender === "female") {
+    return "references/bottles/female/bottle-gold-cap.png";
+  }
+
+  return null;
+}
+
+// --------------------------------
+// SCRAPER
+// --------------------------------
+
 async function scrape() {
   console.log("🚀 Iniciando scraper...\n");
 
@@ -60,14 +121,13 @@ async function scrape() {
 
   try {
     console.log("🌐 Abriendo página...");
+    console.log(`🔗 ${url}\n`);
 
     await page.goto(url, {
       waitUntil: "domcontentloaded",
       timeout: 60000,
     });
 
-    // Esperamos a que existan los contenidos de las pestañas,
-    // aunque estén ocultos inicialmente.
     await page.waitForSelector("#tab-notas", {
       state: "attached",
       timeout: 60000,
@@ -106,12 +166,26 @@ async function scrape() {
     // 3. NOTAS OLFATIVAS
     // --------------------------------
 
-    const notesText = await page.locator("#tab-notas").innerText();
+    const notesText = await page
+      .locator("#tab-notas")
+      .innerText();
 
     const notes = extractNotes(notesText);
 
     // --------------------------------
-    // 4. CREAR OBJETO FINAL
+    // 4. GÉNERO
+    // --------------------------------
+
+    const gender = detectGender(description);
+
+    // --------------------------------
+    // 5. REFERENCIA BOTELLA
+    // --------------------------------
+
+    const bottle_reference = getBottleReference(gender);
+
+    // --------------------------------
+    // 6. CREAR OBJETO FINAL
     // --------------------------------
 
     const product = {
@@ -119,10 +193,12 @@ async function scrape() {
       url,
       description,
       notes,
+      gender,
+      bottle_reference,
     };
 
     // --------------------------------
-    // 5. GUARDAR JSON
+    // 7. GUARDAR JSON
     // --------------------------------
 
     const dataDirectory = path.join(__dirname, "data");
@@ -131,7 +207,10 @@ async function scrape() {
       recursive: true,
     });
 
-    const outputPath = path.join(dataDirectory, "product.json");
+    const outputPath = path.join(
+      dataDirectory,
+      "product.json"
+    );
 
     fs.writeFileSync(
       outputPath,
@@ -140,7 +219,7 @@ async function scrape() {
     );
 
     // --------------------------------
-    // 6. MOSTRAR RESULTADO
+    // 8. MOSTRAR RESULTADO
     // --------------------------------
 
     console.log("📦 Producto extraído:\n");
@@ -154,6 +233,7 @@ async function scrape() {
     console.error(error);
 
     process.exitCode = 1;
+
   } finally {
     await browser.close();
   }

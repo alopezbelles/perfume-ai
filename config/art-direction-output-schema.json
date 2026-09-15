@@ -1,0 +1,854 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "campaign": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "image_count": {
+          "type": "integer",
+          "const": 2
+        },
+        "visual_relationship": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rule": {
+              "type": "string"
+            },
+            "editorial_role": {
+              "type": "string",
+              "const": "Primary hero image."
+            },
+            "surreal_role": {
+              "type": "string",
+              "const": "Dynamic conceptual companion image."
+            },
+            "consistency": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "rule",
+            "editorial_role",
+            "surreal_role",
+            "consistency"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "objective",
+        "image_count",
+        "visual_relationship"
+      ]
+    },
+
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "orientation": {
+          "type": "string",
+          "const": "horizontal"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "const": "5:4"
+        }
+      },
+      "required": [
+        "orientation",
+        "aspect_ratio"
+      ]
+    },
+
+    "hero_product": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "perfume_bottle"
+        },
+        "role": {
+          "type": "string",
+          "const": "main protagonist"
+        },
+        "bottle_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+        "reference_rule": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "use_reference_image": {
+              "type": "boolean",
+              "const": true
+            },
+            "preserve_exact_design": {
+              "type": "boolean",
+              "const": true
+            },
+            "preserve_shape": {
+              "type": "boolean",
+              "const": true
+            },
+            "preserve_proportions": {
+              "type": "boolean",
+              "const": true
+            },
+            "preserve_cap": {
+              "type": "boolean",
+              "const": true
+            },
+            "preserve_label": {
+              "type": "boolean",
+              "const": true
+            },
+            "preserve_material": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "use_reference_image",
+            "preserve_exact_design",
+            "preserve_shape",
+            "preserve_proportions",
+            "preserve_cap",
+            "preserve_label",
+            "preserve_material"
+          ]
+        },
+        "composition_rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "scale": {
+              "type": "string",
+              "const": "medium-dominant"
+            },
+            "visibility": {
+              "type": "string",
+              "const": "fully visible"
+            },
+            "must_not_be_covered": {
+              "type": "boolean",
+              "const": true
+            },
+            "must_not_be_distorted": {
+              "type": "boolean",
+              "const": true
+            },
+            "must_not_be_duplicated": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "scale",
+            "visibility",
+            "must_not_be_covered",
+            "must_not_be_distorted",
+            "must_not_be_duplicated"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "role",
+          "bottle_reference",
+
+        "reference_rule",
+        "composition_rules"
+      ]
+    },
+
+    "physical_scale_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bottle_height_cm": {
+          "type": "number",
+          "const": 19
+        },
+        "bottle_width_cm": {
+          "type": "number",
+          "const": 3.5
+        },
+        "bottle_depth_cm": {
+          "type": "number",
+          "const": 3.5
+        },
+        "scale_reference": {
+          "type": "string"
+        },
+        "element_scale_rule": {
+          "type": "string"
+        },
+        "relative_scale": {
+          "type": "string"
+        },
+        "artistic_scale_override": {
+          "type": "string",
+          "const": "Oversized ingredients are not permitted."
+        }
+      },
+      "required": [
+        "bottle_height_cm",
+        "bottle_width_cm",
+        "bottle_depth_cm",
+        "scale_reference",
+        "element_scale_rule",
+        "relative_scale",
+        "artistic_scale_override"
+      ]
+    },
+
+    "fragrance_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "male",
+            "female",
+            "unknown"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "top": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "heart": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "base": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "top",
+            "heart",
+            "base"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "url",
+        "gender",
+        "description",
+        "notes"
+      ]
+    },
+
+    "olfactive_translation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "principle": {
+          "type": "string"
+        },
+        "selection_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "selected_visual_notes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "olfactive_role": {
+                "type": "string"
+              },
+              "visual_representation": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "editorial_use": {
+                "type": "string"
+              },
+              "surreal_use": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "note",
+              "olfactive_role",
+              "visual_representation",
+              "reason",
+              "editorial_use",
+              "surreal_use"
+            ]
+          }
+        }
+      },
+      "required": [
+        "principle",
+        "selection_rules",
+        "selected_visual_notes"
+      ]
+    },
+
+    "shared_visual_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "concept": {
+          "type": "string"
+        },
+        "mood": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emotional_goal": {
+          "type": "string"
+        },
+        "palette": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "key_materials": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "environmental_identity": {
+          "type": "string"
+        },
+        "visual_anchor_elements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "concept",
+        "mood",
+        "emotional_goal",
+        "palette",
+        "key_materials",
+        "environmental_identity",
+        "visual_anchor_elements"
+      ]
+    },
+
+    "editorial_still_life": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string",
+          "const": "Primary hero image"
+        },
+        "concept": {
+          "type": "string"
+        },
+        "visual_language": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "product_position": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "physical_support": {
+              "type": "boolean",
+              "const": true
+            },
+            "floating": {
+              "type": "boolean",
+              "const": false
+            },
+            "surface_required": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "physical_support",
+            "floating",
+            "surface_required"
+          ]
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "background_rule": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "description",
+            "background_rule"
+          ]
+        },
+        "visual_elements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "style": {
+              "type": "string"
+            },
+            "element_density": {
+              "type": "string"
+            },
+            "negative_space": {
+              "type": "string"
+            },
+            "depth": {
+              "type": "string"
+            },
+            "bottle_priority": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "style",
+            "element_density",
+            "negative_space",
+            "depth",
+            "bottle_priority"
+          ]
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "palette": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lighting": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "style": {
+              "type": "string"
+            },
+            "direction": {
+              "type": "string"
+            },
+            "contrast": {
+              "type": "string"
+            },
+            "quality": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "style",
+            "direction",
+            "contrast",
+            "quality"
+          ]
+        },
+        "typography": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "const": true
+            },
+            "language": {
+              "type": "string",
+              "const": "Spanish"
+            },
+            "elements": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "style": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "primary": {
+                  "type": "string"
+                },
+                "secondary": {
+                  "type": "string"
+                },
+                "tracking": {
+                  "type": "string"
+                },
+                "hierarchy": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "primary",
+                "secondary",
+                "tracking",
+                "hierarchy"
+              ]
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "enabled",
+            "language",
+            "elements",
+            "style",
+            "rules"
+          ]
+        }
+      },
+      "required": [
+        "role",
+        "concept",
+        "visual_language",
+        "product_position",
+        "environment",
+        "visual_elements",
+        "composition",
+        "materials",
+        "palette",
+        "lighting",
+        "typography"
+      ]
+    },
+
+    "immersive_surreal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string",
+          "const": "Dynamic conceptual companion image"
+        },
+        "concept": {
+          "type": "string"
+        },
+        "visual_language": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "product_position": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "physical_support": {
+              "type": "boolean",
+              "const": false
+            },
+            "floating": {
+              "type": "boolean",
+              "const": true
+            },
+            "suspended": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "physical_support",
+            "floating",
+            "suspended"
+          ]
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "description"
+          ]
+        },
+        "visual_elements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "movement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "const": true
+            },
+            "types": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "floating",
+                  "falling",
+                  "suspended",
+                  "swirling"
+                ]
+              }
+            },
+            "intensity": {
+              "type": "string",
+              "const": "controlled"
+            }
+          },
+          "required": [
+            "enabled",
+            "types",
+            "intensity"
+          ]
+        },
+        "composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "style": {
+              "type": "string"
+            },
+            "element_density": {
+              "type": "string"
+            },
+            "depth": {
+              "type": "string"
+            },
+            "bottle_priority": {
+              "type": "string"
+            },
+            "negative_space": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "style",
+            "element_density",
+            "depth",
+            "bottle_priority",
+            "negative_space"
+          ]
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "palette": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lighting": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "style": {
+              "type": "string"
+            },
+            "direction": {
+              "type": "string"
+            },
+            "contrast": {
+              "type": "string"
+            },
+            "quality": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "style",
+            "direction",
+            "contrast",
+            "quality"
+          ]
+        },
+        "typography": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "enabled"
+          ]
+        }
+      },
+      "required": [
+        "role",
+        "concept",
+        "visual_language",
+        "product_position",
+        "environment",
+        "visual_elements",
+        "movement",
+        "composition",
+        "materials",
+        "palette",
+        "lighting",
+        "typography"
+      ]
+    },
+
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lens": {
+          "type": "string",
+          "const": "50mm"
+        },
+        "depth_of_field": {
+          "type": "string",
+          "const": "medium shallow"
+        },
+        "focus": {
+          "type": "string",
+          "const": "perfume bottle"
+        },
+        "orientation": {
+          "type": "string",
+          "const": "horizontal"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "const": "5:4"
+        }
+      },
+      "required": [
+        "lens",
+        "depth_of_field",
+        "focus",
+        "orientation",
+        "aspect_ratio"
+      ]
+    },
+
+    "photorealism": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "type": "string",
+          "const": "extreme"
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "level",
+        "requirements"
+      ]
+    },
+
+    "negative_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "campaign",
+    "format",
+    "hero_product",
+    "physical_scale_system",
+    "fragrance_data",
+    "olfactive_translation",
+    "shared_visual_identity",
+    "editorial_still_life",
+    "immersive_surreal",
+    "camera",
+    "photorealism",
+    "negative_constraints"
+  ]
+}
