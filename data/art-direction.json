@@ -1,18 +1,18 @@
 {
   "campaign": {
     "name": "Perfumarte AI Art Direction",
-    "objective": "Generate two visually coherent premium campaign images for Agua de Vetiver (YLY), expressing its fresh aromatic opening, refined green floral heart and deep smoky vetiver-incense base.",
+    "objective": "Generate two visually coherent premium campaign images for Alma de Coco (VSC), translating its creamy tropical gourmand identity into a rich editorial still life and an immersive surreal companion scene.",
     "image_count": 2,
     "visual_relationship": {
-      "rule": "Both images must represent the same fragrance concept and olfactive identity, contrasting a refined grounded still life with a controlled suspended atmosphere.",
+      "rule": "Both images must represent the same fragrance concept and olfactive identity through creamy coconut, warm vanilla, toasted sweetness, soft woods and luminous tropical femininity.",
       "editorial_role": "Primary hero image.",
       "surreal_role": "Dynamic conceptual companion image.",
       "consistency": [
         "same perfume identity",
         "same olfactive story",
         "same core visual elements",
-        "same color family",
-        "same emotional atmosphere"
+        "same warm ivory, caramel and amber color family",
+        "same creamy, radiant and enveloping emotional atmosphere"
       ]
     }
   },
@@ -23,7 +23,7 @@
   "hero_product": {
     "type": "perfume_bottle",
     "role": "main protagonist",
-    "bottle_reference": "references/bottles/male/bottle-black-cap.png",
+    "bottle_reference": "references/bottles/female/bottle-gold-cap.png",
     "reference_rule": {
       "use_reference_image": true,
       "preserve_exact_design": true,
@@ -46,120 +46,128 @@
     "bottle_width_cm": 3.5,
     "bottle_depth_cm": 3.5,
     "scale_reference": "The perfume bottle establishes the physical scale of the entire scene.",
-    "element_scale_rule": "All surrounding olfactive elements must be physically and visually proportional to the reference bottle.",
+    "element_scale_rule": "All surrounding olfactive elements must be physically and visually proportional to the 19 cm bottle.",
     "relative_scale": "Use realistic real-world proportions between the perfume bottle and every surrounding ingredient.",
     "artistic_scale_override": "Oversized ingredients are not permitted."
   },
   "fragrance_data": {
-    "name": "Agua de Vetiver (YLY)",
-    "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
-    "gender": "male",
-    "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
+    "name": "Alma de Coco (VSC)",
+    "url": "https://perfumarte.com/products/alma-de-coco-vsc",
+    "gender": "female",
+    "description": "Alma de Coco (VSC): un perfume chipre tropical femenino gourmand, cremoso y exótico. Combina coco, dulzura cálida, un corazón suave y un fondo confortable de vainilla y maderas.",
     "notes": {
       "top": [
-        "Jengibre",
-        "Bergamota",
-        "Manzana"
+        "Almendra dulce",
+        "Coco",
+        "Heliotropo"
       ],
       "heart": [
-        "Bayas de enebro",
-        "Geranio",
-        "Salvia"
+        "Ambar",
+        "Caramelo"
       ],
       "base": [
-        "Ambar",
-        "Cedro",
-        "Haba de tonka",
-        "Incienso",
-        "Vetiver"
+        "Madera de sandalo",
+        "Musk blanco",
+        "Vainilla"
       ]
     }
   },
   "olfactive_translation": {
-    "principle": "Translate the fragrance into a visual story rather than literally representing every listed note.",
+    "principle": "Translate the fragrance into a visual story of creamy tropical warmth, toasted gourmand sweetness and soft sensual comfort rather than literally representing every listed note.",
     "selection_rules": [
       "Select only the most visually expressive olfactive elements.",
       "Prioritize elements that communicate the fragrance identity.",
       "Do not visually represent every note by default.",
       "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
       "Never introduce ingredients that are not supported by the fragrance data.",
-      "The selected visual elements must work coherently across both campaign images."
+      "The selected visual elements must work coherently across both campaign images.",
+      "Increase abundance through natural groupings and repeated units, never through oversized ingredients."
     ],
     "selected_visual_notes": [
       {
-        "note": "Bergamota",
-        "olfactive_role": "Frescor cítrico y luminoso de salida.",
-        "visual_representation": "Una bergamota fresca de tamaño real, discretamente situada junto a la botella, con piel verde amarillenta y brillo natural.",
-        "reason": "Aporta una señal visual inmediata de frescura, luz y energía sin dominar la composición.",
-        "editorial_use": "Pequeño acento cítrico en primer plano sobre la superficie de piedra.",
-        "surreal_use": "Una bergamota realista suspendida a distancia, siguiendo una trayectoria curva y sutil alrededor de la botella."
+        "note": "Coco",
+        "olfactive_role": "Principal tropical, creamy and exotic signature.",
+        "visual_representation": "Cocos enteros y medios cocos abiertos, con pulpa blanca húmeda y fibras naturales de la cáscara.",
+        "reason": "Es la identidad más reconocible del perfume y aporta textura, luminosidad tropical y sensación cremosa.",
+        "editorial_use": "Agrupación principal en primer plano y plano medio, con varios cocos de escala real parcialmente superpuestos alrededor de la botella sin ocultarla.",
+        "surreal_use": "Cocos enteros y fragmentos de cáscara suspendidos en diferentes profundidades, integrados en una corriente de partículas cremosas alrededor de la botella."
       },
       {
-        "note": "Geranio",
-        "olfactive_role": "Corazón floral-verde elegante y estructurado.",
-        "visual_representation": "Un tallo fino de geranio con pocas hojas verdes y una flor contenida en tonos rosados apagados.",
-        "reason": "Comunica la faceta floral-verde refinada y masculina descrita para la fragancia.",
-        "editorial_use": "Elemento botánico vertical y escaso en el fondo lateral, sin ocultar la botella.",
-        "surreal_use": "Hojas y una flor de geranio separadas con delicadeza en una corriente de aire controlada."
+        "note": "Almendra dulce",
+        "olfactive_role": "Salida gourmand suave, empolvada y ligeramente tostada.",
+        "visual_representation": "Almendras naturales enteras y algunas partidas, con superficies marfil y pequeñas migas realistas.",
+        "reason": "Refuerza la dulzura gourmand y crea una textura seca que contrasta con la pulpa del coco.",
+        "editorial_use": "Pequeños grupos de almendras en el plano medio y dispersión contenida en el borde del bodegón, siempre en proporción física realista.",
+        "surreal_use": "Almendras enteras y partidas flotando cerca del plano medio, algunas desenfocadas en primer plano, sin formar patrones geométricos."
       },
       {
-        "note": "Incienso",
-        "olfactive_role": "Profundidad cálida, ahumada y espiritual.",
-        "visual_representation": "Una hebra muy fina de humo translúcido, gris cálido, procedente de una pequeña fuente de incienso fuera de campo.",
-        "reason": "Permite representar la dimensión atmosférica y ligeramente ahumada sin introducir un objeto adicional visible dominante.",
-        "editorial_use": "Humo tenue detrás de la botella, integrado en el fondo y claramente separado del producto.",
-        "surreal_use": "Cintas de humo fino y realista envolviendo el espacio alrededor de la botella sin cubrirla."
+        "note": "Caramelo",
+        "olfactive_role": "Dulzura cálida, dorada y adictiva del corazón.",
+        "visual_representation": "Láminas finas y gotas de caramelo ámbar sobre una pequeña superficie de vidrio, con brillos pegajosos y transparencias naturales.",
+        "reason": "Aporta el efecto gourmand luminoso y crea reflejos cálidos que dialogan con el capuchón y el líquido del perfume.",
+        "editorial_use": "Hilo y pequeñas acumulaciones de caramelo en un recipiente bajo junto a la botella, además de gotas puntuales sobre la superficie.",
+        "surreal_use": "Gotas y filamentos de caramelo suspendidos en una trayectoria fluida y controlada, rodeando el espacio sin tocar ni cubrir la etiqueta."
       },
       {
-        "note": "Vetiver",
-        "olfactive_role": "Base seca, terrosa, elegante y profunda.",
-        "visual_representation": "Un pequeño grupo de raíces secas de vetiver y finas hojas herbáceas, en proporción realista con la botella.",
-        "reason": "Es la firma conceptual del perfume y aporta textura terrosa, verticalidad y carácter.",
-        "editorial_use": "Raíces y hojas colocadas sobre la superficie, formando un anclaje natural junto a la botella.",
-        "surreal_use": "Raíces finas y hojas suspendidas lentamente, como fragmentos botánicos arrastrados por una corriente de aire."
+        "note": "Madera de sandalo",
+        "olfactive_role": "Base cremosa, amaderada y serena.",
+        "visual_representation": "Astillas finas, pequeños bloques y una rama corta de sándalo de veta clara y tacto pulido.",
+        "reason": "Construye el anclaje cálido y material del perfume, equilibrando la dulzura tropical con una profundidad elegante.",
+        "editorial_use": "Base física parcial y grupos de astillas en segundo plano, creando capas y soporte visual sin competir con la botella.",
+        "surreal_use": "Astillas y polvo de madera suspendidos en profundidad, junto a una plataforma rocosa de madera clara parcialmente visible en el fondo."
+      },
+      {
+        "note": "Vainilla",
+        "olfactive_role": "Fondo dulce, cremoso, cálido y envolvente.",
+        "visual_representation": "Vainas de vainilla enteras, algunas abiertas longitudinalmente, con semillas negras visibles y textura flexible.",
+        "reason": "Es el elemento que expresa con mayor claridad el confort, la sensualidad y la cremosidad del secado.",
+        "editorial_use": "Grupo abundante pero controlado de vainas en el plano medio, combinadas con coco y caramelo para formar el núcleo del bodegón.",
+        "surreal_use": "Vainas suspendidas de forma natural a distintas distancias, acompañadas por una neblina cremosa sutil y partículas de semillas en movimiento lento."
       }
     ]
   },
   "shared_visual_identity": {
-    "concept": "La dualidad del vetiver: una columna de frescura luminosa atravesada por una profundidad verde, terrosa y ahumada.",
+    "concept": "El lujo solar de una crema tropical: coco fresco, vainilla y caramelo cálido reunidos en un refugio material de maderas claras y luz dorada.",
     "mood": [
-      "fresco",
-      "masculino",
-      "elegante",
-      "contemplativo",
-      "sofisticado",
-      "misterioso"
+      "cremoso",
+      "tropical",
+      "luminoso",
+      "gourmand",
+      "femenino",
+      "envolvente",
+      "sofisticado"
     ],
-    "emotional_goal": "Transmitir la sensación de un hombre moderno, ligero y luminoso en la superficie, pero intenso, decidido y sensual en su interior.",
+    "emotional_goal": "Evocar una sensualidad cálida y reconfortante, como una piel bañada por el sol en un interior elegante lleno de dulzura tropical.",
     "palette": [
-      "verde vetiver apagado",
-      "verde salvia",
-      "amarillo bergamota suave",
-      "gris humo",
-      "marfil mineral",
-      "marrón raíz",
-      "negro carbón"
+      "marfil de coco",
+      "blanco cremoso",
+      "beige arena",
+      "dorado suave",
+      "ámbar caramelo",
+      "marrón sándalo",
+      "negro vainilla"
     ],
     "key_materials": [
-      "piedra caliza mate",
-      "vidrio de la botella",
-      "raíces secas de vetiver",
-      "hojas verdes",
-      "piel cítrica natural",
-      "humo translúcido"
+      "pulpa de coco",
+      "cáscara fibrosa",
+      "vainas de vainilla",
+      "caramelo translúcido",
+      "madera clara de sándalo",
+      "vidrio ahumado",
+      "piedra caliza cálida"
     ],
-    "environmental_identity": "Un paisaje mineral y botánico de inspiración mediterránea, sobrio y silencioso, donde la luz fresca se encuentra con una atmósfera ahumada y profunda.",
+    "environmental_identity": "Un santuario tropical minimalista de piedra cálida, madera clara y atmósfera cremosa, con luz solar filtrada y riqueza táctil.",
     "visual_anchor_elements": [
-      "botella negra de Agua de Vetiver (YLY)",
-      "línea vertical de hojas de vetiver",
-      "acento de bergamota",
-      "geranio verde-floral",
-      "humo fino de incienso"
+      "grupos de cocos de escala real",
+      "vainas de vainilla abiertas",
+      "brillos de caramelo ámbar",
+      "astillas de sándalo claro",
+      "luz dorada cremosa"
     ]
   },
   "editorial_still_life": {
     "role": "Primary hero image",
-    "concept": "La botella apoyada sobre una losa de piedra caliza oscura, en un paisaje de estudio mineral y botánico donde una luz fresca revela la bergamota y el geranio mientras un humo tenue sugiere el incienso y el vetiver.",
+    "concept": "Bodegón de lujo tropical sobre piedra caliza cálida: la botella erguida y estable ocupa el centro de la composición, rodeada por una abundante pero ordenada agrupación de cocos, vainilla, almendras, caramelo y madera clara.",
     "visual_language": [
       "premium editorial product photography",
       "realistic luxury still life",
@@ -173,61 +181,59 @@
       "surface_required": true
     },
     "environment": {
-      "type": "minimal mineral botanical studio",
-      "description": "Una superficie real de piedra caliza gris verdosa, con una pared de fondo mate en degradado desde marfil mineral a verde humo. La botella se apoya verticalmente sobre la piedra, completamente visible, acompañada por raíces de vetiver, un tallo escaso de geranio y una bergamota pequeña de proporción realista.",
+      "type": "warm tropical studio still life",
+      "description": "Superficie horizontal de piedra caliza beige con una pared posterior mate en marfil cálido. La botella permanece completamente vertical sobre una base limpia y estable; los ingredientes se concentran alrededor de la zona del bodegón, con grupos naturales en primer plano, plano medio y fondo.",
       "background_rule": "The environment may be a studio wall, architectural setting, elegant interior, natural landscape, stone setting or other appropriate environment depending on the fragrance."
     },
     "visual_elements": [
-      "botella de Agua de Vetiver (YLY) completamente visible y sin obstrucciones",
-      "losa de piedra caliza gris verdosa",
-      "pequeño grupo de raíces secas de vetiver",
-      "hojas finas de vetiver",
-      "tallo contenido de geranio",
-      "una bergamota de tamaño real",
-      "hilo delicado de humo de incienso",
-      "sombras botánicas suaves en el fondo"
+      "botella de perfume completamente visible y vertical",
+      "grupo de cocos enteros y medios cocos con pulpa blanca",
+      "vainas de vainilla enteras y abiertas",
+      "almendras enteras y partidas",
+      "pequeñas láminas y gotas de caramelo ámbar",
+      "astillas y bloques pequeños de sándalo",
+      "sombras suaves y reflejos cálidos sobre piedra caliza"
     ],
     "composition": {
-      "style": "balanced premium still life",
-      "element_density": "low",
-      "negative_space": "generous",
+      "style": "rich layered premium still life",
+      "element_density": "medium",
+      "negative_space": "generous controlled negative space around the bottle and typography",
       "depth": "foreground_midground_background",
       "bottle_priority": "highest"
     },
     "materials": [
       "piedra caliza mate",
-      "vidrio y material exactos de la botella de referencia",
-      "raíces secas",
-      "hojas naturales",
-      "piel cítrica",
-      "humo translúcido"
+      "vidrio transparente y translúcido",
+      "cáscara fibrosa de coco",
+      "pulpa húmeda",
+      "vainilla flexible",
+      "caramelo brillante",
+      "madera de veta clara"
     ],
     "palette": [
-      "verde vetiver apagado",
-      "gris piedra",
-      "marfil mineral",
-      "amarillo bergamota suave",
-      "rosa geranio desaturado",
-      "gris humo",
-      "negro carbón"
+      "marfil",
+      "beige cálido",
+      "dorado suave",
+      "ámbar",
+      "marrón claro",
+      "blanco cremoso"
     ],
     "lighting": {
       "style": "premium commercial photography",
-      "direction": "luz lateral suave desde la izquierda, con un contraluz tenue que define el contorno de la botella y las hojas",
-      "contrast": "medio, con negros profundos controlados y altas luces suaves",
+      "direction": "large diffused sunlight from upper left, with a soft warm rim light from behind",
+      "contrast": "medium, with controlled highlights on glass and caramel",
       "quality": "naturalistic and controlled"
     },
     "typography": {
       "enabled": true,
       "language": "Spanish",
       "elements": [
-        "EQUIVALENCIA",
-        "Agua de Vetiver (YLY)",
-        "Ligero por fuera. Intenso por dentro.",
-        "Fresco, aromático y profundamente elegante.",
-        "NOTAS DE SALIDA: Jengibre · Bergamota · Manzana",
-        "NOTAS DE CORAZÓN: Bayas de enebro · Geranio · Salvia",
-        "NOTAS DE FONDO: Ambar · Cedro · Haba de tonka · Incienso · Vetiver"
+        "Alma de Coco (VSC)",
+        "DULZURA TROPICAL",
+        "perfume chipre tropical femenino gourmand",
+        "NOTAS DE SALIDA",
+        "NOTAS DE CORAZÓN",
+        "NOTAS DE FONDO"
       ],
       "style": {
         "primary": "elegant editorial serif",
@@ -240,13 +246,13 @@
         "Text must remain legible.",
         "Text must integrate naturally with the composition.",
         "Do not overload the image with text.",
-        "Place typography only in the generous negative space, preferably on the upper left or right side away from the bottle."
+        "Use warm brown or muted amber typography with restrained placement in the negative space."
       ]
     }
   },
   "immersive_surreal": {
     "role": "Dynamic conceptual companion image",
-    "concept": "La botella suspendida en una corriente invisible entre luz cítrica y humo de incienso, rodeada por fragmentos botánicos reales de vetiver y geranio que expresan la evolución de la fragancia sin perder su sobriedad masculina.",
+    "concept": "La botella suspendida dentro de una corriente aérea de crema tropical y dulzura ámbar, como si el perfume concentrara una brisa solar que moviliza coco, vainilla, almendra, caramelo y sándalo en un espacio tridimensional.",
     "visual_language": [
       "cinematic product photography",
       "dynamic surrealism",
@@ -260,23 +266,23 @@
       "suspended": true
     },
     "environment": {
-      "type": "suspended mineral atmosphere",
-      "description": "Un espacio oscuro y profundo de tonalidad verde humo, sin superficie visible, con una atmósfera volumétrica sutil. La botella permanece vertical, suspendida en el centro dominante y completamente visible, mientras elementos botánicos de escala realista siguen una corriente circular lenta a su alrededor."
+      "type": "immersive tropical amber atmosphere",
+      "description": "Espacio tridimensional construido con una niebla cremosa marfil, planos de piedra cálida y fragmentos de madera de sándalo en el fondo. La botella flota cerca del centro visual, completamente separada y visible, con inclinación sutil de 8 grados: el tapón y la parte superior desplazados ligeramente hacia la izquierda, y la base hacia la derecha."
     },
     "visual_elements": [
-      "botella de Agua de Vetiver (YLY) suspendida y completamente visible",
-      "una bergamota realista flotando lejos de la botella",
-      "hojas finas y pequeñas raíces de vetiver",
-      "una flor y hojas de geranio separadas en el aire",
-      "hilos delicados de humo de incienso",
-      "partículas minerales muy sutiles iluminadas por el contraluz",
-      "halo de luz verde amarillenta inspirado en la frescura de la bergamota"
+      "botella suspendida cerca del centro visual, inclinada 8 grados hacia la izquierda en la parte superior",
+      "cocos enteros, medios cocos y fibras de cáscara en diferentes planos",
+      "vainas de vainilla abiertas suspendidas alrededor del plano medio",
+      "almendras enteras y partidas en primer plano y plano medio",
+      "gotas y filamentos de caramelo ámbar en movimiento fluido",
+      "astillas realistas de sándalo y polvo fino de madera",
+      "niebla cremosa marfil y partículas de semillas de vainilla",
+      "plataformas de piedra cálida parcialmente visibles en el fondo"
     ],
     "movement": {
       "enabled": true,
       "types": [
         "floating",
-        "falling",
         "suspended",
         "swirling"
       ],
@@ -284,32 +290,34 @@
     },
     "composition": {
       "style": "dynamic asymmetrical composition",
-      "element_density": "low_to_medium",
+      "element_density": "medium_rich",
       "depth": "foreground_midground_background",
       "bottle_priority": "highest",
-      "negative_space": "controlled"
+      "negative_space": "controlled, with atmospheric space reserved around the bottle for clear silhouette separation"
     },
     "materials": [
-      "vidrio y material exactos de la botella de referencia",
-      "raíces naturales de vetiver",
-      "hojas de geranio",
-      "piel cítrica natural",
-      "humo translúcido",
-      "partículas minerales atmosféricas"
+      "niebla cremosa",
+      "caramelo translúcido",
+      "pulpa de coco",
+      "cáscara fibrosa",
+      "vainilla texturada",
+      "madera clara",
+      "piedra cálida",
+      "partículas suspendidas"
     ],
     "palette": [
-      "verde profundo",
-      "verde salvia",
-      "amarillo cítrico tenue",
-      "gris humo",
-      "marrón raíz",
-      "negro carbón",
-      "destellos marfil"
+      "marfil luminoso",
+      "crema",
+      "dorado solar",
+      "ámbar profundo",
+      "beige arena",
+      "marrón sándalo",
+      "negro suave de las semillas"
     ],
     "lighting": {
       "style": "cinematic commercial lighting",
-      "direction": "contraluz lateral desde la izquierda con un haz frío verdoso y una luz cálida muy tenue sobre los bordes botánicos",
-      "contrast": "alto pero controlado, con separación precisa entre la botella oscura y el fondo atmosférico",
+      "direction": "warm directional light from upper left with a golden backlight outlining the bottle and suspended ingredients",
+      "contrast": "medium-high, with luminous haze and controlled deep shadows",
       "quality": "dramatic but photorealistic"
     },
     "typography": {
@@ -354,6 +362,20 @@
     "no illustration",
     "no obvious CGI",
     "no flat catalog photography",
-    "no generic stock photography"
-  ]
+    "no generic stock photography",
+    "no typography in the immersive surreal image",
+    "no completely vertical static bottle in the surreal image",
+    "no reversed bottle inclination",
+    "no ingredients forming artificial geometric rings or crowns"
+  ],
+  "style_references": {
+    "lifestyle": {
+      "enabled": true,
+      "reference_path": "references/styles/lifestyle-reference.png"
+    },
+    "surreal": {
+      "enabled": true,
+      "reference_path": "references/styles/surreal-reference.png"
+    }
+  }
 }

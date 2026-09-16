@@ -664,7 +664,6 @@
                 "type": "string",
                 "enum": [
                   "floating",
-                  "falling",
                   "suspended",
                   "swirling"
                 ]

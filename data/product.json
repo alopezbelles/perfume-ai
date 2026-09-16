@@ -1,26 +1,23 @@
 {
-  "name": "Agua de Vetiver (YLY)",
-  "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
-  "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
+  "name": "Alma de Coco (VSC)",
+  "url": "https://perfumarte.com/products/alma-de-coco-vsc",
+  "description": "Alma de Coco (VSC): un perfume chipre tropical femenino gourmand, cremoso y exótico\n\nAlma de Coco (VSC) es un perfume chipre tropical femenino gourmand creado para mujeres que buscan una fragancia dulce, cremosa y con un toque tropical muy envolvente. Su composición combina notas exóticas de coco con un delicado corazón floral y un fondo suave que aporta confort y feminidad.\n\nEste perfume chipre tropical femenino gourmand destaca por su carácter cálido, luminoso y ligeramente adictivo, ideal para quienes aman los aromas cremosos con aire veraniego.\n\n \n\n \n\n¿A qué huele Alma de Coco (VSC)?\n\nAlma de Coco (VSC) es un perfume chipre tropical femenino gourmand donde el coco, la vainilla y las flores blancas crean una fragancia dulce, suave y tropical.\n\nUna salida cremosa y tropical\n\nLa fragancia se abre con el coco, aportando una sensación exótica, cremosa y ligeramente dulce que evoca vacaciones y piel bañada por el sol.\n\nUn corazón floral delicado y limpio\n\nEn su evolución aparecen el lirio de los valles (muguet), la manzanilla y la sábila, aportando frescura, suavidad y un toque limpio que equilibra la dulzura inicial.\n\nUn fondo dulce, cálido y envolvente\n\nEl secado de la fragancia se apoya en la vainilla, que aporta cremosidad, dulzura y una estela suave y reconfortante sobre la piel.",
   "notes": {
     "top": [
-      "Jengibre",
-      "Bergamota",
-      "Manzana"
+      "Almendra dulce",
+      "Coco",
+      "Heliotropo"
     ],
     "heart": [
-      "Bayas de enebro",
-      "Geranio",
-      "Salvia"
+      "Ambar",
+      "Caramelo"
     ],
     "base": [
-      "Ambar",
-      "Cedro",
-      "Haba de tonka",
-      "Incienso",
-      "Vetiver"
+      "Madera de sandalo",
+      "Musk blanco",
+      "Vainilla"
     ]
   },
-  "gender": "male",
-  "bottle_reference": "references/bottles/male/bottle-black-cap.png"
+  "gender": "female",
+  "bottle_reference": "references/bottles/female/bottle-gold-cap.png"
 }

@@ -86,15 +86,18 @@
     ],
 
     "selected_visual_notes": [
-      {
-        "note": "",
-        "olfactive_role": "",
-        "visual_representation": "",
-        "reason": "",
-        "editorial_use": "",
-        "surreal_use": ""
-      }
-    ]
+  {
+    "note": "",
+    "olfactive_role": "",
+    "visual_representation": "",
+    "quantity": "",
+    "physical_presence": "",
+    "composition_role": "",
+    "reason": "",
+    "editorial_use": "",
+    "surreal_use": ""
+  }
+]
   },
 
   "shared_visual_identity": {
@@ -136,12 +139,24 @@
     "visual_elements": [],
 
     "composition": {
-      "style": "balanced premium still life",
-      "element_density": "low",
-      "negative_space": "generous",
-      "depth": "foreground_midground_background",
-      "bottle_priority": "highest"
-    },
+  "style": "rich layered premium still life",
+  "element_density": "medium",
+  "negative_space": "controlled",
+  "depth": "foreground_midground_background",
+  "bottle_priority": "highest"
+},
+"abundance": {
+  "level": "medium_high",
+  "principle": "Create a rich and materially abundant still life without visual clutter.",
+  "quantity_rule": "Use multiple units or generous quantities of selected olfactive elements.",
+  "grouping_rule": "Prefer natural ingredient clusters over isolated individual objects.",
+  "variation_rule": "Represent selected ingredients in varied physical states such as whole, cut, grouped, scattered or partially overlapping when appropriate.",
+  "layering_rule": "Build clear foreground, midground and background layers using the selected visual elements.",
+  "composition_rule": "Create substantial ingredient groupings around the bottle while maintaining clear visual hierarchy.",
+  "texture_rule": "Emphasize realistic tactile details, natural imperfections and material richness.",
+  "scale_rule": "Increase abundance through quantity, grouping and layering, never through unrealistic ingredient size.",
+  "bottle_protection": "Abundance must never obscure or compete with the perfume bottle."
+},
 
     "materials": [],
 
@@ -158,8 +173,7 @@
       "enabled": true,
       "language": "Spanish",
 
-      "elements": [
-        "EQUIVALENCIA",
+      "elements": [      
         "perfume name",
         "short emotional subtitle",
         "short description",
@@ -215,7 +229,6 @@
       "enabled": true,
       "types": [
         "floating",
-        "falling",
         "suspended",
         "swirling",
         "splashing"
@@ -225,7 +238,7 @@
 
     "composition": {
       "style": "dynamic asymmetrical composition",
-      "element_density": "low_to_medium",
+      "element_density": "medium_rich",
       "depth": "foreground_midground_background",
       "bottle_priority": "highest",
       "negative_space": "controlled"
@@ -269,6 +282,56 @@
       "realistic physical proportions"
     ]
   },
+
+  "style_references": {
+  "lifestyle": {
+    "enabled": true,
+    "reference_path": "",
+    "purpose": "Reference the visual language, composition, abundance, product positioning, scale relationships, depth, lighting and material treatment of the editorial still life.",
+    "preserve": [
+      "abundance level",
+      "ingredient grouping",
+      "ingredient quantity",
+      "bottle scale",
+      "bottle positioning",
+      "bottle orientation",
+      "depth",
+      "layering",
+      "material richness",
+      "lighting language",
+      "editorial sophistication"
+    ],
+    "do_not_copy": [
+      "specific ingredients",
+      "exact colors",
+      "exact composition",
+      "specific perfume identity"
+    ]
+  },
+  "surreal": {
+    "enabled": true,
+    "reference_path": "",
+    "purpose": "Reference the visual language, composition, movement, bottle positioning, depth, lighting and surreal intensity of the immersive image.",
+    "preserve": [
+      "bottle scale",
+      "bottle orientation",
+      "floating position",
+      "element quantity",
+      "movement intensity",
+      "spatial depth",
+      "layering",
+      "lighting language",
+      "cinematic atmosphere",
+      "surreal intensity"
+    ],
+    "do_not_copy": [
+      "specific ingredients",
+      "exact colors",
+      "exact composition",
+      "specific perfume identity"
+    ]
+  }
+},
 
   "negative_constraints": [
     "no people",
