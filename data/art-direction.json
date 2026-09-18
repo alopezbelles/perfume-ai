@@ -1,10 +1,10 @@
 {
   "campaign": {
     "name": "Perfumarte AI Art Direction",
-    "objective": "Generate two visually coherent premium campaign images for Bianche Princess (GTB), expressing its warm, creamy, feminine gourmand identity through caramel, honey, coumarin, vanilla and white musk.",
+    "objective": "Generate two visually coherent premium campaign images for Corazón de Naranjo (GEI), translating its luminous red-fruit opening, powdery floral heart and elegant feminine softness into a refined visual story.",
     "image_count": 2,
     "visual_relationship": {
-      "rule": "Both images represent the same fragrance concept and olfactive identity: a refined, warm and enveloping gourmand atmosphere built around creamy sweetness, golden warmth and soft white sensuality.",
+      "rule": "Both images must represent the same fragrance concept and olfactive identity, using the same selected botanical elements, powdery atmosphere, color family and emotional tone while developing distinct compositions.",
       "editorial_role": "Primary hero image.",
       "surreal_role": "Dynamic conceptual companion image.",
       "consistency": [
@@ -45,127 +45,135 @@
     "bottle_height_cm": 19,
     "bottle_width_cm": 3.5,
     "bottle_depth_cm": 3.5,
-    "scale_reference": "The perfume bottle establishes the physical scale of the entire scene.",
-    "element_scale_rule": "All surrounding olfactive elements must be physically and visually proportional to the 19 cm perfume bottle, using realistic quantities, distances and dimensions.",
-    "relative_scale": "Use realistic real-world proportions between the perfume bottle and caramel, honey, vanilla, coumarin and atmospheric white musk representations.",
-    "artistic_scale_override": "Oversized ingredients are not permitted."
+    "scale_reference": "Use the perfume bottle as the physical scale reference for the entire scene.",
+    "element_scale_rule": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "relative_scale": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "artistic_scale_override": "Do not create abundance by artificially enlarging ingredients."
   },
   "fragrance_data": {
-    "name": "Bianche Princess (GTB)",
-    "url": "\u001bhttps://perfumarte.com/products/bianche-princess-gtb?_pos=1&_psq=princes&_psid=e3cbc7f8b&_ss=e",
+    "name": "Corazón de Naranjo (GEI)",
+    "url": "https://perfumarte.com/products/corazon-de-naranjo-gei?_pos=1&_psq=gei&_psid=fbe444a11&_ss=e",
     "gender": "female",
-    "description": "Bianche Princess (GTB): un perfume nicho gourmand femenino, dulce y sofisticado\n\nBianche Princess (GTB) es un perfume nicho gourmand femenino que celebra la dulzura, la calidez y la elegancia en una fragancia envolvente y adictiva. Diseñado para mujeres que disfrutan de aromas golosos pero refinados, combina notas dulces con un fondo suave y elegante que lo hace perfecto para el día a día o momentos especiales.\n\nEste perfume nicho gourmand femenino destaca por su carácter cálido, cremoso y muy femenino, dejando una estela inolvidable.\n\n \n\n \n\n¿A qué huele Bianche Princess (GTB)?\n\nBianche Princess (GTB) es un perfume nicho gourmand femenino donde el caramelo, la miel, la cumarina, la vainilla y el almizcle blanco crean una fragancia dulce, cálida y sofisticada.\n\nUna salida dulce y golosa\n\nLa fragancia se abre con caramelo, ofreciendo un inicio adictivo, alegre y envolvente que conquista desde el primer instante.\n\nUn corazón cálido y elegante\n\nLa cumarina y la miel aportan una faceta suave, dulce y sofisticada que equilibra perfectamente el carácter gourmand.\n\nUn fondo cremoso y duradero\n\nLa vainilla y el almizcle blanco crean una base envolvente, delicada y muy femenina que deja una estela suave, elegante y persistente.",
+    "description": "Corazón de Naranjo (GEI): un perfume atalcado de mujer elegante, empolvado y diferente\n\nCorazón de Naranjo (GEI) es un perfume atalcado de mujer pensado para quienes buscan una fragancia original, elegante y con mucha personalidad. Su composición combina la delicadeza de las flores con el dulzor de las bayas rojas, creando un aroma empolvado, sofisticado y muy femenino.\n\nEste perfume atalcado de mujer destaca por el equilibrio entre la violeta y la rosa, dos flores que aportan una sensación suave y aterciopelada, perfecta para quienes disfrutan de perfumes distintos y con una identidad propia.\n\n \n\n \n\n¿A qué huele Corazón de Naranjo (GEI), el perfume atalcado de mujer que sorprende por su elegancia?\n\nCorazón de Naranjo (GEI) es un perfume atalcado de mujer donde las notas florales empolvadas se combinan con un toque afrutado, creando una fragancia delicada, envolvente y muy elegante.\n\nUna salida afrutada y luminosa\n\nLa fragancia comienza con el dulzor de las bayas rojas, aportando un inicio afrutado, jugoso y ligeramente dulce que llena el perfume de vitalidad y frescura.\n\nUn corazón floral, empolvado y sofisticado\n\nEl corazón está protagonizado por la violeta y la rosa, una combinación clásica que aporta un carácter elegante, femenino y atalcado. Estas notas crean una sensación suave y refinada que define la personalidad del perfume.\n\nUn fondo delicado, elegante y duradero\n\nEl secado mantiene la armonía entre las notas florales y empolvadas, dejando una estela suave, envolvente y muy agradable que permanece durante horas sobre la piel.",
     "notes": {
       "top": [
-        "Caramelo"
+        "Bayas rojas",
+        "Bergamota",
+        "Frambuesa",
+        "Limón"
       ],
       "heart": [
-        "Cumarina",
-        "Miel"
+        "Azahar",
+        "Rosa",
+        "Violeta"
       ],
       "base": [
-        "Almizcle blanco",
-        "Vainilla"
+        "Almizcle",
+        "Haba de tonka",
+        "Sandalo"
       ]
     }
   },
   "olfactive_translation": {
-    "principle": "Translate the fragrance into a warm, refined gourmand visual story rather than representing every note with equal literal emphasis.",
+    "principle": "Translate the fragrance into a visual story rather than literally representing every listed note.",
     "selection_rules": [
       "Select only the most visually expressive olfactive elements.",
       "Prioritize elements that communicate the fragrance identity.",
-      "Do not visually represent every note by default.",
+      "Do not visually represent every listed note by default.",
       "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
       "Never introduce ingredients that are not supported by the fragrance data.",
       "The selected visual elements must work coherently across both campaign images."
     ],
     "selected_visual_notes": [
       {
-        "note": "Caramelo",
-        "olfactive_role": "Dulce, adictivo y luminoso punto de salida gourmand.",
-        "visual_representation": "Pequeños fragmentos de caramelo dorado translúcido, placas finas irregulares y gotas de caramelo líquido brillante.",
-        "reason": "Es la firma visual más inmediata de la fragancia y aporta reflejos ámbar, textura cristalina y una sensación golosa sofisticada.",
-        "editorial_use": "Agrupación principal en primer plano y plano medio, con fragmentos de tamaño realista alrededor de la base sin cubrir la botella.",
-        "surreal_use": "Láminas y gotas suspendidas con trayectorias suaves, integradas en una corriente ámbar líquida alrededor de la botella sin tocar ni ocultar la etiqueta."
+        "note": "Bayas rojas",
+        "olfactive_role": "Juicy, sweet and luminous fruity opening.",
+        "visual_representation": "Several natural clusters of small red berries, including whole berries, translucent cut berries and a few loose berries with realistic stems and subtle moisture.",
+        "reason": "They communicate the immediate sweetness, vitality and distinctive fruity signature without requiring oversized fruit.",
+        "editorial_use": "Abundant low foreground and midground clusters framing the bottle, with a few cut berries adding tactile gloss and controlled crimson accents.",
+        "surreal_use": "A controlled stream of suspended berries and tiny droplets crossing the depth of the scene, integrated into the atmospheric movement without forming an artificial geometric ring."
       },
       {
-        "note": "Miel",
-        "olfactive_role": "Calidez dorada, suavidad envolvente y dulzura natural del corazón.",
-        "visual_representation": "Pequeño cuenco de cerámica con miel real, un hilo fino de miel y algunos panales de escala natural.",
-        "reason": "Comunica calidez, riqueza táctil y un resplandor dorado sin introducir una estética rústica excesiva.",
-        "editorial_use": "Cuenco y panal en plano medio, con miel extendida de forma natural sobre la superficie y reflejos cálidos en el fondo.",
-        "surreal_use": "Hilo y gotas de miel flotando de forma físicamente plausible, acompañados por fragmentos de panal suspendidos en distintos planos."
+        "note": "Azahar",
+        "olfactive_role": "Luminous floral bridge and subtle orange-blossom identity.",
+        "visual_representation": "Small clusters of delicate white orange blossoms with green leaves and fine natural stems, accompanied by restrained warm citrus light.",
+        "reason": "It gives visual meaning to the perfume name and adds freshness while remaining physically delicate in relation to the bottle.",
+        "editorial_use": "Several natural blossom clusters in the midground and background, softly overlapping with foliage but never covering the bottle or label.",
+        "surreal_use": "Small blossom clusters and a few detached petals suspended in a warm, softly circulating air current around the bottle, with plausible separation and depth."
       },
       {
-        "note": "Cumarina",
-        "olfactive_role": "Faceta suave, cálida y ligeramente avainillada que aporta sofisticación al corazón.",
-        "visual_representation": "Heno tonka seco en pequeñas vainas marrón oscuro, agrupado en cantidades controladas.",
-        "reason": "La haba tonka es una representación visual directa y expresiva de la cumarina, con textura seca, orgánica y elegante.",
-        "editorial_use": "Racimos discretos en el plano medio y fondo, parcialmente superpuestos con la vainilla para crear profundidad sin saturar.",
-        "surreal_use": "Vainas individuales y pequeños grupos suspendidos con movimiento mínimo y natural, atravesando zonas laterales y posteriores del entorno."
+        "note": "Rosa",
+        "olfactive_role": "Elegant, feminine and velvety floral heart.",
+        "visual_representation": "Natural pale blush and dusty pink rose heads, partially open roses and a few petals with realistic folds and imperfections.",
+        "reason": "Rose provides the campaign’s primary feminine elegance and a tactile velvety texture that supports the powdery character.",
+        "editorial_use": "One principal rose cluster placed beside and slightly behind the bottle, supported by several smaller heads and petals across the midground.",
+        "surreal_use": "A few rose petals drifting slowly through the environment while intact roses remain structurally grounded in distant botanical clusters, preserving natural solid-object behavior."
       },
       {
-        "note": "Vainilla",
-        "olfactive_role": "Base cremosa, dulce, cálida y persistente.",
-        "visual_representation": "Vainas de vainilla enteras y abiertas, de longitud realista, con semillas negras visibles y textura aterciopelada.",
-        "reason": "Es el elemento material más expresivo para comunicar la cremosidad y la sensualidad persistente del perfume.",
-        "editorial_use": "Grupo generoso pero proporcionado en primer plano lateral y plano medio, combinando vainas enteras y una vaina abierta.",
-        "surreal_use": "Vainas flotantes en diferentes distancias, integradas en una neblina cremosa y cálida, sin formar geometrías artificiales alrededor de la botella."
+        "note": "Violeta",
+        "olfactive_role": "Powdery, soft and distinctive floral signature.",
+        "visual_representation": "Small violet flowers in restrained purple tones, delicate green stems and a fine veil of violet-tinted powdery haze.",
+        "reason": "Violet is essential to the perfume’s recognizable empolvado personality and introduces a refined cool counterpoint to the red fruit and blush rose.",
+        "editorial_use": "Moderate grouped violet stems placed near the bottle base and in the background, with powdery matte texture rather than excessive color saturation.",
+        "surreal_use": "A subtle violet powder mist and a few naturally suspended violet blossoms create the central atmospheric current without obscuring the bottle."
       },
       {
-        "note": "Almizcle blanco",
-        "olfactive_role": "Suavidad limpia, difusa y sensual del fondo.",
-        "visual_representation": "Niebla blanca satinada, vapor cremoso muy sutil y reflejos perlados, sin representar un ingrediente físico no especificado.",
-        "reason": "Es una nota atmosférica; su carácter se comunica mejor mediante luz, textura y velo ambiental que mediante un objeto literal.",
-        "editorial_use": "Halo difuso detrás de la botella y veladura ligera en el fondo, manteniendo la etiqueta perfectamente legible.",
-        "surreal_use": "Nube sedosa y controlada que envuelve el espacio posterior, con flujo suave alrededor de la botella sin cubrirla ni alterar su silueta."
+        "note": "Bergamota",
+        "olfactive_role": "Bright citrus lift and freshness in the opening.",
+        "visual_representation": "Several small realistic bergamot fruits, pale green-yellow rind fragments and fine glossy zest details, kept smaller than the bottle and naturally grouped.",
+        "reason": "Bergamot adds a luminous citrus facet that balances the sweet berries and powdery florals, while its rind offers a useful tactile material.",
+        "editorial_use": "A restrained cluster in the foreground or side of the surface, with one cut fruit and scattered zest providing controlled luminosity.",
+        "surreal_use": "A few thin zest curls and fine citrus droplets moving through the air current, while whole bergamots remain in a distant environmental cluster."
       }
     ]
   },
   "shared_visual_identity": {
-    "concept": "El lujo dorado de una dulzura cremosa: un bodegón de confitería refinada transformado en una atmósfera de miel, vainilla y almizcle blanco.",
+    "concept": "El corazón empolvado de un jardín de naranjo: una corriente luminosa de bayas rojas, azahar, rosa y violeta envuelta en una atmósfera de polvo aterciopelado.",
     "mood": [
-      "cálido",
-      "gourmand",
-      "cremoso",
+      "elegante",
       "femenino",
+      "empolvado",
+      "luminoso",
+      "aterciopelado",
       "sofisticado",
-      "envolvente",
-      "luminoso"
+      "delicado"
     ],
-    "emotional_goal": "Transmitir una sensación de dulzura adictiva, confort lujoso y feminidad elegante, evitando una apariencia infantil o excesivamente literal.",
+    "emotional_goal": "Convey distinctive feminine elegance, soft sensuality and an unexpected balance between juicy red fruit and refined powdery florals.",
     "palette": [
-      "marfil cálido",
-      "champagne",
-      "dorado miel",
-      "ámbar caramelo",
-      "beige vainilla",
-      "marrón tonka profundo",
-      "blanco perlado"
+      "dusty rose pink",
+      "deep raspberry red",
+      "soft violet",
+      "ivory white",
+      "bergamot pale green-yellow",
+      "warm champagne gold",
+      "muted sage green",
+      "soft mauve shadow"
     ],
     "key_materials": [
-      "vidrio transparente y dorado",
-      "caramelo translúcido",
-      "miel líquida",
-      "cerámica marfil mate",
-      "panal de miel natural",
-      "vainas de vainilla aterciopeladas",
-      "haba tonka seca",
-      "niebla blanca satinada"
+      "realistic perfume glass",
+      "gold cap and label details from the reference bottle",
+      "velvety rose petals",
+      "delicate violet flowers",
+      "white orange blossoms",
+      "translucent red berries",
+      "bergamot rind",
+      "fine cosmetic-like powder haze",
+      "matte stone or lacquered surface"
     ],
-    "environmental_identity": "Un espacio cálido de lujo silencioso, entre laboratorio de alta perfumería y mesa de postres refinada, construido con superficies marfil, reflejos dorados y una atmósfera cremosa.",
+    "environmental_identity": "A refined botanical atelier or intimate sunlit conservatory suggested through soft citrus-filtered light, powdery air, muted floral shadows and layered natural materials.",
     "visual_anchor_elements": [
-      "botella exacta con tapón dorado",
-      "reflejos ámbar de caramelo y miel",
-      "vainilla natural",
-      "haba tonka seca",
-      "velo perlado de almizcle blanco",
-      "superficies marfil y champagne"
+      "fully visible reference bottle",
+      "clusters of red berries",
+      "dusty pink roses",
+      "small violet flowers",
+      "white orange blossoms",
+      "subtle bergamot citrus accents",
+      "soft violet powder haze"
     ]
   },
   "editorial_still_life": {
     "role": "Primary hero image",
-    "concept": "Bodegón editorial de alta perfumería sobre una superficie de piedra caliza marfil satinada, donde la botella permanece completamente vertical en el centro-derecha y está rodeada por agrupaciones táctiles de caramelo, miel, vainilla y haba tonka.",
+    "concept": "Un bodegón editorial de alta perfumería en un atelier botánico luminoso, donde la botella permanece vertical sobre una superficie real y estable, rodeada por agrupaciones abundantes pero ordenadas de bayas rojas, rosas, violetas, azahar y bergamota.",
     "visual_language": [
       "premium editorial product photography",
       "realistic luxury still life",
@@ -179,83 +187,82 @@
       "surface_required": true
     },
     "environment": {
-      "type": "estudio cálido de lujo con mesa de piedra caliza marfil",
-      "description": "Superficie horizontal realista de piedra caliza marfil con vetas suaves y acabado satinado. La botella se apoya estable y verticalmente sobre una zona despejada. A su alrededor, un cuenco de cerámica marfil con miel, panal natural, vainas de vainilla y pequeñas agrupaciones de haba tonka construyen un bodegón abundante pero controlado. Un fondo arquitectónico en degradado champagne aporta contexto y profundidad.",
-      "background_rule": "El fondo debe permanecer limpio y luminoso en la zona reservada para tipografía, con textura sutil, reflejos dorados y sin competir con la botella."
+      "type": "botanical atelier with a matte mineral surface",
+      "description": "A warm ivory-stone tabletop with subtle powdery texture, a softly graduated wall behind it and diffused daylight passing through an unseen citrus garden. The bottle stands completely vertical at the center-right or central visual axis, stable and unobstructed. Ingredient richness concentrates in low foreground and midground groupings, while the upper and lateral background retains generous negative space for Spanish typography.",
+      "background_rule": "The environment may be a studio wall, architectural setting, elegant interior, natural landscape, stone setting or other appropriate environment depending on the fragrance."
     },
     "visual_elements": [
-      "botella de referencia completamente visible, vertical y estable",
-      "fragmentos pequeños de caramelo dorado translúcido en agrupaciones naturales",
-      "cuenco bajo de cerámica marfil con miel real",
-      "pequeño grupo de panal de miel a escala física realista",
-      "vainas de vainilla enteras y una vaina abierta con semillas visibles",
-      "racimos discretos de haba tonka seca",
-      "velo blanco perlado y muy sutil detrás de la botella",
-      "reflejos champagne sobre la superficie de piedra"
+      "fully visible exact reference bottle standing vertically",
+      "abundant but realistic red berry clusters in foreground and midground",
+      "one or two naturally grouped dusty pink rose arrangements",
+      "several small violet flower clusters",
+      "delicate white azahar clusters with green stems",
+      "a restrained bergamot cluster with one cut fruit and natural zest",
+      "subtle violet powder resting on the surface and suspended in the backlight",
+      "soft botanical shadows and muted sage foliage"
     ],
     "composition": {
       "style": "rich layered premium still life",
       "element_density": "medium",
-      "negative_space": "generous controlled negative space on the left upper and middle area for Spanish typography",
-      "depth": "clear foreground, midground and background layering with medium shallow depth of field",
-      "bottle_priority": "highest; the bottle must remain the sharpest, most contrasted and most recognizable element"
+      "negative_space": "Generous clean space in the upper-left or upper-right quadrant for Spanish typography, with no text crossing the bottle or key ingredients.",
+      "depth": "Clear foreground, midground and background: close berries and zest softly defocused, the bottle and principal floral group in sharp focus, distant azahar and violet clusters fading into the wall.",
+      "bottle_priority": "Highest; the bottle is the only product, fully visible, vertically stable, sharply rendered and visually separated from every ingredient."
     },
     "materials": [
-      "piedra caliza marfil satinada",
-      "cerámica marfil mate",
-      "vidrio transparente",
-      "metal dorado del tapón",
-      "caramelo translúcido",
-      "miel líquida",
-      "panal natural",
-      "vainilla aterciopelada",
-      "haba tonka seca",
-      "niebla blanca perlada"
+      "warm ivory limestone",
+      "fine matte cosmetic powder",
+      "realistic glass and gold cap",
+      "velvety rose petals",
+      "delicate violet petals",
+      "white orange blossoms",
+      "moist red berries",
+      "bergamot rind",
+      "natural green stems"
     ],
     "palette": [
-      "marfil cálido",
-      "champagne",
-      "dorado miel",
-      "ámbar caramelo",
-      "beige vainilla",
-      "marrón tonka",
-      "blanco perlado"
+      "warm ivory",
+      "dusty blush",
+      "raspberry red",
+      "soft violet",
+      "pale bergamot yellow-green",
+      "muted sage",
+      "champagne gold"
     ],
     "lighting": {
-      "style": "premium commercial photography",
-      "direction": "soft large source from upper left with a warm frontal fill and controlled golden rim light from the right",
-      "contrast": "medium-low contrast with precise highlights on glass, caramel and honey",
+      "style": "premium commercial photography with soft botanical daylight",
+      "direction": "Large diffused light from upper left, with a gentle warm rim on the bottle and controlled fill from the front.",
+      "contrast": "Moderate-low overall contrast with precise highlights on glass, berries and citrus rind; soft mauve shadows preserve the powdery mood.",
       "quality": "naturalistic and controlled"
     },
     "typography": {
       "enabled": true,
       "language": "Spanish",
       "elements": [
-        "Bianche Princess (GTB)",
-        "Dulzura envuelta en luz",
-        "Un gourmand femenino, cálido y sofisticado",
-        "NOTAS DE SALIDA: CARAMELO",
-        "NOTAS DE CORAZÓN: CUMARINA · MIEL",
-        "NOTAS DE FONDO: ALMIZCLE BLANCO · VAINILLA"
+        "CORAZÓN DE NARANJO (GEI)",
+        "Elegancia empolvada y diferente",
+        "Una armonía de bayas rojas, rosa y violeta",
+        "NOTAS DE SALIDA",
+        "NOTAS DE CORAZÓN",
+        "NOTAS DE FONDO"
       ],
       "style": {
-        "primary": "elegant editorial serif in warm dark brown or muted champagne",
-        "secondary": "refined minimalist sans-serif in restrained uppercase",
+        "primary": "elegant editorial serif",
+        "secondary": "refined minimalist sans-serif",
         "tracking": "generous",
-        "hierarchy": "perfume name dominant, emotional subtitle secondary, note structure small and discreet"
+        "hierarchy": "clear and sophisticated"
       },
       "rules": [
         "Typography must never cover the perfume bottle.",
         "Text must remain legible.",
         "Text must integrate naturally with the composition.",
         "Do not overload the image with text.",
-        "Reserve the left side and upper-left negative space for typography."
+        "Place typography only in the intentionally preserved negative space."
       ]
     }
   },
   "immersive_surreal": {
     "role": "Dynamic conceptual companion image",
-    "concept": "La botella suspendida dentro de una corriente aérea de miel, caramelo y niebla de almizcle blanco: una escena cinematográfica de dulzura líquida y cremosa en la que los ingredientes se mueven alrededor del producto con profundidad física real.",
+    "concept": "La botella suspendida dentro de una corriente aérea de polvo violeta y luz de azahar, atravesada por bayas rojas, pétalos y destellos cítricos en un jardín atmosférico físicamente coherente.",
     "visual_language": [
       "cinematic product photography",
       "dynamic surrealism",
@@ -269,18 +276,18 @@
       "suspended": true
     },
     "environment": {
-      "type": "espacio atmosférico abstracto de miel y luz champagne",
-      "description": "Entorno tridimensional construido con una base de niebla cremosa perlada, un plano inferior oscuro de piedra cálida desenfocada y una corriente de miel ámbar que cruza el espacio en profundidad. La botella ocupa el centro visual sobre el eje principal, suspendida con una inclinación fija de aproximadamente 8 grados: tapón ligeramente desplazado hacia la izquierda y base hacia la derecha. Permanece completamente separada y visible, sin ingredientes sobre la etiqueta ni el tapón."
+      "type": "immersive suspended botanical atmosphere",
+      "description": "A dimensional twilight-to-dawn botanical space built from a shallow mineral plane in the lower background, soft violet haze, distant orange-blossom branches and warm filtered light. The bottle floats near the visual centre on the primary compositional axis, fully visible and clearly separated, with the cap subtly displaced left and the base subtly displaced right at a fixed 8-degree tilt. Foreground berries, petals and bergamot zest pass close to the lens; the main flowers occupy the midground; hazy azahar and violet foliage create a continuous background extending to the image edges."
     },
     "visual_elements": [
-      "botella de referencia suspendida cerca del centro, inclinada 8 grados con la parte superior hacia la izquierda",
-      "hilo y gotas de miel realistas en el plano medio, con reflejos dorados",
-      "pequeños fragmentos y láminas de caramelo translúcido flotando en distintas distancias",
-      "vainas de vainilla naturales suspendidas lateralmente y en segundo plano",
-      "grupos pequeños de haba tonka seca integrados en la profundidad ambiental",
-      "fragmentos de panal de escala natural parcialmente desenfocados en el primer plano",
-      "niebla blanca satinada de almizcle alrededor del fondo y detrás de la botella",
-      "partículas doradas sutiles suspendidas en la luz, sin convertirse en clutter"
+      "one exact reference bottle, fully visible and tilted 8 degrees with cap left and base right",
+      "foreground red berries close to camera with realistic partial cropping and shallow blur",
+      "midground clusters of dusty pink roses and violet flowers",
+      "small suspended white azahar blossoms with natural stems",
+      "a restrained distant bergamot cluster and a few physically plausible citrus droplets",
+      "fine violet powder and translucent atmospheric haze flowing around, never across, the bottle",
+      "soft mineral fragments and botanical shadows in the lower environment",
+      "warm champagne light interacting with the glass and suspended particles"
     ],
     "movement": {
       "enabled": true,
@@ -292,36 +299,37 @@
       "intensity": "controlled"
     },
     "composition": {
-      "style": "dynamic asymmetrical composition with a central hero axis and layered lateral motion",
-      "element_density": "medium_rich",
-      "depth": "strong foreground, midground and background separation with elements at varied realistic distances",
-      "bottle_priority": "highest; the bottle remains fully visible, sharply focused and visually dominant",
-      "negative_space": "controlled atmospheric space around the silhouette, with no typography and no empty flat areas"
+      "style": "dynamic asymmetrical composition with a central suspended hero and directional atmospheric flow",
+      "element_density": "medium-rich, layered but not cluttered",
+      "depth": "Strong foreground, midground and background separation with medium-shallow focus; close berries and petals partially blurred, bottle sharply focused, distant blossoms softened by haze.",
+      "bottle_priority": "Highest; the single bottle remains the dominant central focal point, completely recognizable, unobstructed and separated from all moving elements.",
+      "negative_space": "Controlled atmospheric breathing room around the bottle, with no large empty voids and no ingredient crossing the cap, label or silhouette."
     },
     "materials": [
-      "vidrio y metal dorado",
-      "miel líquida",
-      "caramelo translúcido",
-      "panal natural",
-      "vainilla seca",
-      "haba tonka",
-      "niebla blanca satinada",
-      "piedra cálida desenfocada",
-      "partículas doradas"
+      "realistic glass and gold cap",
+      "moist red berries",
+      "velvety rose petals",
+      "delicate violet flowers",
+      "white orange blossoms",
+      "bergamot rind and citrus droplets",
+      "fine violet powder",
+      "translucent haze",
+      "matte mineral fragments"
     ],
     "palette": [
-      "ámbar miel",
-      "dorado champagne",
-      "caramelo profundo",
-      "marfil vaporoso",
-      "beige vainilla",
-      "marrón tonka",
-      "blanco perlado"
+      "deep raspberry",
+      "dusty rose",
+      "soft violet",
+      "warm ivory",
+      "pale citrus yellow-green",
+      "muted sage",
+      "champagne gold",
+      "plum shadow"
     ],
     "lighting": {
-      "style": "cinematic commercial lighting",
-      "direction": "warm key light from upper left, luminous amber backlight from behind and subtle cool pearl fill from the front",
-      "contrast": "medium-high cinematic contrast with controlled highlights and deep warm shadows",
+      "style": "cinematic commercial lighting with luminous botanical atmosphere",
+      "direction": "Warm directional key light from upper left and behind, cool violet fill from lower right, with a restrained rim defining the bottle silhouette.",
+      "contrast": "Moderate dramatic contrast with controlled highlights on glass and berries, deep but open violet shadows and no crushed detail.",
       "quality": "dramatic but photorealistic"
     },
     "typography": {
@@ -331,7 +339,7 @@
   "camera": {
     "lens": "50mm",
     "depth_of_field": "medium shallow",
-    "focus": "perfume bottle",
+    "focus": "the perfume bottle",
     "orientation": "horizontal",
     "aspect_ratio": "5:4"
   },
@@ -365,12 +373,7 @@
     "no giant fruits",
     "no giant flowers",
     "no unrealistic ingredient proportions",
-    "no ingredient clutter",
-    "no cartoon",
-    "no illustration",
-    "no obvious CGI",
-    "no flat catalog photography",
-    "no generic stock photography"
+    "no ingredient clutter"
   ],
   "style_references": {
     "lifestyle": {

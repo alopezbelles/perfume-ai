@@ -19,8 +19,8 @@
   },
 
   "format": {
-    "orientation": "horizontal",
-    "aspect_ratio": "5:4"
+    "orientation": "",
+    "aspect_ratio": ""
   },
 
   "hero_product": {
@@ -47,17 +47,17 @@
   },
 
   "physical_scale_system": {
-    "bottle_height_cm": 19,
-    "bottle_width_cm": 3.5,
-    "bottle_depth_cm": 3.5,
+    "bottle_height_cm": null,
+    "bottle_width_cm": null,
+    "bottle_depth_cm": null,
 
-    "scale_reference": "The perfume bottle establishes the physical scale of the entire scene.",
+    "scale_reference": "",
 
-    "element_scale_rule": "All surrounding olfactive elements must be physically and visually proportional to the reference bottle.",
+    "element_scale_rule": "",
 
-    "relative_scale": "Use realistic real-world proportions between the perfume bottle and every surrounding ingredient.",
+    "relative_scale": "",
 
-    "artistic_scale_override": "Oversized ingredients are only allowed when explicitly specified as an artistic focal element."
+    "artistic_scale_override": ""
   },
 
   "fragrance_data": {
@@ -261,11 +261,11 @@
   },
 
   "camera": {
-    "lens": "50mm",
-    "depth_of_field": "medium shallow",
-    "focus": "perfume bottle",
-    "orientation": "horizontal",
-    "aspect_ratio": "5:4"
+    "lens": "",
+    "depth_of_field": "",
+    "focus": "",
+    "orientation": "",
+    "aspect_ratio": ""
   },
 
   "photorealism": {

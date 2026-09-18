@@ -13,8 +13,7 @@
           "type": "string"
         },
         "image_count": {
-          "type": "integer",
-          "const": 2
+          "type": "integer"
         },
         "visual_relationship": {
           "type": "object",
@@ -59,12 +58,10 @@
       "additionalProperties": false,
       "properties": {
         "orientation": {
-          "type": "string",
-          "const": "horizontal"
+          "type": "string"
         },
         "aspect_ratio": {
-          "type": "string",
-          "const": "5:4"
+          "type": "string"
         }
       },
       "required": [
@@ -183,16 +180,13 @@
       "additionalProperties": false,
       "properties": {
         "bottle_height_cm": {
-          "type": "number",
-          "const": 19
+          "type": "number"
         },
         "bottle_width_cm": {
-          "type": "number",
-          "const": 3.5
+          "type": "number"
         },
         "bottle_depth_cm": {
-          "type": "number",
-          "const": 3.5
+          "type": "number"
         },
         "scale_reference": {
           "type": "string"
@@ -204,8 +198,7 @@
           "type": "string"
         },
         "artistic_scale_override": {
-          "type": "string",
-          "const": "Oversized ingredients are not permitted."
+          "type": "string"
         }
       },
       "required": [
@@ -779,24 +772,19 @@
       "additionalProperties": false,
       "properties": {
         "lens": {
-          "type": "string",
-          "const": "50mm"
+          "type": "string"
         },
         "depth_of_field": {
-          "type": "string",
-          "const": "medium shallow"
+          "type": "string"
         },
         "focus": {
-          "type": "string",
-          "const": "perfume bottle"
+          "type": "string"
         },
         "orientation": {
-          "type": "string",
-          "const": "horizontal"
+          "type": "string"
         },
         "aspect_ratio": {
-          "type": "string",
-          "const": "5:4"
+          "type": "string"
         }
       },
       "required": [

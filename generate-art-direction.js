@@ -40,6 +40,38 @@ function getBottleReference(gender) {
   return null;
 }
 
+function applyCampaignRules(data) {
+  data.campaign.image_count = campaignRules.campaign.image_count;
+
+  data.format = {
+    orientation: campaignRules.format.orientation,
+    aspect_ratio: campaignRules.format.aspect_ratio,
+  };
+
+  data.physical_scale_system.bottle_height_cm =
+    campaignRules.physical_scale.bottle_height_cm;
+  data.physical_scale_system.bottle_width_cm =
+    campaignRules.physical_scale.bottle_width_cm;
+  data.physical_scale_system.bottle_depth_cm =
+    campaignRules.physical_scale.bottle_depth_cm;
+  data.physical_scale_system.scale_reference =
+    campaignRules.physical_scale.rule;
+  data.physical_scale_system.element_scale_rule =
+    campaignRules.physical_scale.proportions;
+  data.physical_scale_system.relative_scale =
+    campaignRules.physical_scale.proportions;
+  data.physical_scale_system.artistic_scale_override =
+    campaignRules.physical_scale.abundance_must_not_use;
+
+  data.camera = {
+    lens: campaignRules.camera.lens,
+    depth_of_field: campaignRules.camera.depth_of_field,
+    focus: campaignRules.camera.focus,
+    orientation: campaignRules.format.orientation,
+    aspect_ratio: campaignRules.format.aspect_ratio,
+  };
+}
+
 // ----------------------------------------
 // VALIDACIONES
 // ----------------------------------------
@@ -357,6 +389,8 @@ el esquema de salida.
   // ----------------------------------------
   // ASEGURAR DATOS TÉCNICOS
   // ----------------------------------------
+
+  applyCampaignRules(artDirection);
 
   // El gender procede del scraper, no de Luna.
   artDirection.fragrance_data.gender = product.gender || "unknown";

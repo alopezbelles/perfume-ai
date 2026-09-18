@@ -50,8 +50,21 @@ ${campaignRules.negative_constraints.join(", ")}.
 `.trim();
 }
 
+function buildProductRulesPrompt() {
+  const product = campaignRules.hero_product;
+
+  return `
+PRODUCT RULES:
+The perfume bottle is the ${product.role} and must remain ${product.visibility}.
+Preserve: ${product.preserve.join(", ")}.
+Must not be covered: ${product.must_not_be_covered}.
+Must not be distorted: ${product.must_not_be_distorted}.
+Must not be duplicated: ${product.must_not_be_duplicated}.
+`.trim();
+}
+
 function buildEditorialPrompt(artDirection) {
-  const { fragrance_data, hero_product, shared_visual_identity, editorial_still_life, camera, photorealism, negative_constraints } = artDirection;
+  const { fragrance_data, hero_product, shared_visual_identity, editorial_still_life } = artDirection;
 
   return `
 Create a premium editorial perfume campaign photograph for "${fragrance_data.name}".
@@ -60,8 +73,7 @@ MAIN PRODUCT:
 Use the exact perfume bottle from the reference image:
 ${hero_product.bottle_reference}
 
-Preserve the exact bottle design, shape, proportions, cap, label, material and appearance.
-The perfume bottle is the main protagonist, medium-dominant in the composition, fully visible and never covered.
+${buildProductRulesPrompt()}
 
 SCENE:
 ${editorial_still_life.concept}
@@ -88,32 +100,16 @@ LIGHTING:
 ${editorial_still_life.lighting.direction}.
 Contrast: ${editorial_still_life.lighting.contrast}.
 
-COMPOSITION:
-Balanced premium still life, low element density, generous negative space, clear foreground, midground and background depth. The perfume bottle has the highest visual priority.
-
 TYPOGRAPHY:
-Include elegant Spanish editorial typography in the negative space, never overlapping the bottle.
-Use the following information:
+Use the following campaign-specific information in the negative space:
 "${editorial_still_life.typography.elements.join(" | ")}"
-
-CAMERA:
-50mm lens, medium shallow depth of field, focus on the perfume bottle, horizontal composition, 5:4 aspect ratio.
-
-PHOTOREALISM:
-Extreme photorealism. Realistic materials, lighting, shadows, reflections, botanical textures and physical proportions.
-
-IMPORTANT:
-All surrounding elements must remain physically proportional to the 19 cm tall perfume bottle.
-
-DO NOT INCLUDE:
-${negative_constraints.join(", ")}.
 
 ${buildFixedRulesPrompt("editorial_still_life")}
 `.trim();
 }
 
 function buildSurrealPrompt(artDirection) {
-  const { fragrance_data, hero_product, shared_visual_identity, immersive_surreal, camera, photorealism, negative_constraints } = artDirection;
+  const { fragrance_data, hero_product, shared_visual_identity, immersive_surreal } = artDirection;
 
   return `
 Create a premium cinematic surreal perfume campaign photograph for "${fragrance_data.name}".
@@ -122,8 +118,7 @@ MAIN PRODUCT:
 Use the exact perfume bottle from the reference image:
 ${hero_product.bottle_reference}
 
-Preserve the exact bottle design, shape, proportions, cap, label, material and appearance.
-The perfume bottle is the main protagonist, medium-dominant, fully visible and never covered.
+${buildProductRulesPrompt()}
 
 SCENE:
 ${immersive_surreal.concept}
@@ -146,30 +141,9 @@ ${immersive_surreal.palette.join(", ")}
 MATERIALS:
 ${immersive_surreal.materials.join(", ")}
 
-MOVEMENT:
-Controlled ${immersive_surreal.movement.types.join(", ")} movement around the bottle.
-
-COMPOSITION:
-Dynamic asymmetrical composition, low to medium element density, strong depth between foreground, midground and background. The perfume bottle has the highest visual priority.
-
 LIGHTING:
 ${immersive_surreal.lighting.direction}.
 Contrast: ${immersive_surreal.lighting.contrast}.
-
-CAMERA:
-50mm lens, medium shallow depth of field, focus on the perfume bottle, horizontal composition, 5:4 aspect ratio.
-
-PHOTOREALISM:
-Extreme photorealism. Realistic materials, lighting, shadows, reflections, smoke, botanical textures and physical proportions.
-
-IMPORTANT:
-All surrounding elements must remain physically proportional to the 19 cm tall perfume bottle.
-The bottle must appear physically suspended in the scene.
-
-NO TYPOGRAPHY.
-
-DO NOT INCLUDE:
-${negative_constraints.join(", ")}.
 
 ${buildFixedRulesPrompt("immersive_surreal")}
 `.trim();
