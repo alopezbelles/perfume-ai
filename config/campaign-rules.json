@@ -1,0 +1,151 @@
+{
+  "campaign": {
+    "image_count": 2,
+    "images": [
+      "editorial_still_life",
+      "immersive_surreal"
+    ],
+    "visual_relationship": [
+      "same perfume identity",
+      "same olfactive story",
+      "same core visual elements",
+      "same color family",
+      "same emotional atmosphere"
+    ],
+    "style_references_are_language_only": true,
+    "style_references_must_not_be_templates": true
+  },
+  "format": {
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4",
+    "size": "1600x1280"
+  },
+  "hero_product": {
+    "role": "main protagonist",
+    "visibility": "fully visible",
+    "must_not_be_covered": true,
+    "must_not_be_distorted": true,
+    "must_not_be_duplicated": true,
+    "preserve": [
+      "exact bottle design",
+      "shape",
+      "proportions",
+      "cap",
+      "label",
+      "material",
+      "overall product identity"
+    ]
+  },
+  "physical_scale": {
+    "bottle_height_cm": 19,
+    "bottle_width_cm": 3.5,
+    "bottle_depth_cm": 3.5,
+    "rule": "Use the perfume bottle as the physical scale reference for the entire scene.",
+    "proportions": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "abundance": [
+      "multiple units",
+      "natural ingredient clusters",
+      "generous quantities",
+      "overlapping elements",
+      "foreground / midground / background layering",
+      "varied physical states",
+      "proximity to camera",
+      "tactile material richness"
+    ],
+    "abundance_must_not_use": "Do not create abundance by artificially enlarging ingredients."
+  },
+  "olfactive_translation": {
+    "selection": [
+      "Select only the most visually expressive olfactive elements.",
+      "Prioritize elements that communicate the fragrance identity.",
+      "Do not visually represent every note by default.",
+      "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
+      "Never introduce ingredients that are not supported by fragrance_data.notes.",
+      "Selected visual elements must work coherently across both campaign images."
+    ],
+    "selected_note_fields": [
+      "note",
+      "olfactive_role",
+      "visual_representation",
+      "quantity",
+      "physical_presence",
+      "composition_role",
+      "reason",
+      "editorial_use",
+      "surreal_use"
+    ]
+  },
+  "editorial_still_life": {
+    "rules": [
+      "The bottle is physically supported by a realistic surface.",
+      "The bottle is completely vertical and stable; it never floats or tilts.",
+      "Use clear foreground, midground and background depth.",
+      "Create richness through quantity, grouping, overlap, layers and texture, not oversized ingredients.",
+      "Keep generous negative space for Spanish typography.",
+      "Typography must never cover the bottle and must remain legible.",
+      "The bottle has the highest visual priority."
+    ]
+  },
+  "immersive_surreal": {
+    "rules": [
+      "The bottle is suspended or floating near the visual centre and primary compositional axis.",
+      "The bottle remains fully visible, recognizable and clearly separated from other elements.",
+      "The top/cap leans slightly left and the base slightly right.",
+      "Use a subtle fixed 5-12 degree tilt; never mirror, reverse or alternate it.",
+      "Build a physically coherent foreground, midground and background.",
+      "Integrate ingredients with the environment; do not make them look like stickers.",
+      "Use movement only when physically plausible for the element.",
+      "Surrealism comes from suspension, movement, depth, interaction and atmosphere.",
+      "Do not use typography or text."
+    ],
+    "allowed_movement_types": [
+      "floating",
+      "suspended",
+      "swirling",
+      "falling"
+    ]
+  },
+  "camera": {
+    "lens": "50mm",
+    "depth_of_field": "medium shallow",
+    "focus": "the perfume bottle"
+  },
+  "photorealism": {
+    "level": "extreme",
+    "requirements": [
+      "photorealistic materials",
+      "realistic lighting",
+      "realistic shadows",
+      "realistic reflections",
+      "realistic glass",
+      "realistic botanical textures",
+      "realistic physical proportions",
+      "realistic atmospheric effects",
+      "no illustration",
+      "no cartoon",
+      "no obvious CGI",
+      "no generic stock photography"
+    ]
+  },
+  "data_rules": [
+    "fragrance_data.name and fragrance_data.url must match the source product exactly.",
+    "Preserve fragrance_data.notes exactly; do not remove or modify original notes.",
+    "selected_visual_notes may only use notes present in fragrance_data.notes.",
+    "The system assigns gender and bottle_reference; the model must not invent them."
+  ],
+  "negative_constraints": [
+    "no people",
+    "no hands",
+    "no extra perfume bottles",
+    "no extra products",
+    "no distorted bottle",
+    "no duplicated bottle",
+    "no malformed bottle",
+    "no covered bottle",
+    "no oversized ingredients",
+    "no giant fruits",
+    "no giant flowers",
+    "no unrealistic ingredient proportions",
+    "no ingredient clutter"
+  ]
+}

@@ -15,13 +15,16 @@ const client = new OpenAI({
 
 const ART_DIRECTION_PATH = "./data/art-direction.json";
 const PROMPTS_PATH = "./data/prompts.json";
+const CAMPAIGN_RULES_PATH = "./config/campaign-rules.json";
 const OUTPUT_DIR = "./data/images";
 
 const LIFESTYLE_REFERENCE = "./references/styles/lifestyle-reference.png";
 const SURREAL_REFERENCE = "./references/styles/surreal-reference.png";
 
 // 5:4 exacto
-const SIZE = "1600x1280";
+const campaignRules = loadJSON(CAMPAIGN_RULES_PATH);
+
+const SIZE = campaignRules.format.size;
 
 const QUALITY = "high";
 
@@ -269,9 +272,9 @@ of the composition.
 PHYSICAL SCALE:
 
 Bottle:
-19 cm height
-3.5 cm width
-3.5 cm depth
+${campaignRules.physical_scale.bottle_height_cm} cm height
+${campaignRules.physical_scale.bottle_width_cm} cm width
+${campaignRules.physical_scale.bottle_depth_cm} cm depth
 
 Use the bottle as the physical scale reference
 for the entire scene.
@@ -341,7 +344,7 @@ No additional products.
 
 No additional perfume bottles.
 
-HORIZONTAL 5:4 COMPOSITION.
+${campaignRules.format.orientation.toUpperCase()} ${campaignRules.format.aspect_ratio} COMPOSITION.
 `;
 }
 

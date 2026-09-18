@@ -1,26 +1,20 @@
 {
-  "name": "Agua de Vetiver (YLY)",
-  "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
-  "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
+  "name": "Bianche Princess (GTB)",
+  "url": "\u001bhttps://perfumarte.com/products/bianche-princess-gtb?_pos=1&_psq=princes&_psid=e3cbc7f8b&_ss=e",
+  "description": "Bianche Princess (GTB): un perfume nicho gourmand femenino, dulce y sofisticado\n\nBianche Princess (GTB) es un perfume nicho gourmand femenino que celebra la dulzura, la calidez y la elegancia en una fragancia envolvente y adictiva. Diseñado para mujeres que disfrutan de aromas golosos pero refinados, combina notas dulces con un fondo suave y elegante que lo hace perfecto para el día a día o momentos especiales.\n\nEste perfume nicho gourmand femenino destaca por su carácter cálido, cremoso y muy femenino, dejando una estela inolvidable.\n\n \n\n \n\n¿A qué huele Bianche Princess (GTB)?\n\nBianche Princess (GTB) es un perfume nicho gourmand femenino donde el caramelo, la miel, la cumarina, la vainilla y el almizcle blanco crean una fragancia dulce, cálida y sofisticada.\n\nUna salida dulce y golosa\n\nLa fragancia se abre con caramelo, ofreciendo un inicio adictivo, alegre y envolvente que conquista desde el primer instante.\n\nUn corazón cálido y elegante\n\nLa cumarina y la miel aportan una faceta suave, dulce y sofisticada que equilibra perfectamente el carácter gourmand.\n\nUn fondo cremoso y duradero\n\nLa vainilla y el almizcle blanco crean una base envolvente, delicada y muy femenina que deja una estela suave, elegante y persistente.",
   "notes": {
     "top": [
-      "Jengibre",
-      "Bergamota",
-      "Manzana"
+      "Caramelo"
     ],
     "heart": [
-      "Bayas de enebro",
-      "Geranio",
-      "Salvia"
+      "Cumarina",
+      "Miel"
     ],
     "base": [
-      "Ambar",
-      "Cedro",
-      "Haba de tonka",
-      "Incienso",
-      "Vetiver"
+      "Almizcle blanco",
+      "Vainilla"
     ]
   },
-  "gender": "male",
-  "bottle_reference": "references/bottles/male/bottle-black-cap.png"
+  "gender": "female",
+  "bottle_reference": "references/bottles/female/bottle-gold-cap.png"
 }

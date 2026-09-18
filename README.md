@@ -283,6 +283,19 @@ photorealism
 negative_constraints
 ```
 
+The fixed campaign rules live in:
+
+``` text
+config/campaign-rules.json
+```
+
+This file is the single source of truth for campaign invariants shared by
+art direction, prompt generation and image generation. It contains the
+campaign format, product preservation rules, physical scale, editorial and
+surreal constraints, camera, photorealism and negative constraints. A
+perfume-specific `art-direction.json` supplies the creative decisions; it
+must not redefine these fixed rules.
+
 ### `fragrance_data`
 
 Contains factual perfume information.
@@ -322,6 +335,10 @@ surreal_use
 ```
 
 This gives the image-generation stage more precise creative information.
+
+`generate-prompts.js` combines each perfume-specific art direction with
+`config/campaign-rules.json`. The resulting prompts preserve the shared
+campaign language while keeping editorial and surreal decisions separate.
 
 ------------------------------------------------------------------------
 

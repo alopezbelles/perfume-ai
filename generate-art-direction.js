@@ -20,6 +20,10 @@ const outputSchema = JSON.parse(
   fs.readFileSync("./config/art-direction-output-schema.json", "utf-8"),
 );
 
+const campaignRules = JSON.parse(
+  fs.readFileSync("./config/campaign-rules.json", "utf-8"),
+);
+
 // ----------------------------------------
 // BOTELLA
 // ----------------------------------------
@@ -45,15 +49,15 @@ function validateArtDirection(data) {
     throw new Error("La dirección artística está vacía.");
   }
 
-  if (data.campaign?.image_count !== 2) {
+  if (data.campaign?.image_count !== campaignRules.campaign.image_count) {
     throw new Error("image_count debe ser 2.");
   }
 
-  if (data.format?.orientation !== "horizontal") {
+  if (data.format?.orientation !== campaignRules.format.orientation) {
     throw new Error("La orientación debe ser horizontal.");
   }
 
-  if (data.format?.aspect_ratio !== "5:4") {
+  if (data.format?.aspect_ratio !== campaignRules.format.aspect_ratio) {
     throw new Error("El aspect ratio debe ser 5:4.");
   }
 
@@ -61,15 +65,24 @@ function validateArtDirection(data) {
     throw new Error("Gender inválido.");
   }
 
-  if (data.physical_scale_system?.bottle_height_cm !== 19) {
+  if (
+    data.physical_scale_system?.bottle_height_cm !==
+    campaignRules.physical_scale.bottle_height_cm
+  ) {
     throw new Error("Altura de botella incorrecta.");
   }
 
-  if (data.physical_scale_system?.bottle_width_cm !== 3.5) {
+  if (
+    data.physical_scale_system?.bottle_width_cm !==
+    campaignRules.physical_scale.bottle_width_cm
+  ) {
     throw new Error("Anchura de botella incorrecta.");
   }
 
-  if (data.physical_scale_system?.bottle_depth_cm !== 3.5) {
+  if (
+    data.physical_scale_system?.bottle_depth_cm !==
+    campaignRules.physical_scale.bottle_depth_cm
+  ) {
     throw new Error("Profundidad de botella incorrecta.");
   }
 
@@ -96,7 +109,8 @@ function validateArtDirection(data) {
   }
 
   // Movimiento
-  const allowedMovementTypes = ["floating", "suspended", "swirling", "falling"];
+  const allowedMovementTypes =
+    campaignRules.immersive_surreal.allowed_movement_types;
 
   const movementTypes = data.immersive_surreal?.movement?.types || [];
 
@@ -127,6 +141,10 @@ async function generateArtDirection() {
         role: "system",
         content: `
 Eres un director de arte especializado en campañas premium de perfumería.
+
+NORMAS FIJAS DE CAMPAÑA (fuente única; debes respetarlas):
+
+${JSON.stringify(campaignRules, null, 2)}
 
 Tu trabajo es transformar los datos reales de un perfume en una dirección
 artística completa para DOS imágenes de campaña:

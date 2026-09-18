@@ -13,6 +13,43 @@ const OUTPUT_PATH = path.join(
   "prompts.json"
 );
 
+const CAMPAIGN_RULES_PATH = path.join(
+  __dirname,
+  "config",
+  "campaign-rules.json"
+);
+
+const campaignRules = JSON.parse(
+  fs.readFileSync(CAMPAIGN_RULES_PATH, "utf8")
+);
+
+function buildFixedRulesPrompt(imageType) {
+  const rules = campaignRules[imageType].rules;
+
+  return `
+FIXED CAMPAIGN RULES:
+${rules.map((rule) => `- ${rule}`).join("\n")}
+
+CAMPAIGN CONTINUITY:
+Both images must share: ${campaignRules.campaign.visual_relationship.join(", ")}.
+
+PHYSICAL SCALE:
+${campaignRules.physical_scale.rule}
+Bottle dimensions: ${campaignRules.physical_scale.bottle_height_cm} cm high x ${campaignRules.physical_scale.bottle_width_cm} cm wide x ${campaignRules.physical_scale.bottle_depth_cm} cm deep.
+${campaignRules.physical_scale.proportions}
+${campaignRules.physical_scale.abundance_must_not_use}
+
+CAMERA:
+${campaignRules.camera.lens} lens, ${campaignRules.camera.depth_of_field} depth of field, focus on ${campaignRules.camera.focus}, ${campaignRules.format.orientation} composition, ${campaignRules.format.aspect_ratio} aspect ratio.
+
+PHOTOREALISM:
+${campaignRules.photorealism.level} photorealism. ${campaignRules.photorealism.requirements.join(", ")}.
+
+DO NOT INCLUDE:
+${campaignRules.negative_constraints.join(", ")}.
+`.trim();
+}
+
 function buildEditorialPrompt(artDirection) {
   const { fragrance_data, hero_product, shared_visual_identity, editorial_still_life, camera, photorealism, negative_constraints } = artDirection;
 
@@ -70,6 +107,8 @@ All surrounding elements must remain physically proportional to the 19 cm tall p
 
 DO NOT INCLUDE:
 ${negative_constraints.join(", ")}.
+
+${buildFixedRulesPrompt("editorial_still_life")}
 `.trim();
 }
 
@@ -131,6 +170,8 @@ NO TYPOGRAPHY.
 
 DO NOT INCLUDE:
 ${negative_constraints.join(", ")}.
+
+${buildFixedRulesPrompt("immersive_surreal")}
 `.trim();
 }
 
