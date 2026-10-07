@@ -82,14 +82,14 @@ perfume campaign, not a different creative direction.
                          PERFUME PRODUCT PAGE
                                   |
                                   v
-                            scraper.js
+                            scraper.ts
                                   |
                                   v
                          data/product.json
                                   |
                                   v
                   +-------------------------------+
-                  |   generate-art-direction.js   |
+                  |   generate-art-direction.ts   |
                   |                               |
                   |   GPT-5.6 Luna                |
                   |   + conceptual schema         |
@@ -100,13 +100,13 @@ perfume campaign, not a different creative direction.
                        data/art-direction.json
                                   |
                                   v
-                       generate-prompts.js
+                       generate-prompts.ts
                                   |
                                   v
                           data/prompts.json
                                   |
                                   v
-                       generate-images.js
+                       generate-images.ts
                                   |
                     +-------------+-------------+
                     |                           |
@@ -129,7 +129,7 @@ perfume campaign, not a different creative direction.
 
 ## 3. Project Responsibilities
 
-### `scraper.js`
+### `scraper.ts`
 
 Responsible for obtaining the original perfume information from the
 source product page.
@@ -156,7 +156,7 @@ Typical data includes:
 
 The scraper should not perform creative interpretation.
 
-### `generate-art-direction.js`
+### `generate-art-direction.ts`
 
 Transforms raw perfume data into structured creative direction.
 
@@ -206,7 +206,7 @@ Important validations include:
 -   Surreal typography must be disabled.
 -   Surreal movement types must belong to the allowed movement list.
 
-### `generate-prompts.js`
+### `generate-prompts.ts`
 
 Converts the structured art direction into the final image-generation
 prompts.
@@ -232,7 +232,7 @@ images.immersive_surreal.prompt
 
 The editorial and surreal concepts remain distinct.
 
-### `generate-images.js`
+### `generate-images.ts`
 
 Final image-generation stage.
 
@@ -336,7 +336,7 @@ surreal_use
 
 This gives the image-generation stage more precise creative information.
 
-`generate-prompts.js` combines each perfume-specific art direction with
+`generate-prompts.ts` combines each perfume-specific art direction with
 `config/campaign-rules.json`. The resulting prompts preserve the shared
 campaign language while keeping editorial and surreal decisions separate.
 
@@ -613,7 +613,7 @@ The style reference controls campaign visual language only.
 
 ## 11. Prompt Enhancement Layer
 
-`generate-images.js` adds a technical prompt layer before image
+`generate-images.ts` adds a technical prompt layer before image
 generation.
 
 This layer reinforces:
@@ -652,7 +652,7 @@ For a new perfume:
 ### Step 1 --- Scrape
 
 ``` bash
-node scraper.js "PERFUME_URL"
+npm run scrape -- "PERFUME_URL"
 ```
 
 Creates/updates:
@@ -664,7 +664,7 @@ data/product.json
 ### Step 2 --- Generate art direction
 
 ``` bash
-node generate-art-direction.js
+npm run generate:art-direction
 ```
 
 Creates:
@@ -676,7 +676,7 @@ data/art-direction.json
 ### Step 3 --- Generate prompts
 
 ``` bash
-node generate-prompts.js
+npm run generate:prompts
 ```
 
 Creates:
@@ -688,7 +688,7 @@ data/prompts.json
 ### Step 4 --- Generate campaign images
 
 ``` bash
-node generate-images.js
+npm run generate:images
 ```
 
 Creates:
@@ -711,7 +711,7 @@ If `art-direction.json` and `prompts.json` are already correct, visual
 experimentation can normally be performed with:
 
 ``` bash
-node generate-images.js
+npm run generate:images
 ```
 
 This is useful when testing:
@@ -810,10 +810,10 @@ project/
 |       +-- lifestyle-reference.png
 |       +-- surreal-reference.png
 |
-+-- scraper.js
-+-- generate-art-direction.js
-+-- generate-prompts.js
-+-- generate-images.js
++-- scraper.ts
++-- generate-art-direction.ts
++-- generate-prompts.ts
++-- generate-images.ts
 +-- package.json
 +-- .env
 +-- README.md

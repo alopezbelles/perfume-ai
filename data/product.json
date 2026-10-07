@@ -1,21 +1,26 @@
 {
-  "name": "Pistachella Princess (KYP)",
-  "url": "https://perfumarte.com/products/pistachella-princess-kyp?_pos=1&_psq=kyp&_psid=2f1e4ca83&_ss=e",
-  "description": "Pistachella Princess (KYP): un perfume gourmand femenino dulce, cremoso y adictivo\n\nPistachella Princess (KYP) es un perfume gourmand femenino que convierte la dulzura en una auténtica experiencia sensorial. Una fragancia atrevida y envolvente donde las notas más golosas se mezclan con frutos secos y un delicado toque licoroso para crear un aroma cálido, cremoso y difícil de olvidar.\n\nPensado para mujeres con personalidad, Pistachella Princess es el perfume perfecto para quienes disfrutan de fragancias intensas, originales y con una estela que deja huella.\n\n \n\n \n\n¿A qué huele Pistachella Princess (KYP)?\n\nPistachella Princess (KYP) combina acordes gourmand, frutos secos y un fondo cálido para crear una fragancia dulce, sofisticada y tremendamente adictiva.\n\nUna salida dulce e irresistible\n\nLa crema batida, el malvavisco y el algodón de azúcar protagonizan la apertura con una explosión cremosa y golosa que envuelve los sentidos desde el primer instante.\n\nUn corazón cremoso y sofisticado\n\nEl pistacho y la avellana aportan una textura suave y elegante, creando un acorde gourmand refinado que añade personalidad y profundidad a la composición.\n\nUn fondo cálido y envolvente\n\nEl ron aporta un matiz licoroso, cálido y seductor que completa la fragancia con una estela intensa, cremosa y muy duradera.",
+  "name": "Agua de Vetiver (YLY)",
+  "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
+  "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
   "notes": {
     "top": [
-      "Crema batida",
-      "malvavisco",
-      "algodón de azúcar."
+      "Jengibre",
+      "Bergamota",
+      "Manzana"
     ],
     "heart": [
-      "Pistacho",
-      "avellana."
+      "Bayas de enebro",
+      "Geranio",
+      "Salvia"
     ],
     "base": [
-      "Ron."
+      "Ambar",
+      "Cedro",
+      "Haba de tonka",
+      "Incienso",
+      "Vetiver"
     ]
   },
-  "gender": "female",
-  "bottle_reference": "references/bottles/female/bottle-gold-cap.png"
+  "gender": "male",
+  "bottle_reference": "references/bottles/male/bottle-black-cap.png"
 }

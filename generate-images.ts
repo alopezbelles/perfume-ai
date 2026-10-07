@@ -1,9 +1,7 @@
 import OpenAI from "openai";
-import fs from "fs";
-import path from "path";
-import dotenv from "dotenv";
-
-dotenv.config();
+import fs from "node:fs";
+import path from "node:path";
+import "dotenv/config";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -27,22 +25,25 @@ const campaignRules = loadJSON(CAMPAIGN_RULES_PATH);
 const SIZE = campaignRules.format.size;
 
 const QUALITY = "high";
+type JsonRecord = Record<string, any>;
+type ReferenceType = "lifestyle" | "surreal";
+type ImageRequest = { prompt: string; bottleReference: string; styleReference: string; referenceType: ReferenceType; outputPath: string };
 
 // --------------------------------------------------
 // HELPERS
 // --------------------------------------------------
 
-function ensureDirectory(directory) {
+function ensureDirectory(directory: string): void {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, { recursive: true });
   }
 }
 
-function loadJSON(filePath) {
+function loadJSON(filePath: string): JsonRecord {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
-function sanitizeFilename(name) {
+function sanitizeFilename(name: string): string {
   return name
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -51,7 +52,7 @@ function sanitizeFilename(name) {
     .toLowerCase();
 }
 
-function getBottleReference(artDirection) {
+function getBottleReference(artDirection: JsonRecord): string {
   const reference = artDirection.hero_product?.bottle_reference;
 
   if (!reference) {
@@ -65,7 +66,7 @@ function getBottleReference(artDirection) {
 // IMAGE REFERENCE
 // --------------------------------------------------
 
-function createImageDataUrl(imagePath) {
+function createImageDataUrl(imagePath: string): string {
   if (!fs.existsSync(imagePath)) {
     throw new Error(`No existe la imagen de referencia: ${imagePath}`);
   }
@@ -90,7 +91,7 @@ function createImageDataUrl(imagePath) {
 // PROMPT ENHANCEMENT
 // --------------------------------------------------
 
-function getStyleReferenceInstructions(type) {
+function getStyleReferenceInstructions(type: ReferenceType): string {
   if (type === "lifestyle") {
     return `
 STYLE REFERENCE — EDITORIAL STILL LIFE
@@ -188,7 +189,7 @@ The bottle remains the main visual protagonist.
   return "";
 }
 
-function getImageGenerationPrompt(prompt, referenceType) {
+function getImageGenerationPrompt(prompt: string, referenceType: ReferenceType): string {
   const styleReferenceInstructions =
     getStyleReferenceInstructions(referenceType);
 
@@ -358,7 +359,7 @@ async function generateImage({
   styleReference,
   referenceType,
   outputPath,
-}) {
+}: ImageRequest) {
   console.log("\n------------------------------------------");
   console.log(`Generando: ${outputPath}`);
   console.log("------------------------------------------");

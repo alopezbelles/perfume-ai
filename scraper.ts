@@ -1,6 +1,12 @@
-const { chromium } = require("playwright");
-const fs = require("fs");
-const path = require("path");
+import { chromium } from "playwright";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+type Gender = "male" | "female" | "unknown";
+type ProductNotes = { top: string[]; heart: string[]; base: string[] };
 
 // --------------------------------
 // URL
@@ -12,7 +18,7 @@ if (!url) {
   console.error("❌ Debes proporcionar la URL de un perfume.");
   console.error("Ejemplo:");
   console.error(
-    "node scraper.js https://perfumarte.com/products/agua-de-vetiver-yly"
+    "npm run scrape -- https://perfumarte.com/products/agua-de-vetiver-yly"
   );
   process.exit(1);
 }
@@ -21,21 +27,21 @@ if (!url) {
 // UTILIDADES
 // --------------------------------
 
-function splitNotes(value) {
+function splitNotes(value: string): string[] {
   return value
     .split(",")
     .map((note) => note.trim())
     .filter(Boolean);
 }
 
-function extractNotes(text) {
+function extractNotes(text: string): ProductNotes {
   const lines = text
     .replace(/\r/g, "")
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean);
 
-  const notes = {
+  const notes: ProductNotes = {
     top: [],
     heart: [],
     base: [],
@@ -70,7 +76,7 @@ function extractNotes(text) {
 // GÉNERO
 // --------------------------------
 
-function detectGender(description) {
+function detectGender(description: string): Gender {
   const text = description.toLowerCase();
 
   if (
@@ -94,7 +100,7 @@ function detectGender(description) {
 // REFERENCIA DE BOTELLA
 // --------------------------------
 
-function getBottleReference(gender) {
+function getBottleReference(gender: Gender): string | null {
   if (gender === "male") {
     return "references/bottles/male/bottle-black-cap.png";
   }

@@ -1,5 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ART_DIRECTION_PATH = path.join(
   __dirname,
@@ -23,12 +26,15 @@ const campaignRules = JSON.parse(
   fs.readFileSync(CAMPAIGN_RULES_PATH, "utf8")
 );
 
-function buildFixedRulesPrompt(imageType) {
+type ImageType = "editorial_still_life" | "immersive_surreal";
+type JsonRecord = Record<string, any>;
+
+function buildFixedRulesPrompt(imageType: ImageType): string {
   const rules = campaignRules[imageType].rules;
 
   return `
 FIXED CAMPAIGN RULES:
-${rules.map((rule) => `- ${rule}`).join("\n")}
+${rules.map((rule: string) => `- ${rule}`).join("\n")}
 
 CAMPAIGN CONTINUITY:
 Both images must share: ${campaignRules.campaign.visual_relationship.join(", ")}.
@@ -63,7 +69,7 @@ Must not be duplicated: ${product.must_not_be_duplicated}.
 `.trim();
 }
 
-function buildEditorialPrompt(artDirection) {
+function buildEditorialPrompt(artDirection: JsonRecord): string {
   const { fragrance_data, hero_product, shared_visual_identity, editorial_still_life } = artDirection;
 
   return `
@@ -108,7 +114,7 @@ ${buildFixedRulesPrompt("editorial_still_life")}
 `.trim();
 }
 
-function buildSurrealPrompt(artDirection) {
+function buildSurrealPrompt(artDirection: JsonRecord): string {
   const { fragrance_data, hero_product, shared_visual_identity, immersive_surreal } = artDirection;
 
   return `

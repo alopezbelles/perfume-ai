@@ -1,6 +1,6 @@
-require("dotenv").config();
-const fs = require("fs");
-const OpenAI = require("openai");
+import "dotenv/config";
+import fs from "node:fs";
+import OpenAI from "openai";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -24,11 +24,14 @@ const campaignRules = JSON.parse(
   fs.readFileSync("./config/campaign-rules.json", "utf-8"),
 );
 
+type JsonRecord = Record<string, any>;
+type Gender = "male" | "female" | "unknown";
+
 // ----------------------------------------
 // BOTELLA
 // ----------------------------------------
 
-function getBottleReference(gender) {
+function getBottleReference(gender: Gender): string | null {
   if (gender === "male") {
     return "references/bottles/male/bottle-black-cap.png";
   }
@@ -40,7 +43,7 @@ function getBottleReference(gender) {
   return null;
 }
 
-function applyCampaignRules(data) {
+function applyCampaignRules(data: JsonRecord): void {
   data.campaign.image_count = campaignRules.campaign.image_count;
 
   data.format = {
@@ -76,7 +79,7 @@ function applyCampaignRules(data) {
 // VALIDACIONES
 // ----------------------------------------
 
-function validateArtDirection(data) {
+function validateArtDirection(data: JsonRecord): true {
   if (!data) {
     throw new Error("La dirección artística está vacía.");
   }
@@ -147,7 +150,7 @@ function validateArtDirection(data) {
   const movementTypes = data.immersive_surreal?.movement?.types || [];
 
   const invalidMovement = movementTypes.some(
-    (type) => !allowedMovementTypes.includes(type),
+    (type: string) => !allowedMovementTypes.includes(type),
   );
 
   if (invalidMovement) {
@@ -420,7 +423,7 @@ el esquema de salida.
     validateArtDirection(artDirection);
   } catch (error) {
     console.error("❌ Dirección artística inválida.");
-    console.error(`   ${error.message}`);
+    console.error(`   ${error instanceof Error ? error.message : String(error)}`);
     process.exit(1);
   }
 

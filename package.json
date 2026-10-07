@@ -2,9 +2,13 @@
   "name": "perfume-ai",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scrape": "tsx scraper.ts",
+    "generate:art-direction": "tsx generate-art-direction.ts",
+    "generate:prompts": "tsx generate-prompts.ts",
+    "generate:images": "tsx generate-images.ts",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +17,11 @@
     "dotenv": "^17.4.2",
     "openai": "^7.15.0",
     "playwright": "^1.63.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   }
 }
