@@ -1,10 +1,10 @@
 {
   "campaign": {
     "name": "Perfumarte AI Art Direction",
-    "objective": "Generate two visually coherent premium campaign images for Corazón de Naranjo (GEI), translating its luminous red-fruit opening, powdery floral heart and elegant feminine softness into a refined visual story.",
+    "objective": "Generate two visually coherent premium campaign images for Pistachella Princess (KYP), expressing its creamy gourmand sweetness, refined nutty heart and warm rum finish.",
     "image_count": 2,
     "visual_relationship": {
-      "rule": "Both images must represent the same fragrance concept and olfactive identity, using the same selected botanical elements, powdery atmosphere, color family and emotional tone while developing distinct compositions.",
+      "rule": "Both images represent the same fragrance concept and olfactive identity, using a shared palette and core ingredients while giving each image its own composition.",
       "editorial_role": "Primary hero image.",
       "surreal_role": "Dynamic conceptual companion image.",
       "consistency": [
@@ -51,129 +51,116 @@
     "artistic_scale_override": "Do not create abundance by artificially enlarging ingredients."
   },
   "fragrance_data": {
-    "name": "Corazón de Naranjo (GEI)",
-    "url": "https://perfumarte.com/products/corazon-de-naranjo-gei?_pos=1&_psq=gei&_psid=fbe444a11&_ss=e",
+    "name": "Pistachella Princess (KYP)",
+    "url": "https://perfumarte.com/products/pistachella-princess-kyp?_pos=1&_psq=kyp&_psid=2f1e4ca83&_ss=e",
     "gender": "female",
-    "description": "Corazón de Naranjo (GEI): un perfume atalcado de mujer elegante, empolvado y diferente\n\nCorazón de Naranjo (GEI) es un perfume atalcado de mujer pensado para quienes buscan una fragancia original, elegante y con mucha personalidad. Su composición combina la delicadeza de las flores con el dulzor de las bayas rojas, creando un aroma empolvado, sofisticado y muy femenino.\n\nEste perfume atalcado de mujer destaca por el equilibrio entre la violeta y la rosa, dos flores que aportan una sensación suave y aterciopelada, perfecta para quienes disfrutan de perfumes distintos y con una identidad propia.\n\n \n\n \n\n¿A qué huele Corazón de Naranjo (GEI), el perfume atalcado de mujer que sorprende por su elegancia?\n\nCorazón de Naranjo (GEI) es un perfume atalcado de mujer donde las notas florales empolvadas se combinan con un toque afrutado, creando una fragancia delicada, envolvente y muy elegante.\n\nUna salida afrutada y luminosa\n\nLa fragancia comienza con el dulzor de las bayas rojas, aportando un inicio afrutado, jugoso y ligeramente dulce que llena el perfume de vitalidad y frescura.\n\nUn corazón floral, empolvado y sofisticado\n\nEl corazón está protagonizado por la violeta y la rosa, una combinación clásica que aporta un carácter elegante, femenino y atalcado. Estas notas crean una sensación suave y refinada que define la personalidad del perfume.\n\nUn fondo delicado, elegante y duradero\n\nEl secado mantiene la armonía entre las notas florales y empolvadas, dejando una estela suave, envolvente y muy agradable que permanece durante horas sobre la piel.",
+    "description": "Pistachella Princess (KYP): un perfume gourmand femenino dulce, cremoso y adictivo\n\nPistachella Princess (KYP) es un perfume gourmand femenino que convierte la dulzura en una auténtica experiencia sensorial. Una fragancia atrevida y envolvente donde las notas más golosas se mezclan con frutos secos y un delicado toque licoroso para crear un aroma cálido, cremoso y difícil de olvidar.\n\nPensado para mujeres con personalidad, Pistachella Princess es el perfume perfecto para quienes disfrutan de fragancias intensas, originales y con una estela que deja huella.\n\n \n\n \n\n¿A qué huele Pistachella Princess (KYP)?\n\nPistachella Princess (KYP) combina acordes gourmand, frutos secos y un fondo cálido para crear una fragancia dulce, sofisticada y tremendamente adictiva.\n\nUna salida dulce e irresistible\n\nLa crema batida, el malvavisco y el algodón de azúcar protagonizan la apertura con una explosión cremosa y golosa que envuelve los sentidos desde el primer instante.\n\nUn corazón cremoso y sofisticado\n\nEl pistacho y la avellana aportan una textura suave y elegante, creando un acorde gourmand refinado que añade personalidad y profundidad a la composición.\n\nUn fondo cálido y envolvente\n\nEl ron aporta un matiz licoroso, cálido y seductor que completa la fragancia con una estela intensa, cremosa y muy duradera.",
     "notes": {
       "top": [
-        "Bayas rojas",
-        "Bergamota",
-        "Frambuesa",
-        "Limón"
+        "Crema batida",
+        "malvavisco",
+        "algodón de azúcar."
       ],
       "heart": [
-        "Azahar",
-        "Rosa",
-        "Violeta"
+        "Pistacho",
+        "avellana."
       ],
       "base": [
-        "Almizcle",
-        "Haba de tonka",
-        "Sandalo"
+        "Ron."
       ]
     }
   },
   "olfactive_translation": {
-    "principle": "Translate the fragrance into a visual story rather than literally representing every listed note.",
+    "principle": "Translate the fragrance into a tactile visual story rather than literally representing every listed note.",
     "selection_rules": [
       "Select only the most visually expressive olfactive elements.",
       "Prioritize elements that communicate the fragrance identity.",
       "Do not visually represent every listed note by default.",
-      "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
+      "Represent warmth and creaminess through color, texture, light and atmosphere without inventing additional ingredients.",
       "Never introduce ingredients that are not supported by the fragrance data.",
-      "The selected visual elements must work coherently across both campaign images."
+      "Use the same selected visual elements coherently across both campaign images."
     ],
     "selected_visual_notes": [
       {
-        "note": "Bayas rojas",
-        "olfactive_role": "Juicy, sweet and luminous fruity opening.",
-        "visual_representation": "Several natural clusters of small red berries, including whole berries, translucent cut berries and a few loose berries with realistic stems and subtle moisture.",
-        "reason": "They communicate the immediate sweetness, vitality and distinctive fruity signature without requiring oversized fruit.",
-        "editorial_use": "Abundant low foreground and midground clusters framing the bottle, with a few cut berries adding tactile gloss and controlled crimson accents.",
-        "surreal_use": "A controlled stream of suspended berries and tiny droplets crossing the depth of the scene, integrated into the atmospheric movement without forming an artificial geometric ring."
+        "note": "Pistacho",
+        "olfactive_role": "The distinctive creamy, nutty heart and signature identity of the fragrance.",
+        "visual_representation": "Natural pistachios in their pale shells and a restrained number of freshly opened kernels, with matte, finely textured surfaces and muted sage-green interiors.",
+        "reason": "Pistachio is the defining ingredient and gives the gourmand story its recognizable, elegant character.",
+        "editorial_use": "Arrange several realistic pistachios and kernels in a compact, layered group near the bottle base, with a few naturally scattered pieces in the foreground.",
+        "surreal_use": "Place a modest cluster of pistachios at varied depths around the bottle; a few individual kernels may be suspended nearby, never forming a geometric ring or covering the label."
       },
       {
-        "note": "Azahar",
-        "olfactive_role": "Luminous floral bridge and subtle orange-blossom identity.",
-        "visual_representation": "Small clusters of delicate white orange blossoms with green leaves and fine natural stems, accompanied by restrained warm citrus light.",
-        "reason": "It gives visual meaning to the perfume name and adds freshness while remaining physically delicate in relation to the bottle.",
-        "editorial_use": "Several natural blossom clusters in the midground and background, softly overlapping with foliage but never covering the bottle or label.",
-        "surreal_use": "Small blossom clusters and a few detached petals suspended in a warm, softly circulating air current around the bottle, with plausible separation and depth."
+        "note": "avellana.",
+        "olfactive_role": "A warm, toasted nut nuance that adds depth and a refined roasted counterpoint.",
+        "visual_representation": "Whole hazelnuts and a few naturally cracked shells revealing warm ivory kernels, with believable brown skins and delicate crumbs.",
+        "reason": "Hazelnut complements the pistachio and brings tactile contrast and toasted warmth without introducing a new olfactive note.",
+        "editorial_use": "Build a smaller supporting cluster beside and slightly behind the pistachios, using whole and cracked nuts for natural variation.",
+        "surreal_use": "Integrate a few whole and cracked hazelnuts into the midground at realistic scale, with slight depth separation and no artificial orbit around the bottle."
       },
       {
-        "note": "Rosa",
-        "olfactive_role": "Elegant, feminine and velvety floral heart.",
-        "visual_representation": "Natural pale blush and dusty pink rose heads, partially open roses and a few petals with realistic folds and imperfections.",
-        "reason": "Rose provides the campaign’s primary feminine elegance and a tactile velvety texture that supports the powdery character.",
-        "editorial_use": "One principal rose cluster placed beside and slightly behind the bottle, supported by several smaller heads and petals across the midground.",
-        "surreal_use": "A few rose petals drifting slowly through the environment while intact roses remain structurally grounded in distant botanical clusters, preserving natural solid-object behavior."
+        "note": "Crema batida",
+        "olfactive_role": "The soft, airy and creamy sweetness of the opening.",
+        "visual_representation": "A small, physically plausible fold of whipped cream on a shallow warm-ivory ceramic surface, with delicate ridges and soft highlights rather than exaggerated sculptural peaks.",
+        "reason": "Cream communicates the fragrance's smooth gourmand texture and softens the nutty ingredients.",
+        "editorial_use": "Use a restrained but clearly visible cream portion low in the still-life arrangement, separated from the bottle and balanced by open negative space for typography.",
+        "surreal_use": "Show a few delicate cream droplets and a short suspended ribbon in the midground, with realistic viscosity and controlled motion; keep the bottle unobstructed."
       },
       {
-        "note": "Violeta",
-        "olfactive_role": "Powdery, soft and distinctive floral signature.",
-        "visual_representation": "Small violet flowers in restrained purple tones, delicate green stems and a fine veil of violet-tinted powdery haze.",
-        "reason": "Violet is essential to the perfume’s recognizable empolvado personality and introduces a refined cool counterpoint to the red fruit and blush rose.",
-        "editorial_use": "Moderate grouped violet stems placed near the bottle base and in the background, with powdery matte texture rather than excessive color saturation.",
-        "surreal_use": "A subtle violet powder mist and a few naturally suspended violet blossoms create the central atmospheric current without obscuring the bottle."
+        "note": "malvavisco",
+        "olfactive_role": "A pillowy confectionery sweetness supporting the creamy opening.",
+        "visual_representation": "Several small, softly powdered ivory marshmallows with lightly irregular edges and realistic matte surfaces.",
+        "reason": "Marshmallow adds a clear confectionery cue and tactile softness while remaining visually distinct from the cream.",
+        "editorial_use": "Group a few marshmallows as a secondary element near the cream, with partial overlap and one or two pieces in the foreground.",
+        "surreal_use": "Suspend a small number of marshmallows at staggered depths, with subtle rotation and natural spacing; avoid a halo or overly playful arrangement."
       },
       {
-        "note": "Bergamota",
-        "olfactive_role": "Bright citrus lift and freshness in the opening.",
-        "visual_representation": "Several small realistic bergamot fruits, pale green-yellow rind fragments and fine glossy zest details, kept smaller than the bottle and naturally grouped.",
-        "reason": "Bergamot adds a luminous citrus facet that balances the sweet berries and powdery florals, while its rind offers a useful tactile material.",
-        "editorial_use": "A restrained cluster in the foreground or side of the surface, with one cut fruit and scattered zest providing controlled luminosity.",
-        "surreal_use": "A few thin zest curls and fine citrus droplets moving through the air current, while whole bergamots remain in a distant environmental cluster."
+        "note": "Ron.",
+        "olfactive_role": "A warm, mellow and gently boozy base that gives the sweetness depth.",
+        "visual_representation": "A thin, amber-gold liquid sheen in a small clear glass dish, with subtle reflections and a few believable suspended droplets.",
+        "reason": "The amber liquid suggests the warm licorice-like rum finish and anchors the cream-and-nut palette without adding unrelated props.",
+        "editorial_use": "Place the shallow dish behind or beside the ingredient grouping, allowing a restrained amber reflection on the surface without competing with the bottle.",
+        "surreal_use": "Use a narrow, controlled amber liquid stream and a few droplets flowing through the background plane, spatially behind the bottle and clearly separated from its silhouette."
       }
     ]
   },
   "shared_visual_identity": {
-    "concept": "El corazón empolvado de un jardín de naranjo: una corriente luminosa de bayas rojas, azahar, rosa y violeta envuelta en una atmósfera de polvo aterciopelado.",
+    "concept": "A refined pistachio-and-cream confectionery world warmed by a subtle amber rum glow: indulgent, tactile and polished rather than sugary or whimsical.",
     "mood": [
-      "elegante",
-      "femenino",
-      "empolvado",
-      "luminoso",
-      "aterciopelado",
-      "sofisticado",
-      "delicado"
+      "creamy",
+      "warm",
+      "sensual",
+      "indulgent",
+      "elegant",
+      "playfully sophisticated"
     ],
-    "emotional_goal": "Convey distinctive feminine elegance, soft sensuality and an unexpected balance between juicy red fruit and refined powdery florals.",
+    "emotional_goal": "Make the fragrance feel irresistibly smooth and comforting, with a confident, premium gourmand character.",
     "palette": [
-      "dusty rose pink",
-      "deep raspberry red",
-      "soft violet",
-      "ivory white",
-      "bergamot pale green-yellow",
-      "warm champagne gold",
-      "muted sage green",
-      "soft mauve shadow"
+      "soft pistachio sage",
+      "warm ivory",
+      "toasted hazelnut brown",
+      "subtle amber gold",
+      "muted champagne highlights"
     ],
     "key_materials": [
-      "realistic perfume glass",
-      "gold cap and label details from the reference bottle",
-      "velvety rose petals",
-      "delicate violet flowers",
-      "white orange blossoms",
-      "translucent red berries",
-      "bergamot rind",
-      "fine cosmetic-like powder haze",
-      "matte stone or lacquered surface"
+      "realistic perfume glass and reference-preserved cap",
+      "matte pistachio shells and kernels",
+      "natural hazelnut skins and cracked shells",
+      "softly ridged whipped cream",
+      "powdered ivory marshmallow",
+      "clear glass and amber liquid",
+      "warm ivory stone or ceramic"
     ],
-    "environmental_identity": "A refined botanical atelier or intimate sunlit conservatory suggested through soft citrus-filtered light, powdery air, muted floral shadows and layered natural materials.",
+    "environmental_identity": "An intimate luxury patisserie-inspired studio world, expressed through restrained confectionery textures, warm stone, clear glass and soft amber light, without introducing ingredients beyond the listed notes.",
     "visual_anchor_elements": [
-      "fully visible reference bottle",
-      "clusters of red berries",
-      "dusty pink roses",
-      "small violet flowers",
-      "white orange blossoms",
-      "subtle bergamot citrus accents",
-      "soft violet powder haze"
+      "the fully visible perfume bottle",
+      "a grounded cluster of pistachios and hazelnuts",
+      "soft ivory cream and marshmallow textures",
+      "a restrained amber rum-like liquid accent"
     ]
   },
   "editorial_still_life": {
     "role": "Primary hero image",
-    "concept": "Un bodegón editorial de alta perfumería en un atelier botánico luminoso, donde la botella permanece vertical sobre una superficie real y estable, rodeada por agrupaciones abundantes pero ordenadas de bayas rojas, rosas, violetas, azahar y bergamota.",
+    "concept": "A richly layered yet refined gourmand still life: the bottle stands perfectly vertical on warm ivory stone, framed by realistic pistachio and hazelnut clusters, a modest fold of whipped cream, a few marshmallows and a subtle amber liquid accent.",
     "visual_language": [
       "premium editorial product photography",
       "realistic luxury still life",
@@ -187,82 +174,76 @@
       "surface_required": true
     },
     "environment": {
-      "type": "botanical atelier with a matte mineral surface",
-      "description": "A warm ivory-stone tabletop with subtle powdery texture, a softly graduated wall behind it and diffused daylight passing through an unseen citrus garden. The bottle stands completely vertical at the center-right or central visual axis, stable and unobstructed. Ingredient richness concentrates in low foreground and midground groupings, while the upper and lateral background retains generous negative space for Spanish typography.",
+      "type": "Warm luxury studio still life",
+      "description": "A tactile warm-ivory stone tabletop meets a softly graduated pistachio-sage and champagne-toned studio backdrop. The bottle is fully vertical and stable on the tabletop, with visible contact shadow. Ingredients gather around its base and in adjacent zones without touching or obscuring the bottle.",
       "background_rule": "The environment may be a studio wall, architectural setting, elegant interior, natural landscape, stone setting or other appropriate environment depending on the fragrance."
     },
     "visual_elements": [
-      "fully visible exact reference bottle standing vertically",
-      "abundant but realistic red berry clusters in foreground and midground",
-      "one or two naturally grouped dusty pink rose arrangements",
-      "several small violet flower clusters",
-      "delicate white azahar clusters with green stems",
-      "a restrained bergamot cluster with one cut fruit and natural zest",
-      "subtle violet powder resting on the surface and suspended in the backlight",
-      "soft botanical shadows and muted sage foliage"
+      "One fully visible reference-accurate perfume bottle, upright and physically supported on the stone surface",
+      "Several pistachios, both whole and naturally opened, grouped in a compact cluster",
+      "A smaller supporting cluster of whole and cracked hazelnuts",
+      "A small, clearly visible fold of whipped cream on a shallow warm-ivory ceramic piece",
+      "A few softly powdered ivory marshmallows, grouped naturally near the cream",
+      "A small clear glass dish containing a restrained amber liquid sheen",
+      "Fine natural nut crumbs and subtle surface texture, kept within the still-life zone"
     ],
     "composition": {
-      "style": "rich layered premium still life",
-      "element_density": "medium",
-      "negative_space": "Generous clean space in the upper-left or upper-right quadrant for Spanish typography, with no text crossing the bottle or key ingredients.",
-      "depth": "Clear foreground, midground and background: close berries and zest softly defocused, the bottle and principal floral group in sharp focus, distant azahar and violet clusters fading into the wall.",
-      "bottle_priority": "Highest; the bottle is the only product, fully visible, vertically stable, sharply rendered and visually separated from every ingredient."
+      "style": "Rich layered premium still life with an original asymmetrical arrangement tailored to the nutty, creamy fragrance identity.",
+      "element_density": "Moderate variety of element types with generous quantities and natural groupings of the selected ingredients; materially abundant but not cluttered.",
+      "negative_space": "Generous, clean negative space in the upper-left portion for Spanish typography, with additional breathing room around the bottle silhouette.",
+      "depth": "Clear foreground nut details and a softly cropped marshmallow, a sharp midground bottle and ingredient groupings, and a softly graduated studio background.",
+      "bottle_priority": "Highest; the bottle is the sharpest, most legible and most visually prominent object, entirely unobstructed."
     },
     "materials": [
-      "warm ivory limestone",
-      "fine matte cosmetic powder",
-      "realistic glass and gold cap",
-      "velvety rose petals",
-      "delicate violet petals",
-      "white orange blossoms",
-      "moist red berries",
-      "bergamot rind",
-      "natural green stems"
+      "warm ivory stone with fine natural grain",
+      "matte pistachio shells and kernels",
+      "textured hazelnut skins and delicate cracked shells",
+      "soft ridged whipped cream",
+      "powdered marshmallow surfaces",
+      "clear glass dish with amber liquid",
+      "reference-accurate perfume glass, cap, label and materials"
     ],
     "palette": [
+      "soft pistachio sage",
       "warm ivory",
-      "dusty blush",
-      "raspberry red",
-      "soft violet",
-      "pale bergamot yellow-green",
-      "muted sage",
-      "champagne gold"
+      "toasted hazelnut brown",
+      "subtle amber gold",
+      "muted champagne highlights"
     ],
     "lighting": {
-      "style": "premium commercial photography with soft botanical daylight",
-      "direction": "Large diffused light from upper left, with a gentle warm rim on the bottle and controlled fill from the front.",
-      "contrast": "Moderate-low overall contrast with precise highlights on glass, berries and citrus rind; soft mauve shadows preserve the powdery mood.",
-      "quality": "naturalistic and controlled"
+      "style": "Premium commercial studio photography with soft, sculptural highlights on glass and food textures.",
+      "direction": "Large diffused key light from upper left, with a restrained warm rim light from rear right to define the bottle and amber details.",
+      "contrast": "Moderate, with legible label and natural shadow separation; avoid harsh glare and blown highlights.",
+      "quality": "Naturalistic and controlled, with soft contact shadows and realistic reflections."
     },
     "typography": {
       "enabled": true,
       "language": "Spanish",
       "elements": [
-        "CORAZÓN DE NARANJO (GEI)",
-        "Elegancia empolvada y diferente",
-        "Una armonía de bayas rojas, rosa y violeta",
-        "NOTAS DE SALIDA",
-        "NOTAS DE CORAZÓN",
-        "NOTAS DE FONDO"
+        "Pistachella Princess (KYP)",
+        "Dulzura cremosa, carácter irresistible",
+        "Gourmand femenino de pistacho, avellana y ron",
+        "NOTAS DE SALIDA: crema batida, malvavisco y algodón de azúcar",
+        "NOTAS DE CORAZÓN: pistacho y avellana",
+        "NOTAS DE FONDO: ron"
       ],
       "style": {
-        "primary": "elegant editorial serif",
-        "secondary": "refined minimalist sans-serif",
-        "tracking": "generous",
-        "hierarchy": "clear and sophisticated"
+        "primary": "Elegant editorial serif",
+        "secondary": "Refined minimalist sans-serif",
+        "tracking": "Generous",
+        "hierarchy": "Clear and sophisticated, with the perfume name prominent and supporting copy discreet."
       },
       "rules": [
         "Typography must never cover the perfume bottle.",
-        "Text must remain legible.",
-        "Text must integrate naturally with the composition.",
-        "Do not overload the image with text.",
-        "Place typography only in the intentionally preserved negative space."
+        "Keep all text legible against the background.",
+        "Integrate typography naturally into the reserved negative space.",
+        "Do not overload the image with text."
       ]
     }
   },
   "immersive_surreal": {
     "role": "Dynamic conceptual companion image",
-    "concept": "La botella suspendida dentro de una corriente aérea de polvo violeta y luz de azahar, atravesada por bayas rojas, pétalos y destellos cítricos en un jardín atmosférico físicamente coherente.",
+    "concept": "The bottle is held in a suspended, gently swirling current of creamy light and amber warmth, within a spatially layered pistachio-and-hazelnut confectionery atmosphere. The surrealism comes from controlled suspension and depth, not oversized ingredients.",
     "visual_language": [
       "cinematic product photography",
       "dynamic surrealism",
@@ -276,18 +257,17 @@
       "suspended": true
     },
     "environment": {
-      "type": "immersive suspended botanical atmosphere",
-      "description": "A dimensional twilight-to-dawn botanical space built from a shallow mineral plane in the lower background, soft violet haze, distant orange-blossom branches and warm filtered light. The bottle floats near the visual centre on the primary compositional axis, fully visible and clearly separated, with the cap subtly displaced left and the base subtly displaced right at a fixed 8-degree tilt. Foreground berries, petals and bergamot zest pass close to the lens; the main flowers occupy the midground; hazy azahar and violet foliage create a continuous background extending to the image edges."
+      "type": "Immersive warm gourmand studio environment",
+      "description": "A dimensional setting built from softly contoured warm-ivory stone planes, diffused pistachio-sage shadows and a restrained amber glow. The bottle floats near the visual centre and primary compositional axis, fully visible and isolated from overlapping ingredients. Its cap and top lean slightly left and its base slightly right, at a fixed, elegant 8-degree tilt. Foreground, midground and background remain physically coherent."
     },
     "visual_elements": [
-      "one exact reference bottle, fully visible and tilted 8 degrees with cap left and base right",
-      "foreground red berries close to camera with realistic partial cropping and shallow blur",
-      "midground clusters of dusty pink roses and violet flowers",
-      "small suspended white azahar blossoms with natural stems",
-      "a restrained distant bergamot cluster and a few physically plausible citrus droplets",
-      "fine violet powder and translucent atmospheric haze flowing around, never across, the bottle",
-      "soft mineral fragments and botanical shadows in the lower environment",
-      "warm champagne light interacting with the glass and suspended particles"
+      "One fully visible, reference-accurate perfume bottle near the image centre, tilted 8 degrees with cap/top to the left and base to the right",
+      "A natural midground cluster of realistically scaled pistachios and hazelnuts positioned beside and behind the bottle",
+      "A few opened pistachios and cracked hazelnuts at varying depths, with some foreground pieces partially softened by depth of field",
+      "A controlled, narrow ribbon of whipped cream and a few small droplets moving behind the bottle",
+      "Several softly powdered marshmallows suspended at separate depths with subtle, physically plausible rotation",
+      "A slender amber liquid stream and a few droplets traveling through the background plane",
+      "Warm-ivory stone forms and soft atmospheric haze that extend naturally to the frame edges"
     ],
     "movement": {
       "enabled": true,
@@ -299,38 +279,33 @@
       "intensity": "controlled"
     },
     "composition": {
-      "style": "dynamic asymmetrical composition with a central suspended hero and directional atmospheric flow",
-      "element_density": "medium-rich, layered but not cluttered",
-      "depth": "Strong foreground, midground and background separation with medium-shallow focus; close berries and petals partially blurred, bottle sharply focused, distant blossoms softened by haze.",
-      "bottle_priority": "Highest; the single bottle remains the dominant central focal point, completely recognizable, unobstructed and separated from all moving elements.",
-      "negative_space": "Controlled atmospheric breathing room around the bottle, with no large empty voids and no ingredient crossing the cap, label or silhouette."
+      "style": "Dynamic asymmetrical composition built around a near-centred tilted bottle and a coherent flowing field of cream and amber light.",
+      "element_density": "Medium-rich, with the main ingredient group concentrated in the midground and selective foreground details creating immersion without clutter.",
+      "depth": "Strong foreground, midground and background separation: a few close, partly cropped nut details; bottle and grouped ingredients in the midground; dimensional stone planes and amber haze behind.",
+      "bottle_priority": "Highest; the bottle remains fully visible, sharply focused, clearly separated and dominant, with no ingredient crossing its cap, label or silhouette.",
+      "negative_space": "Controlled rather than empty; maintain a clear buffer around the bottle while allowing the atmospheric setting and ingredients to carry through the edges."
     },
     "materials": [
-      "realistic glass and gold cap",
-      "moist red berries",
-      "velvety rose petals",
-      "delicate violet flowers",
-      "white orange blossoms",
-      "bergamot rind and citrus droplets",
-      "fine violet powder",
-      "translucent haze",
-      "matte mineral fragments"
+      "realistic perfume glass and reference-preserved cap and label",
+      "matte pistachio shells and finely textured kernels",
+      "natural hazelnut skins and cracked shells",
+      "viscous whipped cream with believable folds and droplets",
+      "powdered marshmallow surfaces",
+      "translucent amber liquid",
+      "warm ivory stone and subtle volumetric haze"
     ],
     "palette": [
-      "deep raspberry",
-      "dusty rose",
-      "soft violet",
+      "soft pistachio sage",
       "warm ivory",
-      "pale citrus yellow-green",
-      "muted sage",
-      "champagne gold",
-      "plum shadow"
+      "toasted hazelnut brown",
+      "subtle amber gold",
+      "muted champagne highlights"
     ],
     "lighting": {
-      "style": "cinematic commercial lighting with luminous botanical atmosphere",
-      "direction": "Warm directional key light from upper left and behind, cool violet fill from lower right, with a restrained rim defining the bottle silhouette.",
-      "contrast": "Moderate dramatic contrast with controlled highlights on glass and berries, deep but open violet shadows and no crushed detail.",
-      "quality": "dramatic but photorealistic"
+      "style": "Cinematic commercial lighting grounded in photorealistic materials and spatial reflections.",
+      "direction": "Soft directional key from upper left, with a warm rear-right rim and restrained amber illumination through the liquid.",
+      "contrast": "Moderate-high atmospheric contrast while preserving clear bottle edges, readable label and natural ingredient color.",
+      "quality": "Dramatic but photorealistic, with believable shadows, glass reflections and delicate haze."
     },
     "typography": {
       "enabled": false
@@ -351,7 +326,7 @@
       "realistic shadows",
       "realistic reflections",
       "realistic glass",
-      "realistic botanical textures",
+      "realistic botanical and ingredient textures",
       "realistic physical proportions",
       "realistic atmospheric effects",
       "no illustration",
@@ -373,7 +348,17 @@
     "no giant fruits",
     "no giant flowers",
     "no unrealistic ingredient proportions",
-    "no ingredient clutter"
+    "no ingredient clutter",
+    "no added ingredients unsupported by fragrance notes",
+    "no text in the surreal image",
+    "no tilt in the editorial bottle",
+    "no reversed surreal bottle tilt",
+    "no ingredients obscuring the bottle cap or label",
+    "no cartoon",
+    "no illustration",
+    "no obvious CGI",
+    "no flat catalog photography",
+    "no generic stock photography"
   ],
   "style_references": {
     "lifestyle": {
