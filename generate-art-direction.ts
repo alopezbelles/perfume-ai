@@ -3,7 +3,8 @@ import fs from "node:fs";
 import OpenAI from "openai";
 import { applyCampaignRules, validateArtDirection } from "./src/art-direction-rules.ts";
 import { getBottleReference } from "./src/product-data.ts";
-import type { ArtDirection, CampaignRules, JsonObject, ProductData } from "./src/types.ts";
+import { validateArtDirectionData, validateCampaignRules, validateProductData } from "./src/validation.ts";
+import type { ArtDirection, JsonObject } from "./src/types.ts";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -13,7 +14,7 @@ const client = new OpenAI({
 // ARCHIVOS
 // ----------------------------------------
 
-const product = JSON.parse(fs.readFileSync("./data/product.json", "utf-8")) as ProductData;
+const product = validateProductData(JSON.parse(fs.readFileSync("./data/product.json", "utf-8")) as unknown);
 
 const schema = JSON.parse(
   fs.readFileSync("./config/art-direction-schema.json", "utf-8"),
@@ -23,9 +24,9 @@ const outputSchema = JSON.parse(
   fs.readFileSync("./config/art-direction-output-schema.json", "utf-8"),
 ) as JsonObject;
 
-const campaignRules = JSON.parse(
-  fs.readFileSync("./config/campaign-rules.json", "utf-8"),
-) as CampaignRules;
+const campaignRules = validateCampaignRules(
+  JSON.parse(fs.readFileSync("./config/campaign-rules.json", "utf-8")) as unknown,
+);
 
 // ----------------------------------------
 // GENERACIÓN
@@ -249,9 +250,10 @@ el esquema de salida.
   let artDirection: ArtDirection;
 
   try {
-    artDirection = JSON.parse(response.output_text) as ArtDirection;
+    artDirection = validateArtDirectionData(JSON.parse(response.output_text) as unknown);
   } catch (error) {
     console.error("❌ Luna no ha devuelto un JSON válido.");
+    console.error(error instanceof Error ? error.message : String(error));
     console.error(response.output_text);
     process.exit(1);
   }
@@ -281,6 +283,8 @@ el esquema de salida.
       reference_path: "references/styles/surreal-reference.png",
     },
   };
+
+  validateArtDirectionData(artDirection);
 
   // ----------------------------------------
   // VALIDAR

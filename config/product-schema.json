@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "pattern": "^https?://\\S+$" },
+    "description": { "type": "string" },
+    "notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "top": { "type": "array", "items": { "type": "string" } },
+        "heart": { "type": "array", "items": { "type": "string" } },
+        "base": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["top", "heart", "base"]
+    },
+    "gender": { "type": "string", "enum": ["male", "female", "unknown"] },
+    "bottle_reference": { "type": ["string", "null"] }
+  },
+  "required": ["name", "url", "description", "notes", "gender", "bottle_reference"]
+}

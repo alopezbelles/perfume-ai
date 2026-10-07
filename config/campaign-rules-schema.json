@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "campaign": {
+      "type": "object",
+      "properties": {
+        "image_count": { "type": "integer", "minimum": 1 },
+        "visual_relationship": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "required": ["image_count", "visual_relationship"]
+    },
+    "format": {
+      "type": "object",
+      "properties": {
+        "orientation": { "type": "string", "minLength": 1 },
+        "aspect_ratio": { "type": "string", "minLength": 1 },
+        "size": { "type": "string", "minLength": 1 }
+      },
+      "required": ["orientation", "aspect_ratio", "size"]
+    },
+    "hero_product": {
+      "type": "object",
+      "properties": {
+        "role": { "type": "string" },
+        "visibility": { "type": "string" },
+        "must_not_be_covered": { "type": "boolean" },
+        "must_not_be_distorted": { "type": "boolean" },
+        "must_not_be_duplicated": { "type": "boolean" },
+        "preserve": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["role", "visibility", "must_not_be_covered", "must_not_be_distorted", "must_not_be_duplicated", "preserve"]
+    },
+    "physical_scale": {
+      "type": "object",
+      "properties": {
+        "bottle_height_cm": { "type": "number", "exclusiveMinimum": 0 },
+        "bottle_width_cm": { "type": "number", "exclusiveMinimum": 0 },
+        "bottle_depth_cm": { "type": "number", "exclusiveMinimum": 0 },
+        "rule": { "type": "string", "minLength": 1 },
+        "proportions": { "type": "string", "minLength": 1 },
+        "abundance_must_not_use": { "type": "string", "minLength": 1 }
+      },
+      "required": ["bottle_height_cm", "bottle_width_cm", "bottle_depth_cm", "rule", "proportions", "abundance_must_not_use"]
+    },
+    "editorial_still_life": {
+      "type": "object",
+      "properties": { "rules": { "type": "array", "minItems": 1, "items": { "type": "string" } } },
+      "required": ["rules"]
+    },
+    "immersive_surreal": {
+      "type": "object",
+      "properties": {
+        "rules": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "allowed_movement_types": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "required": ["rules", "allowed_movement_types"]
+    },
+    "camera": {
+      "type": "object",
+      "properties": {
+        "lens": { "type": "string", "minLength": 1 },
+        "depth_of_field": { "type": "string", "minLength": 1 },
+        "focus": { "type": "string", "minLength": 1 }
+      },
+      "required": ["lens", "depth_of_field", "focus"]
+    },
+    "photorealism": {
+      "type": "object",
+      "properties": {
+        "level": { "type": "string", "minLength": 1 },
+        "requirements": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "required": ["level", "requirements"]
+    },
+    "negative_constraints": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  },
+  "required": ["campaign", "format", "hero_product", "physical_scale", "editorial_still_life", "immersive_surreal", "camera", "photorealism", "negative_constraints"]
+}

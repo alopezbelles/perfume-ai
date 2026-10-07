@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { detectGender, extractNotes, getBottleReference } from "./src/product-data.ts";
-import type { ProductData } from "./src/types.ts";
+import { validateProductData } from "./src/validation.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -89,14 +89,14 @@ async function scrape(url: string) {
     // 6. CREAR OBJETO FINAL
     // --------------------------------
 
-    const product: ProductData = {
+    const product = validateProductData({
       name,
       url,
       description,
       notes,
       gender,
       bottle_reference,
-    };
+    });
 
     // --------------------------------
     // 7. GUARDAR JSON

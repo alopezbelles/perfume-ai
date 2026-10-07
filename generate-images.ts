@@ -4,7 +4,8 @@ import path from "node:path";
 import "dotenv/config";
 import { sanitizeFilename } from "./src/filename.ts";
 import { getImageGenerationPrompt } from "./src/image-prompt.ts";
-import type { ArtDirection, CampaignRules, ImageReferenceType, PromptDocument } from "./src/types.ts";
+import { validateArtDirectionData, validateCampaignRules, validatePromptDocument } from "./src/validation.ts";
+import type { ArtDirection, ImageReferenceType } from "./src/types.ts";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -23,7 +24,7 @@ const LIFESTYLE_REFERENCE = "./references/styles/lifestyle-reference.png";
 const SURREAL_REFERENCE = "./references/styles/surreal-reference.png";
 
 // 5:4 exacto
-const campaignRules = loadJSON<CampaignRules>(CAMPAIGN_RULES_PATH);
+const campaignRules = validateCampaignRules(loadJSON<unknown>(CAMPAIGN_RULES_PATH));
 
 const SIZE = campaignRules.format.size;
 
@@ -198,9 +199,9 @@ async function main() {
   // LOAD DATA
   // ------------------------------------------------
 
-  const artDirection = loadJSON<ArtDirection>(ART_DIRECTION_PATH);
+  const artDirection = validateArtDirectionData(loadJSON<unknown>(ART_DIRECTION_PATH));
 
-  const prompts = loadJSON<PromptDocument>(PROMPTS_PATH);
+  const prompts = validatePromptDocument(loadJSON<unknown>(PROMPTS_PATH));
 
   // ------------------------------------------------
   // PERFUME

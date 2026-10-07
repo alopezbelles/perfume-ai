@@ -232,6 +232,22 @@ images.immersive_surreal.prompt
 
 The editorial and surreal concepts remain distinct.
 
+### Runtime JSON validation
+
+Ajv validates JSON at pipeline boundaries. The scraper validates the product
+record before saving it; art-direction generation validates the product and
+campaign rules before calling OpenAI, then validates the returned and completed
+art direction before saving it. Prompt generation validates its inputs and the
+new prompt document before writing it. Image generation validates all JSON it
+loads before using it.
+
+The schemas for product data, campaign rules and prompts live in
+`config/product-schema.json`, `config/campaign-rules-schema.json` and
+`config/prompts-schema.json`. Art direction uses
+`config/art-direction-output-schema.json`; the runtime validator also accepts
+the `style_references` field that the application adds after the model returns
+its response. Validation errors identify the JSON path and the expected rule.
+
 ### `generate-images.ts`
 
 Final image-generation stage.
@@ -816,6 +832,9 @@ project/
 +-- config/
 |   +-- art-direction-schema.json
 |   +-- art-direction-output-schema.json
+|   +-- campaign-rules-schema.json
+|   +-- product-schema.json
+|   +-- prompts-schema.json
 |
 +-- data/
 |   +-- product.json
@@ -841,6 +860,7 @@ project/
 |   +-- prompt-builders.ts
 |   +-- product-data.ts
 |   +-- types.ts
+|   +-- validation.ts
 |
 +-- test/
 |   +-- art-direction-rules.test.ts

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { buildEditorialPrompt, buildSurrealPrompt } from "./src/prompt-builders.ts";
-import type { ArtDirection, CampaignRules, PromptDocument } from "./src/types.ts";
+import { validateArtDirectionData, validateCampaignRules, validatePromptDocument } from "./src/validation.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -24,20 +24,20 @@ const CAMPAIGN_RULES_PATH = path.join(
   "campaign-rules.json"
 );
 
-const campaignRules = JSON.parse(
+const campaignRules = validateCampaignRules(JSON.parse(
   fs.readFileSync(CAMPAIGN_RULES_PATH, "utf8"),
-) as CampaignRules;
+) as unknown);
 
 function generatePrompts() {
   if (!fs.existsSync(ART_DIRECTION_PATH)) {
     throw new Error(`No existe: ${ART_DIRECTION_PATH}`);
   }
 
-  const artDirection = JSON.parse(
+  const artDirection = validateArtDirectionData(JSON.parse(
     fs.readFileSync(ART_DIRECTION_PATH, "utf8")
-  ) as ArtDirection;
+  ) as unknown);
 
-  const prompts: PromptDocument = {
+  const prompts = validatePromptDocument({
     perfume: {
       name: artDirection.fragrance_data.name,
       gender: artDirection.fragrance_data.gender,
@@ -51,7 +51,7 @@ function generatePrompts() {
         prompt: buildSurrealPrompt(artDirection, campaignRules),
       },
     },
-  };
+  });
 
   fs.writeFileSync(
     OUTPUT_PATH,
