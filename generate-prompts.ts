@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { buildEditorialPrompt, buildSurrealPrompt } from "./src/prompt-builders.ts";
+import type { ArtDirection, CampaignRules, PromptDocument } from "./src/types.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -23,137 +25,8 @@ const CAMPAIGN_RULES_PATH = path.join(
 );
 
 const campaignRules = JSON.parse(
-  fs.readFileSync(CAMPAIGN_RULES_PATH, "utf8")
-);
-
-type ImageType = "editorial_still_life" | "immersive_surreal";
-type JsonRecord = Record<string, any>;
-
-function buildFixedRulesPrompt(imageType: ImageType): string {
-  const rules = campaignRules[imageType].rules;
-
-  return `
-FIXED CAMPAIGN RULES:
-${rules.map((rule: string) => `- ${rule}`).join("\n")}
-
-CAMPAIGN CONTINUITY:
-Both images must share: ${campaignRules.campaign.visual_relationship.join(", ")}.
-
-PHYSICAL SCALE:
-${campaignRules.physical_scale.rule}
-Bottle dimensions: ${campaignRules.physical_scale.bottle_height_cm} cm high x ${campaignRules.physical_scale.bottle_width_cm} cm wide x ${campaignRules.physical_scale.bottle_depth_cm} cm deep.
-${campaignRules.physical_scale.proportions}
-${campaignRules.physical_scale.abundance_must_not_use}
-
-CAMERA:
-${campaignRules.camera.lens} lens, ${campaignRules.camera.depth_of_field} depth of field, focus on ${campaignRules.camera.focus}, ${campaignRules.format.orientation} composition, ${campaignRules.format.aspect_ratio} aspect ratio.
-
-PHOTOREALISM:
-${campaignRules.photorealism.level} photorealism. ${campaignRules.photorealism.requirements.join(", ")}.
-
-DO NOT INCLUDE:
-${campaignRules.negative_constraints.join(", ")}.
-`.trim();
-}
-
-function buildProductRulesPrompt() {
-  const product = campaignRules.hero_product;
-
-  return `
-PRODUCT RULES:
-The perfume bottle is the ${product.role} and must remain ${product.visibility}.
-Preserve: ${product.preserve.join(", ")}.
-Must not be covered: ${product.must_not_be_covered}.
-Must not be distorted: ${product.must_not_be_distorted}.
-Must not be duplicated: ${product.must_not_be_duplicated}.
-`.trim();
-}
-
-export function buildEditorialPrompt(artDirection: JsonRecord): string {
-  const { fragrance_data, hero_product, shared_visual_identity, editorial_still_life } = artDirection;
-
-  return `
-Create a premium editorial perfume campaign photograph for "${fragrance_data.name}".
-
-MAIN PRODUCT:
-Use the exact perfume bottle from the reference image:
-${hero_product.bottle_reference}
-
-${buildProductRulesPrompt()}
-
-SCENE:
-${editorial_still_life.concept}
-
-ENVIRONMENT:
-${editorial_still_life.environment.description}
-
-VISUAL ELEMENTS:
-${editorial_still_life.visual_elements.join(", ")}
-
-VISUAL IDENTITY:
-${shared_visual_identity.concept}
-
-MOOD:
-${shared_visual_identity.mood.join(", ")}
-
-PALETTE:
-${editorial_still_life.palette.join(", ")}
-
-MATERIALS:
-${editorial_still_life.materials.join(", ")}
-
-LIGHTING:
-${editorial_still_life.lighting.direction}.
-Contrast: ${editorial_still_life.lighting.contrast}.
-
-TYPOGRAPHY:
-Use the following campaign-specific information in the negative space:
-"${editorial_still_life.typography.elements.join(" | ")}"
-
-${buildFixedRulesPrompt("editorial_still_life")}
-`.trim();
-}
-
-export function buildSurrealPrompt(artDirection: JsonRecord): string {
-  const { fragrance_data, hero_product, shared_visual_identity, immersive_surreal } = artDirection;
-
-  return `
-Create a premium cinematic surreal perfume campaign photograph for "${fragrance_data.name}".
-
-MAIN PRODUCT:
-Use the exact perfume bottle from the reference image:
-${hero_product.bottle_reference}
-
-${buildProductRulesPrompt()}
-
-SCENE:
-${immersive_surreal.concept}
-
-ENVIRONMENT:
-${immersive_surreal.environment.description}
-
-VISUAL ELEMENTS:
-${immersive_surreal.visual_elements.join(", ")}
-
-VISUAL IDENTITY:
-${shared_visual_identity.concept}
-
-MOOD:
-${shared_visual_identity.mood.join(", ")}
-
-PALETTE:
-${immersive_surreal.palette.join(", ")}
-
-MATERIALS:
-${immersive_surreal.materials.join(", ")}
-
-LIGHTING:
-${immersive_surreal.lighting.direction}.
-Contrast: ${immersive_surreal.lighting.contrast}.
-
-${buildFixedRulesPrompt("immersive_surreal")}
-`.trim();
-}
+  fs.readFileSync(CAMPAIGN_RULES_PATH, "utf8"),
+) as CampaignRules;
 
 function generatePrompts() {
   if (!fs.existsSync(ART_DIRECTION_PATH)) {
@@ -162,9 +35,9 @@ function generatePrompts() {
 
   const artDirection = JSON.parse(
     fs.readFileSync(ART_DIRECTION_PATH, "utf8")
-  );
+  ) as ArtDirection;
 
-  const prompts = {
+  const prompts: PromptDocument = {
     perfume: {
       name: artDirection.fragrance_data.name,
       gender: artDirection.fragrance_data.gender,
@@ -172,10 +45,10 @@ function generatePrompts() {
     },
     images: {
       editorial_still_life: {
-        prompt: buildEditorialPrompt(artDirection),
+        prompt: buildEditorialPrompt(artDirection, campaignRules),
       },
       immersive_surreal: {
-        prompt: buildSurrealPrompt(artDirection),
+        prompt: buildSurrealPrompt(artDirection, campaignRules),
       },
     },
   };

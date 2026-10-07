@@ -1,10 +1,6 @@
-export type Gender = "male" | "female" | "unknown";
+import type { Gender, ProductNotes } from "./types.ts";
 
-export type ProductNotes = {
-  top: string[];
-  heart: string[];
-  base: string[];
-};
+export type { Gender, ProductNotes } from "./types.ts";
 
 export function splitNotes(value: string): string[] {
   return value

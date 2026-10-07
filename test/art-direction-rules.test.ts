@@ -3,11 +3,11 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { applyCampaignRules, validateArtDirection } from "../src/art-direction-rules.ts";
+import type { ArtDirection, CampaignRules } from "../src/types.ts";
 
-const campaignRules = JSON.parse(readFileSync(path.resolve("config/campaign-rules.json"), "utf8"));
-type JsonRecord = Record<string, any>;
+const campaignRules = JSON.parse(readFileSync(path.resolve("config/campaign-rules.json"), "utf8")) as CampaignRules;
 
-function validArtDirection(): JsonRecord {
+function validArtDirection(): ArtDirection {
   return {
     campaign: {},
     format: {},
@@ -23,7 +23,7 @@ function validArtDirection(): JsonRecord {
       movement: { types: [] as string[] },
     },
     camera: {},
-  };
+  } as ArtDirection;
 }
 
 test("applyCampaignRules copies fixed campaign values into art direction", () => {

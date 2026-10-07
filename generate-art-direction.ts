@@ -3,6 +3,7 @@ import fs from "node:fs";
 import OpenAI from "openai";
 import { applyCampaignRules, validateArtDirection } from "./src/art-direction-rules.ts";
 import { getBottleReference } from "./src/product-data.ts";
+import type { ArtDirection, CampaignRules, JsonObject, ProductData } from "./src/types.ts";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -12,19 +13,19 @@ const client = new OpenAI({
 // ARCHIVOS
 // ----------------------------------------
 
-const product = JSON.parse(fs.readFileSync("./data/product.json", "utf-8"));
+const product = JSON.parse(fs.readFileSync("./data/product.json", "utf-8")) as ProductData;
 
 const schema = JSON.parse(
   fs.readFileSync("./config/art-direction-schema.json", "utf-8"),
-);
+) as JsonObject;
 
 const outputSchema = JSON.parse(
   fs.readFileSync("./config/art-direction-output-schema.json", "utf-8"),
-);
+) as JsonObject;
 
 const campaignRules = JSON.parse(
   fs.readFileSync("./config/campaign-rules.json", "utf-8"),
-);
+) as CampaignRules;
 
 // ----------------------------------------
 // GENERACIÓN
@@ -245,10 +246,10 @@ el esquema de salida.
   // PARSEAR RESPUESTA
   // ----------------------------------------
 
-  let artDirection;
+  let artDirection: ArtDirection;
 
   try {
-    artDirection = JSON.parse(response.output_text);
+    artDirection = JSON.parse(response.output_text) as ArtDirection;
   } catch (error) {
     console.error("❌ Luna no ha devuelto un JSON válido.");
     console.error(response.output_text);

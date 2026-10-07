@@ -743,6 +743,12 @@ Reusable deterministic logic lives in `src/` so it can be tested without
 running the command-line scripts. Tests live in `test/` and use Node's built-in
 test runner through `tsx`.
 
+Shared TypeScript contracts live in `src/types.ts`. Prompt construction is
+split into `src/prompt-builders.ts` for art-direction prompts and
+`src/image-prompt.ts` for image-generation instructions. The command-line
+scripts load and save files, call external services and use these reusable
+modules for deterministic logic.
+
 ------------------------------------------------------------------------
 
 ## 14. Git Workflow
@@ -831,7 +837,10 @@ project/
 +-- src/
 |   +-- art-direction-rules.ts
 |   +-- filename.ts
+|   +-- image-prompt.ts
+|   +-- prompt-builders.ts
 |   +-- product-data.ts
+|   +-- types.ts
 |
 +-- test/
 |   +-- art-direction-rules.test.ts

@@ -1,9 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildEditorialPrompt, buildSurrealPrompt } from "../generate-prompts.ts";
+import { readFileSync } from "node:fs";
+import { buildEditorialPrompt, buildSurrealPrompt } from "../src/prompt-builders.ts";
+import type { CampaignRules, PromptSourceArtDirection } from "../src/types.ts";
 
-const artDirection = {
-  fragrance_data: { name: "Perfume de prueba", gender: "female" },
+const campaignRules = JSON.parse(readFileSync("config/campaign-rules.json", "utf8")) as CampaignRules;
+
+const artDirection: PromptSourceArtDirection = {
+  fragrance_data: { name: "Perfume de prueba" },
   hero_product: { bottle_reference: "references/bottles/female/bottle-gold-cap.png" },
   shared_visual_identity: { concept: "Botanical light", mood: ["calm", "fresh"] },
   editorial_still_life: {
@@ -26,7 +30,7 @@ const artDirection = {
 };
 
 test("editorial prompt includes perfume identity and campaign constraints", () => {
-  const prompt = buildEditorialPrompt(artDirection);
+  const prompt = buildEditorialPrompt(artDirection, campaignRules);
 
   assert.ok(prompt.includes(artDirection.fragrance_data.name));
   assert.ok(prompt.includes("FIXED CAMPAIGN RULES"));
@@ -34,7 +38,7 @@ test("editorial prompt includes perfume identity and campaign constraints", () =
 });
 
 test("surreal prompt includes perfume identity and campaign constraints", () => {
-  const prompt = buildSurrealPrompt(artDirection);
+  const prompt = buildSurrealPrompt(artDirection, campaignRules);
 
   assert.ok(prompt.includes(artDirection.fragrance_data.name));
   assert.ok(prompt.includes("FIXED CAMPAIGN RULES"));

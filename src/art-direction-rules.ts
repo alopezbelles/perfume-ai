@@ -1,6 +1,6 @@
-type JsonRecord = Record<string, any>;
+import type { ArtDirection, CampaignRules } from "./types.ts";
 
-export function applyCampaignRules(data: JsonRecord, campaignRules: JsonRecord): void {
+export function applyCampaignRules(data: ArtDirection, campaignRules: CampaignRules): void {
   data.campaign.image_count = campaignRules.campaign.image_count;
   data.format = {
     orientation: campaignRules.format.orientation,
@@ -24,7 +24,7 @@ export function applyCampaignRules(data: JsonRecord, campaignRules: JsonRecord):
   };
 }
 
-export function validateArtDirection(data: JsonRecord, campaignRules: JsonRecord): true {
+export function validateArtDirection(data: ArtDirection, campaignRules: CampaignRules): true {
   if (!data) throw new Error("La dirección artística está vacía.");
 
   if (data.campaign?.image_count !== campaignRules.campaign.image_count) {
