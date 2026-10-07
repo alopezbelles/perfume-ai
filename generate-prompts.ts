@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -69,7 +69,7 @@ Must not be duplicated: ${product.must_not_be_duplicated}.
 `.trim();
 }
 
-function buildEditorialPrompt(artDirection: JsonRecord): string {
+export function buildEditorialPrompt(artDirection: JsonRecord): string {
   const { fragrance_data, hero_product, shared_visual_identity, editorial_still_life } = artDirection;
 
   return `
@@ -114,7 +114,7 @@ ${buildFixedRulesPrompt("editorial_still_life")}
 `.trim();
 }
 
-function buildSurrealPrompt(artDirection: JsonRecord): string {
+export function buildSurrealPrompt(artDirection: JsonRecord): string {
   const { fragrance_data, hero_product, shared_visual_identity, immersive_surreal } = artDirection;
 
   return `
@@ -190,4 +190,7 @@ function generatePrompts() {
   console.log(`📄 Guardados en: ${OUTPUT_PATH}`);
 }
 
-generatePrompts();
+const entryPath = process.argv[1];
+if (entryPath && import.meta.url === pathToFileURL(path.resolve(entryPath)).href) {
+  generatePrompts();
+}

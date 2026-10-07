@@ -1,122 +1,16 @@
 import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { detectGender, extractNotes, getBottleReference } from "./src/product-data.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-type Gender = "male" | "female" | "unknown";
-type ProductNotes = { top: string[]; heart: string[]; base: string[] };
-
-// --------------------------------
-// URL
-// --------------------------------
-
-const url = process.argv[2];
-
-if (!url) {
-  console.error("❌ Debes proporcionar la URL de un perfume.");
-  console.error("Ejemplo:");
-  console.error(
-    "npm run scrape -- https://perfumarte.com/products/agua-de-vetiver-yly"
-  );
-  process.exit(1);
-}
-
-// --------------------------------
-// UTILIDADES
-// --------------------------------
-
-function splitNotes(value: string): string[] {
-  return value
-    .split(",")
-    .map((note) => note.trim())
-    .filter(Boolean);
-}
-
-function extractNotes(text: string): ProductNotes {
-  const lines = text
-    .replace(/\r/g, "")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  const notes: ProductNotes = {
-    top: [],
-    heart: [],
-    base: [],
-  };
-
-  for (const line of lines) {
-    let match = line.match(/^Notas de salida:\s*(.+)$/i);
-
-    if (match) {
-      notes.top = splitNotes(match[1]);
-      continue;
-    }
-
-    match = line.match(/^Notas de corazón:\s*(.+)$/i);
-
-    if (match) {
-      notes.heart = splitNotes(match[1]);
-      continue;
-    }
-
-    match = line.match(/^Notas de fondo:\s*(.+)$/i);
-
-    if (match) {
-      notes.base = splitNotes(match[1]);
-    }
-  }
-
-  return notes;
-}
-
-// --------------------------------
-// GÉNERO
-// --------------------------------
-
-function detectGender(description: string): Gender {
-  const text = description.toLowerCase();
-
-  if (
-    text.includes("masculino") ||
-    text.includes("hombre")
-  ) {
-    return "male";
-  }
-
-  if (
-    text.includes("femenino") ||
-    text.includes("mujer")
-  ) {
-    return "female";
-  }
-
-  return "unknown";
-}
-
-// --------------------------------
-// REFERENCIA DE BOTELLA
-// --------------------------------
-
-function getBottleReference(gender: Gender): string | null {
-  if (gender === "male") {
-    return "references/bottles/male/bottle-black-cap.png";
-  }
-
-  if (gender === "female") {
-    return "references/bottles/female/bottle-gold-cap.png";
-  }
-
-  return null;
-}
 
 // --------------------------------
 // SCRAPER
 // --------------------------------
 
-async function scrape() {
+async function scrape(url: string) {
   console.log("🚀 Iniciando scraper...\n");
 
   const browser = await chromium.launch({
@@ -245,4 +139,20 @@ async function scrape() {
   }
 }
 
-scrape();
+async function main() {
+  const url = process.argv[2];
+  if (!url) {
+    console.error("❌ Debes proporcionar la URL de un perfume.");
+    console.error("Ejemplo:");
+    console.error("npm run scrape -- https://perfumarte.com/products/agua-de-vetiver-yly");
+    process.exitCode = 1;
+    return;
+  }
+
+  await scrape(url);
+}
+
+const entryPath = process.argv[1];
+if (entryPath && import.meta.url === pathToFileURL(path.resolve(entryPath)).href) {
+  void main();
+}

@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import fs from "node:fs";
 import path from "node:path";
 import "dotenv/config";
+import { sanitizeFilename } from "./src/filename.ts";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -41,15 +42,6 @@ function ensureDirectory(directory: string): void {
 
 function loadJSON(filePath: string): JsonRecord {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
-
-function sanitizeFilename(name: string): string {
-  return name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-zA-Z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .toLowerCase();
 }
 
 function getBottleReference(artDirection: JsonRecord): string {

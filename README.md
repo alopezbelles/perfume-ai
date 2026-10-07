@@ -725,6 +725,24 @@ This is useful when testing:
 -   Movement.
 -   Ingredient integration.
 
+### Automated checks
+
+Run the unit tests and the TypeScript type check with:
+
+``` bash
+npm test
+npm run typecheck
+```
+
+The unit tests cover note parsing, gender and bottle-reference selection,
+campaign-rule application and validation, prompt construction, and safe
+filenames. They use local fixtures: they do not scrape websites, call OpenAI,
+or generate images.
+
+Reusable deterministic logic lives in `src/` so it can be tested without
+running the command-line scripts. Tests live in `test/` and use Node's built-in
+test runner through `tsx`.
+
 ------------------------------------------------------------------------
 
 ## 14. Git Workflow
@@ -810,11 +828,23 @@ project/
 |       +-- lifestyle-reference.png
 |       +-- surreal-reference.png
 |
++-- src/
+|   +-- art-direction-rules.ts
+|   +-- filename.ts
+|   +-- product-data.ts
+|
++-- test/
+|   +-- art-direction-rules.test.ts
+|   +-- filename.test.ts
+|   +-- product-data.test.ts
+|   +-- prompt-builders.test.ts
+|
 +-- scraper.ts
 +-- generate-art-direction.ts
 +-- generate-prompts.ts
 +-- generate-images.ts
 +-- package.json
++-- tsconfig.json
 +-- .env
 +-- README.md
 ```
