@@ -5,12 +5,13 @@ import { fileURLToPath } from "node:url";
 import OpenAI from "openai";
 import { applyCampaignRules, validateArtDirection } from "./src/art-direction-rules.ts";
 import { getBottleReference } from "./src/product-data.ts";
-import { readRunManifest, relativePathFromRun, requireRunDirectory, runStage } from "./src/pipeline-storage.ts";
+import { hasPipelineFlag, readRunManifest, relativePathFromRun, requireRunDirectory, runStage } from "./src/pipeline-storage.ts";
 import { validateArtDirectionData, validateCampaignRules, validateProductData } from "./src/validation.ts";
 import type { ArtDirection, JsonObject } from "./src/types.ts";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 const runDirectory = requireRunDirectory();
+const force = hasPipelineFlag("--force");
 const productPath = path.join(runDirectory, "product.json");
 const outputPath = path.join(runDirectory, "art-direction.json");
 
@@ -329,7 +330,7 @@ el esquema de salida.
   console.log(`🧴 Botella: ${artDirection.hero_product.bottle_reference}`);
 }
 
-runStage(runDirectory, "art_direction", "art-direction.json", generateArtDirection).catch((error) => {
+runStage(runDirectory, "art_direction", "art-direction.json", generateArtDirection, { force }).catch((error) => {
   console.error("❌ Error:", error instanceof Error ? error.message : String(error));
   process.exit(1);
 });

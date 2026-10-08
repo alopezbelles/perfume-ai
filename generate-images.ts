@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import "dotenv/config";
 import { getImageGenerationPrompt } from "./src/image-prompt.ts";
 import {
+  hasPipelineFlag,
   relativePathFromRun,
   readRunManifest,
   requireRunDirectory,
@@ -25,6 +26,7 @@ import type { ImageReferenceType } from "./src/types.ts";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 const runDirectory = requireRunDirectory();
+const force = hasPipelineFlag("--force");
 const ART_DIRECTION_PATH = path.join(runDirectory, "art-direction.json");
 const PROMPTS_PATH = path.join(runDirectory, "prompts.json");
 const CAMPAIGN_RULES_PATH = path.join(projectRoot, "config/campaign-rules.json");
@@ -308,6 +310,7 @@ async function main() {
         outputPath: editorialOutput,
       });
     },
+    { force },
   );
 
   // ------------------------------------------------
@@ -331,6 +334,7 @@ async function main() {
         outputPath: surrealOutput,
       });
     },
+    { force },
   );
 
   // ------------------------------------------------

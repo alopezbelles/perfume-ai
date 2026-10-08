@@ -162,6 +162,10 @@ export function requireRunDirectory(args = process.argv.slice(2)): string {
   return resolveRunDirectory(value);
 }
 
+export function hasPipelineFlag(flag: string, args = process.argv.slice(2)): boolean {
+  return args.includes(flag);
+}
+
 export function readRunManifest(runDirectory: string): RunManifest {
   const filePath = manifestPath(runDirectory);
   if (!fs.existsSync(filePath)) {
@@ -190,9 +194,32 @@ export async function runStage<T>(
   stageName: PipelineStage,
   output: string,
   operation: () => T | Promise<T>,
-): Promise<T> {
+  options: { force?: boolean } = {},
+): Promise<T | undefined> {
   const manifest = readRunManifest(runDirectory);
   const stage = manifest.stages[stageName];
+
+  const outputPath = path.resolve(runDirectory, output);
+  const relativeOutputPath = path.relative(runDirectory, outputPath);
+  if (relativeOutputPath.startsWith("..") || path.isAbsolute(relativeOutputPath)) {
+    throw new Error(`La salida de la etapa sale de la carpeta de ejecución: ${output}`);
+  }
+
+  const outputExists = fs.existsSync(outputPath)
+    && fs.statSync(outputPath).isFile()
+    && fs.statSync(outputPath).size > 0;
+  if (stage.status === "completed" && outputExists && !options.force) {
+    console.log(`⏭️ Etapa "${stageName}" ya completada; se conserva ${output}. Usa --force para regenerarla.`);
+    return undefined;
+  }
+  if (stage.status === "failed") {
+    console.log(`🔁 Reintentando etapa "${stageName}" que había fallado.`);
+  } else if (stage.status === "running") {
+    console.log(`🔁 Reanudando etapa "${stageName}" que quedó interrumpida.`);
+  } else if (stage.status === "completed" && !outputExists) {
+    console.log(`⚠️ La etapa "${stageName}" figura completada, pero falta su salida; se volverá a ejecutar.`);
+  }
+
   stage.status = "running";
   stage.started_at = now();
   delete stage.completed_at;

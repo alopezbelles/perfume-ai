@@ -723,6 +723,31 @@ data/perfumes/<perfume-id>/runs/<run-id>/
   manifest.json
 ```
 
+### Resuming a failed run
+
+The manifest records the status of each pipeline stage. If a stage fails or
+is interrupted, rerun its command with the same run directory. Failed or
+interrupted stages are retried. A stage already marked as completed is skipped
+when its non-empty output file is still present.
+
+For example, if image generation fails, rerun:
+
+``` bash
+npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>"
+```
+
+Any image already generated successfully is kept; the failed image is retried.
+To deliberately regenerate completed output, pass `--force` after the run
+directory. For image generation this regenerates both campaign images and may
+make new API requests:
+
+``` bash
+npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>" --force
+```
+
+The scraper starts a new run each time. If scraping fails before it creates a
+run directory, retry the scraper command with the product URL.
+
 ------------------------------------------------------------------------
 
 ## 13. Development Workflow

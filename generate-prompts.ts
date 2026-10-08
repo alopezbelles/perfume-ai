@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { buildEditorialPrompt, buildSurrealPrompt } from "./src/prompt-builders.ts";
-import { readRunManifest, requireRunDirectory, runStage } from "./src/pipeline-storage.ts";
+import { hasPipelineFlag, readRunManifest, requireRunDirectory, runStage } from "./src/pipeline-storage.ts";
 import {
   validateArtDirectionData,
   validateCampaignRules,
@@ -12,6 +12,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const runDirectory = requireRunDirectory();
+const force = hasPipelineFlag("--force");
 
 const ART_DIRECTION_PATH = path.join(
   runDirectory,
@@ -87,7 +88,7 @@ function generatePrompts() {
 
 const entryPath = process.argv[1];
 if (entryPath && import.meta.url === pathToFileURL(path.resolve(entryPath)).href) {
-  void runStage(runDirectory, "prompts", "prompts.json", generatePrompts).catch((error) => {
+  void runStage(runDirectory, "prompts", "prompts.json", generatePrompts, { force }).catch((error) => {
     console.error("❌ Error:", error instanceof Error ? error.message : String(error));
     process.exit(1);
   });
