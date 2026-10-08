@@ -1,10 +1,10 @@
 {
   "campaign": {
     "name": "Perfumarte AI Art Direction",
-    "objective": "Generate two visually coherent premium campaign images for Agua de Vetiver (YLY), translating its fresh, aromatic, smoky and sophisticated identity into an editorial still life and an immersive surreal companion image.",
+    "objective": "Generate two visually coherent premium campaign images for Pétalos de Musk (ARW), connecting luminous citrus, delicate white florals, creamy vanilla, refined cedar and soft musk in a sophisticated feminine visual world.",
     "image_count": 2,
     "visual_relationship": {
-      "rule": "Both images must represent the same fragrance concept and olfactive identity.",
+      "rule": "Both images must represent the same fragrance concept and olfactive identity through the same luminous floral-woody atmosphere, core botanical elements, warm ivory-gold palette and tactile premium materials.",
       "editorial_role": "Primary hero image.",
       "surreal_role": "Dynamic conceptual companion image.",
       "consistency": [
@@ -23,7 +23,7 @@
   "hero_product": {
     "type": "perfume_bottle",
     "role": "main protagonist",
-    "bottle_reference": "references/bottles/male/bottle-black-cap.png",
+    "bottle_reference": "references/bottles/female/bottle-gold-cap.png",
     "reference_rule": {
       "use_reference_image": true,
       "preserve_exact_design": true,
@@ -51,27 +51,23 @@
     "artistic_scale_override": "Do not create abundance by artificially enlarging ingredients."
   },
   "fragrance_data": {
-    "name": "Agua de Vetiver (YLY)",
-    "url": "https://perfumarte.com/products/agua-de-vetiver-yly",
-    "gender": "male",
-    "description": "Agua de Vetiver (YLY): un perfume fresco masculino, elegante y con carácter\n\nAgua de Vetiver (YLY) es un perfume fresco masculino creado para hombres soñadores, creativos y decididos. Una fragancia que combina frescura inicial con una base profunda y sensual, reflejando la dualidad del hombre moderno: ligero por fuera, intenso por dentro.\n\nEste perfume fresco masculino destaca por su elegancia natural y su evolución olfativa equilibrada, ideal para quienes buscan una fragancia con personalidad propia.\n\n \n\n \n\n¿A qué huele Agua de Vetiver (YLY)?\n\nAgua de Vetiver (YLY) es un perfume fresco masculino donde el geranio, el incienso y el vetiver crean una fragancia limpia, aromática y con un fondo cálido y sofisticado.\n\nUna salida ligera y fresca\n\nLa fragancia se abre con una sensación fresca y luminosa que transmite energía, libertad y optimismo desde el primer instante.\n\nUn corazón aromático y elegante\n\nEl absoluto de geranio aporta un carácter floral-verde refinado, masculino y moderno que da estructura a la fragancia.\n\nUn fondo intenso, sensual y profundo\n\nEl incienso y el vetiver construyen una base poderosa, ligeramente ahumada y muy elegante que deja una estela duradera y sofisticada.",
+    "name": "Pétalos de Musk (ARW)",
+    "url": "https://perfumarte.com/products/petalos-de-musk-arw",
+    "gender": "female",
+    "description": "Pétalos de Musk (ARW): un perfume floral ligeramente dulce, elegante y femenino\n\nPétalos de Musk (ARW) es un perfume floral ligeramente dulce pensado para mujeres que buscan una fragancia sofisticada, delicada y fácil de llevar. Su composición combina la luminosidad de los cítricos, la elegancia de las flores blancas y la calidez de la vainilla de Madagascar con un refinado fondo amaderado.\n\nEste perfume floral ligeramente dulce destaca por su equilibrio entre frescura, dulzura y elegancia, convirtiéndose en una opción perfecta tanto para el día a día como para ocasiones especiales.\n\n \n\n \n\n¿A qué huele Pétalos de Musk (ARW)?\n\nPétalos de Musk (ARW) es un perfume floral ligeramente dulce donde la bergamota, la flor de naranjo, las flores blancas, la vainilla de Madagascar y el cedro crean una fragancia luminosa, femenina y muy sofisticada.\n\nUna salida fresca, cítrica y luminosa\n\nLa fragancia comienza con la bergamota y la flor de naranjo, aportando una apertura brillante, fresca y elegante que transmite una agradable sensación de limpieza.\n\nUn corazón floral delicado y refinado\n\nEn el desarrollo aparecen las flores blancas, que envuelven la piel con un aroma suave, femenino y lleno de elegancia natural.\n\nUn fondo cálido, avainillado y amaderado\n\nEl secado combina la vainilla de Madagascar con la madera de cedro, creando una base cremosa, ligeramente dulce y elegante que deja una estela duradera y muy confortable.",
     "notes": {
       "top": [
-        "Jengibre",
         "Bergamota",
-        "Manzana"
+        "Flor de naranjo"
       ],
       "heart": [
-        "Bayas de enebro",
-        "Geranio",
-        "Salvia"
+        "Jazmín",
+        "Nardo"
       ],
       "base": [
-        "Ambar",
-        "Cedro",
-        "Haba de tonka",
-        "Incienso",
-        "Vetiver"
+        "Maderas de cedro",
+        "Musk",
+        "Vainilla"
       ]
     }
   },
@@ -82,98 +78,107 @@
       "Prioritize elements that communicate the fragrance identity.",
       "Do not visually represent every note by default.",
       "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
-      "Never introduce ingredients that are not supported by the fragrance data.",
+      "Never introduce ingredients that are not supported by fragrance_data.notes.",
       "The selected visual elements must work coherently across both campaign images."
     ],
     "selected_visual_notes": [
       {
-        "note": "Vetiver",
-        "olfactive_role": "Base note; earthy, dry, green and sophisticated foundation.",
-        "visual_representation": "Natural vetiver roots and slender dried green blades, arranged in compact realistic bundles with a few exposed fibrous roots.",
-        "reason": "The defining signature of the fragrance and its strongest visual link to the name.",
-        "editorial_use": "Main botanical grouping beside and behind the bottle, with roots and blades creating tactile foreground and midground layers.",
-        "surreal_use": "Root fragments and fine grass blades suspended within a controlled current of mist and smoky air, suggesting an underground-to-atmospheric transition."
-      },
-      {
-        "note": "Incienso",
-        "olfactive_role": "Base note; smoky, resinous, warm and spiritual depth.",
-        "visual_representation": "Small amber resin tears, a few natural frankincense pieces and a thin translucent ribbon of pale smoke.",
-        "reason": "Communicates the fragrance's warm, slightly smoky and elegant drydown.",
-        "editorial_use": "Subtle resin cluster on the surface with smoke rising behind the bottle without crossing the label or cap.",
-        "surreal_use": "A physically coherent plume of incense smoke swirls through the environment, carrying a few tiny resin particles while preserving clear separation from the bottle."
-      },
-      {
-        "note": "Geranio",
-        "olfactive_role": "Heart note; floral-green, refined and aromatic structure.",
-        "visual_representation": "Several realistic geranium stems with green leaves and restrained pink-red blossoms, kept botanically proportionate.",
-        "reason": "Explicitly identified as the elegant floral-green heart of the perfume.",
-        "editorial_use": "Secondary grouped botanical mass in the midground, framing one side of the bottle without covering it and adding refined color accents.",
-        "surreal_use": "Geranium stems and leaves emerge naturally from a distant atmospheric plane, with a few detached petals moving gently through the air."
-      },
-      {
         "note": "Bergamota",
-        "olfactive_role": "Top note; luminous, fresh and citrus-bright opening.",
-        "visual_representation": "Several small bergamot fruits, one naturally cut to reveal pale segmented pulp, with restrained zest texture.",
-        "reason": "Adds the immediate fresh, luminous and energetic opening without introducing excessive fruit imagery.",
-        "editorial_use": "Moderate foreground cluster placed low and lateral to the bottle, including whole and cut fruit for material variation.",
-        "surreal_use": "A few realistically sized bergamot halves and peel fragments drift near a cool mist current, with droplets and translucent citrus light suggesting freshness."
+        "olfactive_role": "Bright citrus opening",
+        "visual_representation": "Several realistically sized bergamots, some whole and some freshly cut, with textured green-gold peel and small glossy wedges.",
+        "reason": "Communicates the luminous, fresh and clean opening of the perfume with a strong tactile and chromatic signature.",
+        "editorial_use": "A restrained cluster in the foreground and beside the bottle, with one cut fruit revealing translucent citrus flesh.",
+        "surreal_use": "A few bergamots and suspended citrus droplets move slowly through the atmospheric space, with the fruit remaining physically proportionate and clearly separated from the bottle."
       },
       {
-        "note": "Jengibre",
-        "olfactive_role": "Top note; crisp, spicy and energetic freshness.",
-        "visual_representation": "Several irregular fresh ginger rhizomes, thin slices and a small scattering of moist cut pieces.",
-        "reason": "Provides tactile contrast and a sharp natural energy that complements the citrus opening.",
-        "editorial_use": "Supporting foreground and midground detail, grouped near the bergamot and partially overlapping the vetiver roots.",
-        "surreal_use": "Small ginger fragments remain suspended in a controlled flow near the lower composition, with no artificial geometric arrangement."
+        "note": "Flor de naranjo",
+        "olfactive_role": "Radiant citrus floral bridge",
+        "visual_representation": "Natural clusters of small white orange blossoms with delicate green stems and subtle pollen detail.",
+        "reason": "Connects the sparkling citrus opening to the feminine white-floral heart and introduces the campaign's ivory floral identity.",
+        "editorial_use": "Grouped in the midground behind and to one side of the bottle, never covering the cap, label or silhouette.",
+        "surreal_use": "Small blossom clusters are suspended within a gentle air current, with a few detached petals moving plausibly through the scene."
+      },
+      {
+        "note": "Jazmín",
+        "olfactive_role": "Soft, elegant white-floral heart",
+        "visual_representation": "Multiple small star-shaped jasmine flowers, some open and some partially closed, arranged in natural botanical clusters.",
+        "reason": "Adds refined femininity, delicacy and a tactile petal texture without making the scene visually heavy.",
+        "editorial_use": "A principal floral grouping around the bottle's supporting surface, with overlapping stems creating realistic depth.",
+        "surreal_use": "Jasmine clusters occupy the middle distance around the bottle while a few petals drift through the controlled atmospheric flow."
+      },
+      {
+        "note": "Vainilla",
+        "olfactive_role": "Warm creamy sweetness",
+        "visual_representation": "Several slender Madagascar vanilla pods, some whole and some split lengthwise to reveal dark seeds, with subtle creamy-gold tones.",
+        "reason": "Provides the fragrance's gentle sweetness and warm tactile base while offering a highly recognizable material contrast to the flowers.",
+        "editorial_use": "Placed in a low, elegant cluster on the surface near the bottle, with pods partially overlapping cedar fragments.",
+        "surreal_use": "A small number of vanilla pods float slowly in the midground, integrated into the same warm vapor and light field without forming a rigid geometric pattern."
+      },
+      {
+        "note": "Maderas de cedro",
+        "olfactive_role": "Dry refined woody foundation",
+        "visual_representation": "Small realistic cedar chips, thin shavings and a few compact bark fragments with visible grain and warm beige-brown surfaces.",
+        "reason": "Grounds the floral luminosity with an understated architectural and woody texture, reinforcing sophistication and permanence.",
+        "editorial_use": "Forms the physical base of the still life around the bottle, concentrated in foreground and midground layers without touching or hiding the product.",
+        "surreal_use": "Cedar shavings and a few small fragments appear suspended at different depths, with heavier pieces positioned near a subtle atmospheric current rather than arranged artificially."
+      },
+      {
+        "note": "Musk",
+        "olfactive_role": "Soft clean skin-like diffusion",
+        "visual_representation": "A translucent pearly haze, soft ivory fabric-like vapor and diffused highlights rather than a literal ingredient.",
+        "reason": "Musk is best expressed atmospherically as a clean, enveloping softness that unifies the citrus, florals, vanilla and wood.",
+        "editorial_use": "A barely visible luminous veil in the background and around the negative-space typography zone, never obscuring the bottle.",
+        "surreal_use": "A controlled milky musk mist forms the spatial atmosphere and gently swirls behind and around the suspended bottle, creating depth without flattening the ingredients."
       }
     ]
   },
   "shared_visual_identity": {
-    "concept": "La dualidad de la tierra húmeda y el aire luminoso: una corriente fresca de bergamota y jengibre atraviesa un paisaje táctil de vetiver, geranio e incienso ahumado.",
+    "concept": "Luminous white petals suspended in a warm cedar-and-vanilla atmosphere: a refined passage from sparkling bergamot and orange blossom to soft jasmine, creamy vanilla, dry cedar and clean musk.",
     "mood": [
-      "fresco",
-      "aromático",
-      "masculino",
-      "elegante",
-      "terroso",
-      "cinematográfico",
-      "sofisticado",
-      "ligeramente misterioso"
+      "luminous",
+      "feminine",
+      "delicate",
+      "sophisticated",
+      "warm",
+      "serene",
+      "tactile"
     ],
-    "emotional_goal": "Transmitir la dualidad de un hombre moderno: ligero, creativo y luminoso en la superficie, pero intenso, decidido y profundamente sofisticado en su interior.",
+    "emotional_goal": "Communicate effortless elegance, intimate comfort and a softly radiant femininity that feels fresh in the opening and warmly enveloping in the drydown.",
     "palette": [
-      "verde vetiver apagado",
-      "verde salvia oscuro",
-      "gris piedra húmeda",
-      "ámbar resinoso",
-      "rosa geranio desaturado",
-      "amarillo cítrico pálido",
-      "negro carbón",
-      "marfil humo"
+      "soft ivory",
+      "warm cream",
+      "pale champagne gold",
+      "bergamot green",
+      "muted citrus gold",
+      "cedar beige",
+      "light honey",
+      "translucent pearl"
     ],
     "key_materials": [
-      "vidrio de la botella",
-      "piedra oscura húmeda",
-      "raíces fibrosas de vetiver",
-      "hojas de geranio",
-      "resina de incienso",
-      "piel rugosa de bergamota",
-      "jengibre fresco cortado",
-      "humo translúcido"
+      "clear glass",
+      "fresh citrus peel",
+      "delicate white petals",
+      "green stems",
+      "split vanilla pods",
+      "cedar shavings",
+      "pale stone",
+      "translucent musk haze",
+      "brushed warm gold"
     ],
-    "environmental_identity": "Un entorno mineral y botánico de piedra húmeda, vegetación aromática, aire fresco y humo fino, construido como una transición entre un estudio editorial naturalista y un espacio atmosférico suspendido.",
+    "environmental_identity": "A refined botanical studio atmosphere with a pale mineral surface, warm ivory background and softly diffused light, evolving into an immersive suspended floral-woody airspace in the surreal image.",
     "visual_anchor_elements": [
-      "botella negra con diseño exacto de referencia",
-      "raíces y hojas de vetiver",
-      "humo fino de incienso",
-      "geranio verde con flores discretas",
-      "bergamota cortada",
-      "jengibre fresco"
+      "white orange blossoms",
+      "jasmine clusters",
+      "cut bergamot",
+      "slender vanilla pods",
+      "cedar shavings",
+      "pearly musk haze",
+      "warm gold highlights"
     ]
   },
   "editorial_still_life": {
     "role": "Primary hero image",
-    "concept": "El refugio mineral del vetiver: la botella vertical y estable sobre una losa de piedra oscura húmeda, rodeada por una abundancia controlada de raíces, cítricos, geranio, jengibre y resina ahumada.",
+    "concept": "A luminous premium still life in which the upright bottle rests on a pale mineral surface surrounded by abundant but controlled clusters of citrus, white blossoms, vanilla and cedar, expressing the fragrance's elegant transition from freshness to warmth.",
     "visual_language": [
       "premium editorial product photography",
       "realistic luxury still life",
@@ -187,65 +192,64 @@
       "surface_required": true
     },
     "environment": {
-      "type": "naturalistic dark mineral studio setting",
-      "description": "Una superficie horizontal de piedra volcánica gris carbón, ligeramente húmeda y con reflejos controlados. El fondo sugiere una pared mineral oscura con una transición suave hacia verde grisáceo, sin convertirse en un paisaje literal. La botella se apoya en el plano medio, completamente vertical, estable y plenamente visible.",
-      "background_rule": "The environment may be a studio wall, architectural setting, elegant interior, natural landscape, stone setting or other appropriate environment depending on the fragrance."
+      "type": "refined botanical studio still life",
+      "description": "The bottle stands completely vertical and stable on a low pale travertine or matte limestone slab. A softly graduated ivory studio wall creates an elegant setting. The foreground contains realistic citrus peel, a few cut bergamots and cedar shavings; the midground holds the bottle and principal white-flower groupings; the background carries delicate stems and a restrained pearly musk haze.",
+      "background_rule": "Use a softly graduated ivory-to-warm-cream background with subtle tonal depth, keeping generous clean negative space for Spanish typography while preserving a rich, tactile lower composition."
     },
     "visual_elements": [
-      "botella de Agua de Vetiver (YLY) completamente visible y vertical",
-      "agrupaciones naturales de raíces y hojas de vetiver",
-      "varias bergamotas enteras y una cortada",
-      "jengibre fresco entero y en rodajas",
-      "grupo moderado de geranio con hojas y flores discretas",
-      "pequeños fragmentos de resina de incienso",
-      "hilo de humo fino detrás de la botella",
-      "piedra húmeda con pequeñas acumulaciones de agua",
-      "sombras suaves y reflejos naturales"
+      "one fully visible reference bottle standing upright on the stone surface",
+      "several naturally sized whole and cut bergamots",
+      "clusters of white orange blossoms with green stems",
+      "grouped jasmine flowers in varied blooming states",
+      "several whole and split Madagascar vanilla pods",
+      "small cedar chips, bark fragments and fine shavings",
+      "a restrained translucent pearly musk haze in the background",
+      "subtle warm-gold reflected light"
     ],
     "composition": {
-      "style": "rich layered premium still life",
-      "element_density": "medium",
-      "negative_space": "Generous negative space in the upper-left and far-right background for Spanish typography, while ingredient richness remains concentrated around the lower and lateral still-life zone.",
-      "depth": "Clear foreground, midground and background: blurred bergamot peel and ginger detail in foreground; bottle and principal ingredient group in midground; geranium, vetiver silhouettes, smoke and mineral wall in background.",
-      "bottle_priority": "The bottle is the highest visual priority, centered slightly off-axis, sharply focused, fully unobstructed and visually separated from every ingredient."
+      "style": "rich layered premium still life with an asymmetrical botanical grouping",
+      "element_density": "medium, materially abundant but controlled",
+      "negative_space": "generous upper-left and lateral negative space reserved for Spanish typography, with no text overlapping the bottle",
+      "depth": "clear foreground, midground and background layering with medium-shallow separation",
+      "bottle_priority": "highest; the bottle is the sharpest, most legible and most vertically dominant element"
     },
     "materials": [
-      "dark wet volcanic stone",
-      "transparent glass",
-      "natural vetiver roots",
-      "green geranium leaves",
-      "pink-red geranium petals",
-      "rough bergamot peel",
-      "fresh ginger rhizome",
-      "amber incense resin",
-      "thin translucent smoke"
+      "pale travertine or matte limestone",
+      "clear glass",
+      "fresh citrus peel",
+      "white flower petals",
+      "green stems",
+      "vanilla pods",
+      "cedar wood",
+      "soft translucent haze",
+      "warm brushed-gold reflections"
     ],
     "palette": [
-      "charcoal black",
-      "wet slate gray",
-      "deep vetiver green",
-      "muted sage",
-      "pale bergamot yellow",
-      "restrained geranium pink-red",
-      "warm amber",
-      "smoke ivory"
+      "soft ivory",
+      "warm cream",
+      "pale champagne gold",
+      "bergamot green",
+      "muted citrus yellow",
+      "cedar beige",
+      "light honey",
+      "translucent pearl"
     ],
     "lighting": {
       "style": "premium commercial photography",
-      "direction": "Soft directional light from upper left with a controlled cool fill from the right and a restrained warm rim on the incense resin.",
-      "contrast": "Medium-high contrast with protected label detail, deep but readable shadows and precise glass highlights.",
+      "direction": "large diffused key light from upper left with a gentle warm rim from the right",
+      "contrast": "low to medium contrast with precise bottle highlights and softly defined botanical shadows",
       "quality": "naturalistic and controlled"
     },
     "typography": {
       "enabled": true,
       "language": "Spanish",
       "elements": [
-        "Agua de Vetiver (YLY)",
-        "Frescura que revela profundidad",
-        "Perfume fresco masculino",
-        "NOTAS DE SALIDA · Jengibre, Bergamota",
-        "NOTAS DE CORAZÓN · Geranio",
-        "NOTAS DE FONDO · Incienso, Vetiver"
+        "PÉTALOS DE MUSK (ARW)",
+        "Floral, delicado y luminoso",
+        "Una estela suave de flores blancas, vainilla y cedro",
+        "NOTAS DE SALIDA: Bergamota · Flor de naranjo",
+        "NOTAS DE CORAZÓN: Jazmín · Nardo",
+        "NOTAS DE FONDO: Maderas de cedro · Musk · Vainilla"
       ],
       "style": {
         "primary": "elegant editorial serif",
@@ -254,16 +258,17 @@
         "hierarchy": "clear and sophisticated"
       },
       "rules": [
-        "Typography must never cover the perfume bottle.",
-        "Text must remain legible.",
-        "Text must integrate naturally with the composition.",
-        "Do not overload the image with text."
+        "Typography must remain in the designated negative space and must never cover the perfume bottle.",
+        "Use Spanish language only.",
+        "Keep the text concise, refined and highly legible.",
+        "Do not place typography over high-detail flowers, citrus or the bottle label.",
+        "Maintain a premium editorial hierarchy with the perfume name as the dominant text element."
       ]
     }
   },
   "immersive_surreal": {
     "role": "Dynamic conceptual companion image",
-    "concept": "Una corriente invisible de aire fresco atraviesa un estrato de tierra, raíces y humo: la botella suspendida cerca del centro se convierte en el núcleo estable de una atmósfera olfativa en movimiento.",
+    "concept": "A suspended floral-woody current carries the perfume through a luminous pearly atmosphere: the bottle floats near the visual centre while bergamot, white blossoms, jasmine, vanilla and cedar occupy distinct physical depths within a gentle musk-infused air movement.",
     "visual_language": [
       "cinematic product photography",
       "dynamic surrealism",
@@ -277,19 +282,18 @@
       "suspended": true
     },
     "environment": {
-      "type": "suspended mineral-botanical atmospheric space",
-      "description": "Un espacio tridimensional construido con una base de piedra húmeda desenfocada en primer plano, una corriente de niebla fría y vetiver alrededor del plano medio, y un fondo profundo de verdes oscuros, humo de incienso y destellos de luz cítrica. La botella flota cerca del centro y del eje principal, completamente separada y visible, con una inclinación fija de aproximadamente 8 grados: el tapón ligeramente desplazado hacia la izquierda y la base hacia la derecha."
+      "type": "immersive suspended botanical atmosphere",
+      "description": "The bottle floats near the centre on the main compositional axis, fully visible and separated from surrounding elements, with the cap subtly displaced to the left and the base to the right at a fixed 5-12 degree tilt. A pale mineral fragment and softly blurred botanical material occupy the foreground; the principal flowers, citrus and vanilla inhabit the midground; a deep ivory-gold musk haze and cedar-textured background create atmospheric depth. The scene extends naturally to all image edges without becoming an empty landscape."
     },
     "visual_elements": [
-      "botella suspendida y dominante con inclinación lateral fija de 8 grados hacia la izquierda en la parte superior",
-      "raíces de vetiver y hojas en diferentes distancias de cámara",
-      "humo fino y físicamente coherente de incienso",
-      "resina de incienso suspendida cerca de la corriente de humo",
-      "bergamota cortada y fragmentos de piel cítrica",
-      "pequeños fragmentos de jengibre y rodajas finas",
-      "ramas y hojas de geranio integradas en un plano posterior",
-      "piedra húmeda y gotas desenfocadas en primer plano",
-      "niebla mineral azul verdosa atravesada por luz cálida"
+      "one fully visible reference bottle suspended near the visual centre",
+      "foreground bergamot peel and partial cut citrus forms close to the lens, softly out of focus",
+      "midground clusters of orange blossom and jasmine at realistic scale",
+      "a few suspended whole and split vanilla pods",
+      "small cedar shavings and compact bark fragments at varied depths",
+      "subtle detached white petals moving through the air",
+      "pearly musk haze with warm ivory and champagne light",
+      "distant soft botanical silhouettes and mineral textures"
     ],
     "movement": {
       "enabled": true,
@@ -301,38 +305,37 @@
       "intensity": "controlled"
     },
     "composition": {
-      "style": "dynamic asymmetrical composition",
-      "element_density": "medium_rich",
-      "depth": "Strong foreground, midground and background separation: large partially cropped blurred vetiver roots, stone and droplets close to camera; the bottle and main botanical current in the midground; smoke, geranium and mineral atmosphere receding into the background.",
-      "bottle_priority": "The bottle remains the dominant focal point, sharply focused, fully visible, recognizable and clearly separated from all surrounding elements.",
-      "negative_space": "Controlled atmospheric separation around the bottle, with denser material activity toward the lower foreground and lateral background rather than empty uniform space."
+      "style": "dynamic asymmetrical immersive composition with a clear central product axis",
+      "element_density": "medium-rich, spatially layered without clutter",
+      "depth": "strong foreground, midground and background separation using realistic scale and medium-shallow focus",
+      "bottle_priority": "highest; the suspended bottle is the dominant sharp focal point and remains completely recognizable",
+      "negative_space": "controlled atmospheric breathing room around the bottle, with no typography and no visual obstruction of the cap, label or silhouette"
     },
     "materials": [
       "realistic glass",
-      "wet stone",
-      "fibrous vetiver roots",
-      "geranium leaves and petals",
-      "bergamot peel and translucent pulp",
-      "fresh ginger",
-      "frankincense resin",
-      "volumetric smoke",
-      "cool mineral mist",
-      "airborne water droplets"
+      "fresh citrus peel and juice droplets",
+      "white flower petals",
+      "green botanical stems",
+      "split vanilla pods",
+      "cedar wood shavings",
+      "pale mineral dust",
+      "translucent musk mist",
+      "warm champagne light"
     ],
     "palette": [
-      "deep charcoal",
-      "blue-green vetiver",
-      "cool slate",
-      "muted sage",
-      "pale citrus gold",
-      "warm amber",
-      "smoke gray",
-      "restrained geranium red"
+      "soft ivory",
+      "pearly white",
+      "warm cream",
+      "pale champagne gold",
+      "bergamot green",
+      "muted citrus gold",
+      "cedar beige",
+      "deepened honey shadows"
     ],
     "lighting": {
       "style": "cinematic commercial lighting",
-      "direction": "Cool directional backlight from upper right combined with a soft warm side light from lower left, creating controlled rim highlights on glass, citrus and resin.",
-      "contrast": "Dramatic medium-high contrast with luminous atmospheric separation and preserved detail in the bottle label and cap.",
+      "direction": "soft frontal key light with a warm upper-right rim and subtle backlight diffusing through the musk haze",
+      "contrast": "medium controlled contrast, with luminous bottle edges, realistic glass reflections and grounded atmospheric shadows",
       "quality": "dramatic but photorealistic"
     },
     "typography": {
@@ -376,7 +379,18 @@
     "no giant fruits",
     "no giant flowers",
     "no unrealistic ingredient proportions",
-    "no ingredient clutter"
+    "no ingredient clutter",
+    "no cartoon",
+    "no illustration",
+    "no obvious CGI",
+    "no flat catalog photography",
+    "no generic stock photography",
+    "no typography in the immersive surreal image",
+    "no surreal bottle inversion or mirrored orientation",
+    "no alternating bottle tilt",
+    "no artificial geometric floral arches, rings or crowns",
+    "no ingredients behaving like stickers",
+    "no unstable or falling bottle"
   ],
   "style_references": {
     "lifestyle": {
