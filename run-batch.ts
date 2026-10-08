@@ -3,20 +3,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { safePipelineUrlHint, sanitizePipelineError } from "./src/pipeline-storage.ts";
+import {
+  parseUrlList,
+  runBatch,
+  type BatchEvent,
+  type BatchExecutionResult,
+  type BatchScript,
+} from "./src/batch-pipeline.ts";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
-const RUN_DIRECTORY_MARKER = "RUN_DIRECTORY=";
-
-interface ChildResult {
-  exitCode: number;
-  stdout: string;
-}
-
-interface BatchFailure {
-  urlHint: string;
-  stage: string;
-  runDirectory?: string;
-}
 
 function loadUrls(args: string[]): string[] {
   if (args.length === 0) {
@@ -37,10 +32,7 @@ function loadUrls(args: string[]): string[] {
       throw new Error("No se pudo leer el archivo indicado para la lista de URL.");
     }
 
-    const urls = contents
-      .split(/\r?\n/)
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0 && !line.startsWith("#"));
+    const urls = parseUrlList(contents);
     if (urls.length === 0) {
       throw new Error("El archivo no contiene ninguna URL.");
     }
@@ -53,17 +45,7 @@ function loadUrls(args: string[]): string[] {
   return args;
 }
 
-function isHttpUrl(value: string): boolean {
-  try {
-    const parsed = new URL(value);
-    return (parsed.protocol === "http:" || parsed.protocol === "https:")
-      && parsed.hostname.length > 0;
-  } catch {
-    return false;
-  }
-}
-
-function runTypeScript(scriptName: string, args: string[] = []): Promise<ChildResult> {
+function runTypeScript(scriptName: BatchScript, args: string[] = []): Promise<BatchExecutionResult> {
   return new Promise((resolve, reject) => {
     const child = spawn(
       process.execPath,
@@ -84,61 +66,6 @@ function runTypeScript(scriptName: string, args: string[] = []): Promise<ChildRe
   });
 }
 
-function findRunDirectory(stdout: string): string | undefined {
-  const markerLine = stdout
-    .split(/\r?\n/)
-    .find((line) => line.startsWith(RUN_DIRECTORY_MARKER));
-  return markerLine?.slice(RUN_DIRECTORY_MARKER.length).trim();
-}
-
-async function processPerfumeUrl(url: string, index: number, total: number): Promise<BatchFailure | undefined> {
-  const urlHint = safePipelineUrlHint(url);
-  console.log(`\n[batch] START ${index}/${total} url="${urlHint}"`);
-
-  if (!isHttpUrl(url)) {
-    const failure = { urlHint, stage: "input_validation" };
-    console.error(`[batch] ERROR url="${urlHint}" stage="${failure.stage}": solo se admiten URL HTTP o HTTPS.`);
-    return failure;
-  }
-
-  let stage = "scrape";
-  let runDirectory: string | undefined;
-  try {
-    const scrape = await runTypeScript("scraper.ts", [url]);
-    if (scrape.exitCode !== 0) {
-      console.error(`[batch] ERROR url="${urlHint}" stage="${stage}" exit=${scrape.exitCode}`);
-      return { urlHint, stage };
-    }
-
-    runDirectory = findRunDirectory(scrape.stdout);
-    if (!runDirectory) {
-      console.error(`[batch] ERROR url="${urlHint}" stage="${stage}": el scraper no indicó la carpeta de ejecución.`);
-      return { urlHint, stage };
-    }
-
-    const stages = [
-      { name: "art_direction", script: "generate-art-direction.ts" },
-      { name: "prompts", script: "generate-prompts.ts" },
-      { name: "image_generation", script: "generate-images.ts" },
-    ];
-
-    for (const nextStage of stages) {
-      stage = nextStage.name;
-      const result = await runTypeScript(nextStage.script, [runDirectory]);
-      if (result.exitCode !== 0) {
-        console.error(`[batch] ERROR url="${urlHint}" run="${runDirectory}" stage="${stage}" exit=${result.exitCode}`);
-        return { urlHint, stage, runDirectory };
-      }
-    }
-
-    console.log(`[batch] OK url="${urlHint}" run="${runDirectory}"`);
-    return undefined;
-  } catch (error) {
-    console.error(`[batch] ERROR url="${urlHint}" run="${runDirectory ?? "sin-ejecución"}" stage="${stage}": ${sanitizePipelineError(error)}`);
-    return { urlHint, stage, runDirectory };
-  }
-}
-
 async function main(): Promise<void> {
   let urls: string[];
   try {
@@ -149,18 +76,26 @@ async function main(): Promise<void> {
     return;
   }
 
-  const failures: BatchFailure[] = [];
-  for (let index = 0; index < urls.length; index += 1) {
-    const failure = await processPerfumeUrl(urls[index], index + 1, urls.length);
-    if (failure) failures.push(failure);
-  }
+  const summary = await runBatch(urls, runTypeScript, safePipelineUrlHint, (event: BatchEvent) => {
+    if (event.type === "start") {
+      console.log(`[batch] START ${event.index}/${event.total} url="${event.urlHint}"`);
+      return;
+    }
 
-  const succeeded = urls.length - failures.length;
-  console.log(`\n[batch] SUMMARY total=${urls.length} succeeded=${succeeded} failed=${failures.length}`);
-  for (const failure of failures) {
-    console.error(`[batch] FAILED url="${failure.urlHint}" stage="${failure.stage}"${failure.runDirectory ? ` run="${failure.runDirectory}"` : ""}`);
-  }
-  if (failures.length > 0) process.exitCode = 1;
+    if (event.type === "success") {
+      console.log(`[batch] OK url="${event.success.urlHint}" run="${event.success.runDirectory}"`);
+      return;
+    }
+
+    const { failure } = event;
+    const run = failure.runDirectory ? ` run="${failure.runDirectory}"` : "";
+    const exit = failure.exitCode === undefined ? "" : ` exit=${failure.exitCode}`;
+    const reason = failure.reason ? ` reason="${sanitizePipelineError(failure.reason)}"` : "";
+    console.error(`[batch] ERROR item=${failure.index}/${failure.total} url="${failure.urlHint}" stage="${failure.stage}"${run}${exit}${reason}`);
+  });
+
+  console.log(`\n[batch] SUMMARY total=${summary.total} succeeded=${summary.successes.length} failed=${summary.failures.length}`);
+  if (summary.failures.length > 0) process.exitCode = 1;
 }
 
 const entryPath = process.argv[1];

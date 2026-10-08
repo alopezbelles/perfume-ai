@@ -823,9 +823,9 @@ npm run typecheck
 ```
 
 The unit tests cover note parsing, gender and bottle-reference selection,
-campaign-rule application and validation, prompt construction, and safe
-filenames. They use local fixtures: they do not scrape websites, call OpenAI,
-or generate images.
+campaign-rule application and validation, prompt construction, safe filenames,
+and batch orchestration. Batch tests inject a simulated command runner, so they
+do not scrape websites, call OpenAI, or generate images.
 
 Reusable deterministic logic lives in `src/` so it can be tested without
 running the command-line scripts. Tests live in `test/` and use Node's built-in
@@ -942,6 +942,7 @@ project/
 |   +-- prompt-builders.ts
 |   +-- product-data.ts
 |   +-- pipeline-storage.ts
+|   +-- batch-pipeline.ts
 |   +-- types.ts
 |   +-- validation.ts
 |
@@ -950,6 +951,7 @@ project/
 |   +-- filename.test.ts
 |   +-- product-data.test.ts
 |   +-- prompt-builders.test.ts
+|   +-- batch-pipeline.test.ts
 |
 +-- scraper.ts
 +-- generate-art-direction.ts
