@@ -7,12 +7,13 @@ export interface ProductNotes {
 }
 
 export interface ProductData {
+  schema_version: 1;
+  id: string;
   name: string;
   url: string;
   description: string;
   notes: ProductNotes;
   gender: Gender;
-  bottle_reference: string | null;
 }
 
 export interface CampaignRules {
@@ -132,12 +133,43 @@ export type PromptImageType = "editorial_still_life" | "immersive_surreal";
 export type ImageReferenceType = "lifestyle" | "surreal";
 
 export interface PromptDocument {
+  schema_version: 1;
   perfume: {
+    id: string;
     name: string;
     gender: Gender;
     bottle_reference: string | null;
   };
   images: Record<PromptImageType, { prompt: string }>;
+}
+
+export type PipelineStage =
+  | "scrape"
+  | "art_direction"
+  | "prompts"
+  | "image_editorial"
+  | "image_surreal";
+
+export type StageStatus = "pending" | "running" | "completed" | "failed";
+
+export interface RunStageRecord {
+  status: StageStatus;
+  started_at?: string;
+  completed_at?: string;
+  output?: string;
+  error?: string;
+}
+
+export interface RunManifest {
+  schema_version: 1;
+  perfume_id: string;
+  perfume_name: string;
+  run_id: string;
+  input_url: string;
+  status: "running" | "completed" | "failed";
+  created_at: string;
+  updated_at: string;
+  stages: Record<PipelineStage, RunStageRecord>;
 }
 
 export interface JsonObject {

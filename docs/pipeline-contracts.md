@@ -1,20 +1,19 @@
 # Pipeline contracts
 
-This document defines the data passed between the perfume campaign pipeline stages and where each execution stores its outputs. It is the working contract for the later AJV validation and batch-processing work.
+This document defines the data passed between pipeline stages and where each execution stores its outputs. The product, prompt and manifest contracts are implemented and validated with Ajv.
 
 ## Pipeline
 
 ```text
 Perfume URL
   -> scrape
-  -> product.json
+  -> data/perfumes/<perfume-id>/runs/<run-id>/product.json
   -> generate art direction
-  -> art-direction.json
+  -> art-direction.json in the same run
   -> generate prompts
-  -> prompts.json
+  -> prompts.json in the same run
   -> generate two images
-  -> images/editorial_still_life.png
-     images/immersive_surreal.png
+  -> images/editorial_still_life.png and images/immersive_surreal.png
 ```
 
 Each stage consumes one well-defined input and either produces a complete, valid output or reports a stage failure. A failed stage must not be recorded as completed.
@@ -48,7 +47,7 @@ Contract:
 - `notes.top`, `notes.heart`, and `notes.base` are arrays of strings. Empty arrays are valid when the source page has no notes for a group.
 - `gender` is one of `male`, `female`, or `unknown`.
 - Original note names and factual product data are not creatively rewritten.
-- `bottle_reference` is intentionally excluded from this proposed product contract because it is derived from gender. The system infers gender from the product name/description and chooses the matching reference image in the art-direction stage.
+- `bottle_reference` is intentionally excluded from the product record because it is derived from gender. The art-direction stage assigns it deterministically.
 
 ## Art-direction output
 
@@ -62,6 +61,7 @@ Contract:
 - Creative choices live in the art direction; factual product fields remain unchanged.
 - The system assigns `hero_product.bottle_reference` and style-reference paths deterministically. A male product uses `references/bottles/male/bottle-black-cap.png`; a female product uses `references/bottles/female/bottle-gold-cap.png`; unknown gender has no bottle reference until explicitly resolved.
 - The chosen bottle image remains a required visual input to image generation. Its path is stored once in `hero_product.bottle_reference` and reused by prompt and image-generation stages rather than being independently selected in each stage.
+- Shared bottle and style-reference paths are stored relative to the run directory and resolved against the project when used.
 - Fixed campaign invariants come from `campaign-rules.json`; the generated art direction cannot redefine them.
 - Both campaign concepts are required: `editorial_still_life` and `immersive_surreal`.
 - The output must pass the output JSON Schema and the campaign invariant checks before it is written or passed downstream.
@@ -77,7 +77,7 @@ Prompt generation consumes the validated art direction and campaign rules. It pr
     "id": "agua-de-vetiver-yly",
     "name": "Agua de Vetiver (YLY)",
     "gender": "male",
-    "bottle_reference": "references/bottles/male/bottle-black-cap.png"
+    "bottle_reference": "../../../../../references/bottles/male/bottle-black-cap.png"
   },
   "images": {
     "editorial_still_life": { "prompt": "..." },
@@ -92,6 +92,8 @@ Contract:
 - Each `prompt` is a non-empty string.
 - Perfume identity and bottle reference must agree with the validated art direction.
 - Campaign-specific image rules are incorporated into each prompt.
+- `perfume.id` is copied from the validated product record.
+- The bottle reference path is relative to the run directory.
 
 ## Image-generation result
 
@@ -104,7 +106,7 @@ The stage is complete only after each file exists and is non-empty. The two imag
 
 ## Output folders and execution records
 
-Proposed layout:
+Implemented layout:
 
 ```text
 data/perfumes/<perfume-id>/
@@ -121,13 +123,22 @@ data/perfumes/<perfume-id>/
 - `<perfume-id>` is the normalized perfume name and is stable across runs for the same perfume.
 - `<run-id>` identifies one execution; rerunning does not overwrite a previous run.
 - All files for one run are kept together, including the scraped input and generated assets.
-- `manifest.json` records the input URL, contract version, stage status, output paths, timestamps, and error details safe to log.
+- `manifest.json` records the input URL, contract version, run status, per-stage status, relative output paths, timestamps, and redacted error details.
 - Paths stored in JSON are relative to the run directory, not machine-specific absolute paths.
 - Shared bottle and style references remain in `references/` and are referenced by relative path.
 
+Run IDs include a UTC timestamp and random suffix. Running the scraper again
+creates a new run directory and leaves earlier runs unchanged. If a generated
+perfume ID already belongs to a differently named perfume, scraping stops;
+provide a unique ID with `--id`.
+
 ## Compatibility and migration
 
-The current project stores a single product in `data/product.json`, `data/art-direction.json`, and `data/prompts.json`, while campaign images are in the shared `data/images/` directory. These existing artifacts remain untouched until a migration is explicitly planned. The first implementation should either copy them into a matching perfume/run folder with a verified ID mapping, or leave them as legacy examples; it must not silently overwrite or discard them.
+Legacy artifacts in `data/product.json`, `data/art-direction.json`,
+`data/prompts.json` and `data/images/` remain untouched. New runs use the
+per-perfume layout above; no automatic migration or copying is performed.
 
-The future manual single-URL command and the future batch command use the same product contract and per-run output layout. Batch input is only a list of URLs; it does not introduce a separate pipeline format.
+The manual single-URL workflow uses this product contract and per-run layout.
+The future batch command will use the same format and layout; batch input will
+only be a list of URLs.
 

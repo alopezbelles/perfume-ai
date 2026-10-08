@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "alma-tropical-tok",
+  "name": "Alma Tropical (TOK)",
+  "url": "https://perfumarte.com/products/alma-tropical-tok",
+  "description": "Alma Tropical (TOK): un perfume afrutado floral lleno de luz y vitalidad\n\nAlma Tropical (TOK) es un perfume afrutado floral para mujer que combina la frescura de las frutas jugosas con la delicadeza de las flores exóticas y un fondo suave de almizcle y maderas blancas. Una fragancia radiante, dulce y luminosa que transmite alegría, frescura y una sensación de bienestar desde la primera nota.\n\nSu equilibrio entre acordes cítricos, frutas vibrantes y un corazón floral elegante la convierte en un perfume femenino, versátil y perfecto para quienes buscan un aroma alegre, fresco y lleno de personalidad.\n\n¿A qué huele Alma Tropical (TOK)?\n\nAlma Tropical (TOK) fusiona frutas, flores y notas suaves para crear una fragancia luminosa, dulce y muy envolvente.\n\nUna salida fresca y afrutada\n\nLa bergamota, las frutas rojas, el limón, la pera y el sorbete crean una apertura chispeante y jugosa, con un carácter fresco y vibrante que despierta los sentidos desde el primer instante.\n\nUn corazón floral y femenino\n\nEl jazmín sambac, el melocotón y la rosa forman un bouquet elegante y delicado, aportando feminidad, suavidad y un toque exótico que envuelve la fragancia con armonía.\n\nUn fondo suave y luminoso\n\nEl almizcle blanco, las maderas blancas y el musgo crean una base limpia, cálida y sofisticada que deja una estela delicada, fresca y duradera sobre la piel.",
+  "notes": {
+    "top": [
+      "Bergamota",
+      "frutas rojas",
+      "limón",
+      "pera",
+      "sorbete"
+    ],
+    "heart": [
+      "Jazmín sambac",
+      "melocotón",
+      "rosa."
+    ],
+    "base": [
+      "Almizcle blanco",
+      "maderas blancas",
+      "musgo."
+    ]
+  },
+  "gender": "female"
+}

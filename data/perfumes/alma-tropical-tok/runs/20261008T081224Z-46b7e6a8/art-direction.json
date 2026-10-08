@@ -1,0 +1,401 @@
+{
+  "campaign": {
+    "name": "Perfumarte AI Art Direction",
+    "objective": "Generate two visually coherent premium campaign images for Alma Tropical (TOK), translating its luminous fruity-floral identity into a rich editorial still life and a dynamic immersive surreal scene.",
+    "image_count": 2,
+    "visual_relationship": {
+      "rule": "Both images represent the same Alma Tropical (TOK) fragrance identity, olfactive story and emotional atmosphere through shared tropical luminosity, juicy fruit, exotic florals and clean white woods.",
+      "editorial_role": "Primary hero image.",
+      "surreal_role": "Dynamic conceptual companion image.",
+      "consistency": [
+        "same perfume identity",
+        "same olfactive story",
+        "same core visual elements",
+        "same coral, citrus, blush and white palette",
+        "same radiant, joyful and fresh emotional atmosphere"
+      ]
+    }
+  },
+  "format": {
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4"
+  },
+  "hero_product": {
+    "type": "perfume_bottle",
+    "role": "main protagonist",
+    "bottle_reference": "../../../../../references/bottles/female/bottle-gold-cap.png",
+    "reference_rule": {
+      "use_reference_image": true,
+      "preserve_exact_design": true,
+      "preserve_shape": true,
+      "preserve_proportions": true,
+      "preserve_cap": true,
+      "preserve_label": true,
+      "preserve_material": true
+    },
+    "composition_rules": {
+      "scale": "medium-dominant",
+      "visibility": "fully visible",
+      "must_not_be_covered": true,
+      "must_not_be_distorted": true,
+      "must_not_be_duplicated": true
+    }
+  },
+  "physical_scale_system": {
+    "bottle_height_cm": 19,
+    "bottle_width_cm": 3.5,
+    "bottle_depth_cm": 3.5,
+    "scale_reference": "Use the perfume bottle as the physical scale reference for the entire scene.",
+    "element_scale_rule": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "relative_scale": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "artistic_scale_override": "Do not create abundance by artificially enlarging ingredients."
+  },
+  "fragrance_data": {
+    "name": "Alma Tropical (TOK)",
+    "url": "https://perfumarte.com/products/alma-tropical-tok",
+    "gender": "female",
+    "description": "Alma Tropical (TOK): un perfume afrutado floral lleno de luz y vitalidad\n\nAlma Tropical (TOK) es un perfume afrutado floral para mujer que combina la frescura de las frutas jugosas con la delicadeza de las flores exóticas y un fondo suave de almizcle y maderas blancas. Una fragancia radiante, dulce y luminosa que transmite alegría, frescura y una sensación de bienestar desde la primera nota.\n\nSu equilibrio entre acordes cítricos, frutas vibrantes y un corazón floral elegante la convierte en un perfume femenino, versátil y perfecto para quienes buscan un aroma alegre, fresco y lleno de personalidad.\n\n¿A qué huele Alma Tropical (TOK)?\n\nAlma Tropical (TOK) fusiona frutas, flores y notas suaves para crear una fragancia luminosa, dulce y muy envolvente.\n\nUna salida fresca y afrutada\n\nLa bergamota, las frutas rojas, el limón, la pera y el sorbete crean una apertura chispeante y jugosa, con un carácter fresco y vibrante que despierta los sentidos desde el primer instante.\n\nUn corazón floral y femenino\n\nEl jazmín sambac, el melocotón y la rosa forman un bouquet elegante y delicado, aportando feminidad, suavidad y un toque exótico que envuelve la fragancia con armonía.\n\nUn fondo suave y luminoso\n\nEl almizcle blanco, las maderas blancas y el musgo crean una base limpia, cálida y sofisticada que deja una estela delicada, fresca y duradera sobre la piel.",
+    "notes": {
+      "top": [
+        "Bergamota",
+        "frutas rojas",
+        "limón",
+        "pera",
+        "sorbete"
+      ],
+      "heart": [
+        "Jazmín sambac",
+        "melocotón",
+        "rosa."
+      ],
+      "base": [
+        "Almizcle blanco",
+        "maderas blancas",
+        "musgo."
+      ]
+    }
+  },
+  "olfactive_translation": {
+    "principle": "Translate Alma Tropical (TOK) into a visual story of radiant citrus freshness, juicy red fruit, exotic white floral femininity and a soft clean base, rather than literally representing every listed note.",
+    "selection_rules": [
+      "Select only the most visually expressive olfactive elements.",
+      "Prioritize elements that communicate the fragrance identity.",
+      "Do not visually represent every note by default.",
+      "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
+      "Never introduce ingredients that are not supported by fragrance_data.notes.",
+      "The selected visual elements must work coherently across both campaign images."
+    ],
+    "selected_visual_notes": [
+      {
+        "note": "Bergamota",
+        "olfactive_role": "Citrus top note; luminous, fresh and sparkling opening.",
+        "visual_representation": "Several realistic bergamot fruits, some whole and some naturally cut, with textured yellow-green rind and translucent citrus flesh.",
+        "reason": "Communicates the radiant citrus freshness that defines the first impression of the fragrance.",
+        "editorial_use": "A principal foreground and midground cluster beside the bottle, with a few cut sections revealing juicy texture without touching or covering the bottle.",
+        "surreal_use": "A controlled group of whole and cut bergamots suspended at different depths, with a few tiny citrus droplets and a subtle swirling mist suggesting freshness."
+      },
+      {
+        "note": "frutas rojas",
+        "olfactive_role": "Juicy fruity top note; vibrant, sweet and energetic.",
+        "visual_representation": "Natural clusters of small red berries in varied stages, including glossy whole berries and a few split berries with realistic juice.",
+        "reason": "Adds the vivid tropical-fruity energy and saturated color of the composition.",
+        "editorial_use": "Several low, natural berry clusters layered around the surface in the foreground and midground, never enlarged beyond realistic scale.",
+        "surreal_use": "A restrained stream of berries and a few detached droplets moving naturally through the air around the bottle, integrated with the atmospheric flow rather than arranged geometrically."
+      },
+      {
+        "note": "limón",
+        "olfactive_role": "Bright citrus accent; crisp and refreshing.",
+        "visual_representation": "Small realistic lemons and thin lemon slices with vivid yellow peel, translucent pulp and subtle moisture.",
+        "reason": "Sharpens the feeling of clean, sparkling freshness and creates a high-key citrus color accent.",
+        "editorial_use": "Moderate supporting quantity placed toward the edge of the still-life surface and in the background, leaving generous negative space for Spanish typography.",
+        "surreal_use": "A few lemon slices and fine citrus particles suspended in the midground, following a gentle, physically plausible airflow."
+      },
+      {
+        "note": "Jazmín sambac",
+        "olfactive_role": "Exotic white floral heart; feminine, delicate and luminous.",
+        "visual_representation": "Several small white jasmine sambac blossoms and natural green stems, with detailed petals and subtle shadows.",
+        "reason": "Provides the fragrance's floral identity and elegant feminine heart without introducing a generic oversized flower.",
+        "editorial_use": "The main floral grouping behind and beside the bottle, with multiple blossoms at realistic scale and some shallow-focus petals in the foreground.",
+        "surreal_use": "A suspended, gently drifting group of jasmine blossoms and slender stems around the bottle, with natural spacing and no artificial floral crown or geometric arrangement."
+      },
+      {
+        "note": "melocotón",
+        "olfactive_role": "Soft fruity-floral heart; velvety, sweet and enveloping.",
+        "visual_representation": "Several realistic small peach sections and one or two whole peaches with velvety skin, warm blush and moist flesh.",
+        "reason": "Bridges the juicy opening and soft floral heart while bringing tactile warmth to the palette.",
+        "editorial_use": "Moderate cut-fruit presence in the foreground and midground, grouped naturally with berries but kept physically subordinate to the bottle.",
+        "surreal_use": "A few peach fragments and one whole peach placed at varied depths near a suspended atmospheric flow, with no implausible levitation of heavy pieces."
+      },
+      {
+        "note": "Almizcle blanco",
+        "olfactive_role": "Clean soft base; enveloping, delicate and luminous.",
+        "visual_representation": "A translucent veil of soft white vapor, diffused pearly light and clean satin-like atmospheric texture rather than a literal ingredient.",
+        "reason": "Represents the abstract cleanliness and softness of white musk without inventing an unsupported physical object.",
+        "editorial_use": "A subtle pearly haze in the background and around the surface, preserving bottle clarity and creating a luminous clean finish.",
+        "surreal_use": "A controlled white atmospheric veil surrounding the spatial environment behind the bottle, with soft volumetric diffusion interacting naturally with the suspended ingredients."
+      }
+    ]
+  },
+  "shared_visual_identity": {
+    "concept": "Luz tropical suspendida: una celebración premium de cítricos jugosos, frutos rojos, jazmín blanco y suavidad limpia, construida como un oasis luminoso y femenino.",
+    "mood": [
+      "radiante",
+      "alegre",
+      "fresco",
+      "jugoso",
+      "femenino",
+      "exótico",
+      "sofisticado",
+      "luminoso"
+    ],
+    "emotional_goal": "Transmitir alegría inmediata, bienestar, frescura vital y una feminidad tropical elegante, sin perder la sofisticación de la alta perfumería.",
+    "palette": [
+      "amarillo bergamota",
+      "amarillo limón",
+      "rojo frambuesa y cereza",
+      "melocotón coral",
+      "blanco jazmín",
+      "verde hoja fresco",
+      "marfil luminoso",
+      "madera blanca cálida"
+    ],
+    "key_materials": [
+      "vidrio de perfume fotorealista",
+      "pulpa cítrica húmeda",
+      "piel aterciopelada de melocotón",
+      "bayas brillantes",
+      "pétalos blancos de jazmín",
+      "madera blanca mate",
+      "niebla perlada",
+      "superficie mineral clara"
+    ],
+    "environmental_identity": "Un oasis botánico tropical contemporáneo, luminoso y limpio, con una atmósfera de estudio natural sofisticado, humedad fresca y materiales táctiles de alta gama.",
+    "visual_anchor_elements": [
+      "agrupaciones realistas de bergamota y limón",
+      "frutas rojas brillantes",
+      "jazmín sambac blanco",
+      "melocotón aterciopelado",
+      "velo atmosférico blanco perlado",
+      "reflejos de luz cálida y fresca"
+    ]
+  },
+  "editorial_still_life": {
+    "role": "Primary hero image",
+    "concept": "Bodegón editorial de luz tropical sobre una superficie mineral marfil, donde la botella vertical y estable aparece rodeada por agrupaciones abundantes pero controladas de cítricos, frutos rojos, melocotón y jazmín sambac.",
+    "visual_language": [
+      "premium editorial product photography",
+      "realistic luxury still life",
+      "sophisticated",
+      "elegant",
+      "extreme photorealism"
+    ],
+    "product_position": {
+      "physical_support": true,
+      "floating": false,
+      "surface_required": true
+    },
+    "environment": {
+      "type": "luminoso estudio botánico contemporáneo",
+      "description": "Superficie horizontal de piedra caliza marfil ligeramente húmeda, con una pared de fondo cálida y luminosa que sugiere un oasis tropical abstracto mediante sombras suaves de hojas fuera de campo. La botella se apoya físicamente sobre la superficie, completamente vertical y estable.",
+      "background_rule": "El fondo debe permanecer limpio, luminoso y con textura sutil, dejando un área de espacio negativo generoso para la tipografía española sin competir con la botella."
+    },
+    "visual_elements": [
+      "botella de Alma Tropical (TOK) completamente visible, vertical y estable",
+      "varios racimos naturales de bergamota entera y cortada",
+      "grupos de frutos rojos brillantes y algunas bayas abiertas",
+      "limones enteros y rodajas finas",
+      "flores blancas de jazmín sambac con tallos verdes",
+      "melocotones enteros y secciones cortadas",
+      "velo atmosférico blanco perlado muy sutil",
+      "superficie de piedra caliza marfil con pequeñas zonas de humedad"
+    ],
+    "composition": {
+      "style": "rich layered premium still life",
+      "element_density": "medium",
+      "negative_space": "generous and controlled, primarily in the upper-left or upper-right area for Spanish typography",
+      "depth": "foreground_midground_background",
+      "bottle_priority": "highest"
+    },
+    "materials": [
+      "piedra caliza marfil",
+      "vidrio y material exactos de la botella de referencia",
+      "pulpa cítrica translúcida",
+      "piel aterciopelada de melocotón",
+      "bayas húmedas",
+      "pétalos de jazmín",
+      "madera blanca discreta en el fondo",
+      "niebla perlada"
+    ],
+    "palette": [
+      "amarillo bergamota",
+      "amarillo limón",
+      "rojo baya",
+      "coral melocotón",
+      "blanco jazmín",
+      "verde hoja",
+      "marfil mineral"
+    ],
+    "lighting": {
+      "style": "premium commercial photography with radiant tropical daylight",
+      "direction": "soft directional light from upper left, with gentle frontal fill and controlled rim light around the bottle",
+      "contrast": "moderate, luminous and refined, with readable shadows beneath every object",
+      "quality": "naturalistic and controlled"
+    },
+    "typography": {
+      "enabled": true,
+      "language": "Spanish",
+      "elements": [
+        "Alma Tropical (TOK)",
+        "Luz que despierta los sentidos",
+        "Perfume afrutado floral lleno de luz y vitalidad",
+        "NOTAS DE SALIDA",
+        "NOTAS DE CORAZÓN",
+        "NOTAS DE FONDO"
+      ],
+      "style": {
+        "primary": "elegant editorial serif",
+        "secondary": "refined minimalist sans-serif",
+        "tracking": "generous",
+        "hierarchy": "clear and sophisticated"
+      },
+      "rules": [
+        "Typography must never cover the perfume bottle.",
+        "Text must remain legible against the luminous background.",
+        "Place typography only in the reserved negative space, away from the ingredient clusters.",
+        "Do not overload the image with text.",
+        "Use Spanish language exactly and preserve the product name as Alma Tropical (TOK)."
+      ]
+    }
+  },
+  "immersive_surreal": {
+    "role": "Dynamic conceptual companion image",
+    "concept": "Una corriente luminosa de frescura tropical atraviesa un oasis suspendido: la botella flota cerca del centro sobre el eje visual, inclinada de forma fija entre 5 y 12 grados con el tapón ligeramente desplazado hacia la izquierda y la base hacia la derecha, mientras cítricos, frutos rojos, pétalos y niebla perlada construyen profundidad física alrededor de ella.",
+    "visual_language": [
+      "cinematic product photography",
+      "dynamic surrealism",
+      "extreme photorealism",
+      "immersive atmosphere",
+      "controlled movement"
+    ],
+    "product_position": {
+      "physical_support": false,
+      "floating": true,
+      "suspended": true
+    },
+    "environment": {
+      "type": "oasis atmosférico suspendido",
+      "description": "Entorno tridimensional compuesto por una base inferior de piedra mineral clara y vegetación desenfocada, un plano medio de frutas y jazmín alrededor de la botella, y un fondo profundo de luz coral-dorada, niebla blanca perlada y sombras botánicas. La botella permanece completamente visible, separada de los ingredientes y suspendida cerca del centro visual."
+    },
+    "visual_elements": [
+      "botella única de Alma Tropical (TOK), suspendida cerca del centro y con inclinación fija de 5–12 grados, tapón hacia la izquierda y base hacia la derecha",
+      "bergamotas enteras y cortadas en distintas distancias de cámara",
+      "grupos naturales de frutos rojos, algunos muy próximos al objetivo y parcialmente desenfocados",
+      "limones y finas rodajas con gotas realistas",
+      "jazmín sambac blanco con tallos y pétalos en movimiento suave",
+      "melocotones y fragmentos de melocotón en planos diferenciados",
+      "niebla blanca perlada y pequeñas partículas de humedad",
+      "piedra mineral y vegetación desenfocada en el plano inferior"
+    ],
+    "movement": {
+      "enabled": true,
+      "types": [
+        "floating",
+        "suspended",
+        "swirling"
+      ],
+      "intensity": "controlled"
+    },
+    "composition": {
+      "style": "dynamic asymmetrical composition with a central suspended hero axis",
+      "element_density": "medium_rich",
+      "depth": "strong foreground_midground_background with realistic atmospheric perspective",
+      "bottle_priority": "highest; fully visible, sharp and clearly separated",
+      "negative_space": "controlled, filled by atmospheric depth rather than empty space, with no typography"
+    },
+    "materials": [
+      "vidrio y material exactos de la botella de referencia",
+      "pulpa cítrica húmeda",
+      "piel aterciopelada de melocotón",
+      "bayas con gotas",
+      "pétalos de jazmín",
+      "piedra mineral mojada",
+      "niebla volumétrica perlada",
+      "partículas de agua realistas"
+    ],
+    "palette": [
+      "amarillo cítrico",
+      "rojo baya",
+      "coral melocotón",
+      "blanco luminoso",
+      "verde tropical",
+      "marfil piedra",
+      "dorado solar suave"
+    ],
+    "lighting": {
+      "style": "cinematic commercial lighting with luminous tropical atmosphere",
+      "direction": "warm backlight from upper right combined with cool soft frontal fill and a delicate rim on the bottle",
+      "contrast": "medium-high but controlled, preserving label legibility, glass detail and realistic ingredient textures",
+      "quality": "dramatic but photorealistic"
+    },
+    "typography": {
+      "enabled": false
+    }
+  },
+  "camera": {
+    "lens": "50mm",
+    "depth_of_field": "medium shallow",
+    "focus": "the perfume bottle",
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4"
+  },
+  "photorealism": {
+    "level": "extreme",
+    "requirements": [
+      "photorealistic materials",
+      "realistic lighting",
+      "realistic shadows",
+      "realistic reflections",
+      "realistic glass",
+      "realistic botanical textures",
+      "realistic physical proportions",
+      "realistic atmospheric effects",
+      "no illustration",
+      "no cartoon",
+      "no obvious CGI",
+      "no generic stock photography"
+    ]
+  },
+  "negative_constraints": [
+    "no people",
+    "no hands",
+    "no extra perfume bottles",
+    "no extra products",
+    "no distorted bottle",
+    "no duplicated bottle",
+    "no malformed bottle",
+    "no covered bottle",
+    "no oversized ingredients",
+    "no giant fruits",
+    "no giant flowers",
+    "no unrealistic ingredient proportions",
+    "no ingredient clutter",
+    "no ingredient stickers",
+    "no geometric flower crown",
+    "no artificial ingredient arcs or rings",
+    "no typography in the immersive surreal image",
+    "no bottle tilt in the editorial still life",
+    "no mirrored or reversed surreal bottle orientation",
+    "no flat catalog photography",
+    "no generic stock photography"
+  ],
+  "style_references": {
+    "lifestyle": {
+      "enabled": true,
+      "reference_path": "../../../../../references/styles/lifestyle-reference.png"
+    },
+    "surreal": {
+      "enabled": true,
+      "reference_path": "../../../../../references/styles/surreal-reference.png"
+    }
+  }
+}

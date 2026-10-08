@@ -3,15 +3,17 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
     "perfume": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
         "name": { "type": "string", "minLength": 1 },
         "gender": { "type": "string", "enum": ["male", "female", "unknown"] },
         "bottle_reference": { "type": ["string", "null"] }
       },
-      "required": ["name", "gender", "bottle_reference"]
+      "required": ["id", "name", "gender", "bottle_reference"]
     },
     "images": {
       "type": "object",
@@ -33,5 +35,5 @@
       "required": ["editorial_still_life", "immersive_surreal"]
     }
   },
-  "required": ["perfume", "images"]
+  "required": ["schema_version", "perfume", "images"]
 }

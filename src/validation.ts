@@ -1,6 +1,6 @@
 import { Ajv, type AnySchema, type ValidateFunction } from "ajv";
 import fs from "node:fs";
-import type { ArtDirection, CampaignRules, ProductData, PromptDocument } from "./types.ts";
+import type { ArtDirection, CampaignRules, ProductData, PromptDocument, RunManifest } from "./types.ts";
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 
@@ -72,6 +72,7 @@ const artDirectionValidator = compileSchema<ArtDirection>(
   withStyleReferences(readSchema("art-direction-output-schema.json")),
 );
 const promptDocumentValidator = compileSchema<PromptDocument>(readSchema("prompts-schema.json"));
+const runManifestValidator = compileSchema<RunManifest>(readSchema("run-manifest-schema.json"));
 
 export function validateProductData(value: unknown): ProductData {
   return validate(productValidator, value, "data/product.json");
@@ -87,4 +88,8 @@ export function validateArtDirectionData(value: unknown): ArtDirection {
 
 export function validatePromptDocument(value: unknown): PromptDocument {
   return validate(promptDocumentValidator, value, "data/prompts.json");
+}
+
+export function validateRunManifest(value: unknown): RunManifest {
+  return validate(runManifestValidator, value, "manifest.json");
 }

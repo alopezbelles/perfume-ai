@@ -1,38 +1,49 @@
 import "dotenv/config";
 import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import OpenAI from "openai";
 import { applyCampaignRules, validateArtDirection } from "./src/art-direction-rules.ts";
 import { getBottleReference } from "./src/product-data.ts";
+import { readRunManifest, relativePathFromRun, requireRunDirectory, runStage } from "./src/pipeline-storage.ts";
 import { validateArtDirectionData, validateCampaignRules, validateProductData } from "./src/validation.ts";
 import type { ArtDirection, JsonObject } from "./src/types.ts";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+const runDirectory = requireRunDirectory();
+const productPath = path.join(runDirectory, "product.json");
+const outputPath = path.join(runDirectory, "art-direction.json");
 
 // ----------------------------------------
 // ARCHIVOS
 // ----------------------------------------
-
-const product = validateProductData(JSON.parse(fs.readFileSync("./data/product.json", "utf-8")) as unknown);
-
-const schema = JSON.parse(
-  fs.readFileSync("./config/art-direction-schema.json", "utf-8"),
-) as JsonObject;
-
-const outputSchema = JSON.parse(
-  fs.readFileSync("./config/art-direction-output-schema.json", "utf-8"),
-) as JsonObject;
-
-const campaignRules = validateCampaignRules(
-  JSON.parse(fs.readFileSync("./config/campaign-rules.json", "utf-8")) as unknown,
-);
 
 // ----------------------------------------
 // GENERACIÓN
 // ----------------------------------------
 
 async function generateArtDirection() {
+  const product = validateProductData(JSON.parse(fs.readFileSync(productPath, "utf-8")) as unknown);
+  const runManifest = readRunManifest(runDirectory);
+  if (
+    product.id !== runManifest.perfume_id ||
+    product.name !== runManifest.perfume_name ||
+    product.url !== runManifest.input_url
+  ) {
+    throw new Error("product.json no coincide con la identidad registrada en manifest.json.");
+  }
+
+  const schema = JSON.parse(
+    fs.readFileSync(path.join(projectRoot, "config/art-direction-schema.json"), "utf-8"),
+  ) as JsonObject;
+  const outputSchema = JSON.parse(
+    fs.readFileSync(path.join(projectRoot, "config/art-direction-output-schema.json"), "utf-8"),
+  ) as JsonObject;
+  const campaignRules = validateCampaignRules(
+    JSON.parse(fs.readFileSync(path.join(projectRoot, "config/campaign-rules.json"), "utf-8")) as unknown,
+  );
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
   console.log("🎨 Generando dirección artística...");
   console.log(`🌸 Perfume: ${product.name}`);
 
@@ -252,10 +263,9 @@ el esquema de salida.
   try {
     artDirection = validateArtDirectionData(JSON.parse(response.output_text) as unknown);
   } catch (error) {
-    console.error("❌ Luna no ha devuelto un JSON válido.");
-    console.error(error instanceof Error ? error.message : String(error));
-    console.error(response.output_text);
-    process.exit(1);
+    throw new Error(
+      `La respuesta de OpenAI no cumple el contrato de dirección artística: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   // ----------------------------------------
@@ -264,23 +274,29 @@ el esquema de salida.
 
   applyCampaignRules(artDirection, campaignRules);
 
-  // El gender procede del scraper, no de Luna.
-  artDirection.fragrance_data.gender = product.gender || "unknown";
+  // Los datos factuales siempre proceden del producto validado.
+  artDirection.fragrance_data.name = product.name;
+  artDirection.fragrance_data.url = product.url;
+  artDirection.fragrance_data.gender = product.gender;
+  artDirection.fragrance_data.description = product.description;
+  artDirection.fragrance_data.notes = product.notes;
 
   // La referencia de botella la decide nuestro sistema.
-  artDirection.hero_product.bottle_reference = getBottleReference(
-    artDirection.fragrance_data.gender,
-  );
+  const bottleReference = getBottleReference(product.gender);
+  if (!bottleReference) {
+    throw new Error("El género es unknown y no hay referencia de botella. Actualiza gender en product.json antes de continuar.");
+  }
+  artDirection.hero_product.bottle_reference = relativePathFromRun(runDirectory, bottleReference);
 
   // Las referencias de estilo son fijas para toda la campaña.
   artDirection.style_references = {
     lifestyle: {
       enabled: true,
-      reference_path: "references/styles/lifestyle-reference.png",
+      reference_path: relativePathFromRun(runDirectory, "references/styles/lifestyle-reference.png"),
     },
     surreal: {
       enabled: true,
-      reference_path: "references/styles/surreal-reference.png",
+      reference_path: relativePathFromRun(runDirectory, "references/styles/surreal-reference.png"),
     },
   };
 
@@ -293,9 +309,9 @@ el esquema de salida.
   try {
     validateArtDirection(artDirection, campaignRules);
   } catch (error) {
-    console.error("❌ Dirección artística inválida.");
-    console.error(`   ${error instanceof Error ? error.message : String(error)}`);
-    process.exit(1);
+    throw new Error(
+      `Dirección artística inválida: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   // ----------------------------------------
@@ -303,17 +319,17 @@ el esquema de salida.
   // ----------------------------------------
 
   fs.writeFileSync(
-    "./data/art-direction.json",
+    outputPath,
     JSON.stringify(artDirection, null, 2),
     "utf-8",
   );
 
   console.log("✅ Dirección artística generada correctamente.");
-  console.log("📁 Guardada en: data/art-direction.json");
+  console.log(`📁 Guardada en: ${outputPath}`);
   console.log(`🧴 Botella: ${artDirection.hero_product.bottle_reference}`);
 }
 
-generateArtDirection().catch((error) => {
-  console.error("❌ Error:", error.message);
+runStage(runDirectory, "art_direction", "art-direction.json", generateArtDirection).catch((error) => {
+  console.error("❌ Error:", error instanceof Error ? error.message : String(error));
   process.exit(1);
 });

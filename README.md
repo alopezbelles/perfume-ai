@@ -85,7 +85,8 @@ perfume campaign, not a different creative direction.
                             scraper.ts
                                   |
                                   v
-                         data/product.json
+                 data/perfumes/<id>/runs/<run-id>/
+                           product.json
                                   |
                                   v
                   +-------------------------------+
@@ -97,13 +98,13 @@ perfume campaign, not a different creative direction.
                   +---------------+---------------+
                                   |
                                   v
-                       data/art-direction.json
+                    art-direction.json
                                   |
                                   v
                        generate-prompts.ts
                                   |
                                   v
-                          data/prompts.json
+                         prompts.json
                                   |
                                   v
                        generate-images.ts
@@ -122,7 +123,8 @@ perfume campaign, not a different creative direction.
                      +------------+------------+
                      |                         |
                      v                         v
-              editorial.png              surreal.png
+                  images/editorial_still_life.png
+                  images/immersive_surreal.png
 ```
 
 ------------------------------------------------------------------------
@@ -134,11 +136,16 @@ perfume campaign, not a different creative direction.
 Responsible for obtaining the original perfume information from the
 source product page.
 
-Output:
+Output (inside a new per-perfume, per-run directory):
 
 ``` text
-data/product.json
+data/perfumes/<perfume-id>/runs/<run-id>/product.json
 ```
+
+The product record includes `schema_version` and a stable `id` normalized
+from the perfume name. It does not store a bottle reference; the art-direction
+stage assigns that from gender. Use `--id <unique-id>` if a name collision is
+reported.
 
 The scraped data is the source of truth for the fragrance.
 
@@ -163,7 +170,7 @@ Transforms raw perfume data into structured creative direction.
 It loads:
 
 ``` text
-data/product.json
+  data/perfumes/<perfume-id>/runs/<run-id>/product.json
 config/art-direction-schema.json
 config/art-direction-output-schema.json
 ```
@@ -174,7 +181,7 @@ requests structured JSON.
 Output:
 
 ``` text
-data/art-direction.json
+  data/perfumes/<perfume-id>/runs/<run-id>/art-direction.json
 ```
 
 The script also applies deterministic technical information after the AI
@@ -214,13 +221,13 @@ prompts.
 Input:
 
 ``` text
-data/art-direction.json
+  data/perfumes/<perfume-id>/runs/<run-id>/art-direction.json
 ```
 
 Output:
 
 ``` text
-data/prompts.json
+  data/perfumes/<perfume-id>/runs/<run-id>/prompts.json
 ```
 
 It produces separate prompts for:
@@ -239,11 +246,11 @@ record before saving it; art-direction generation validates the product and
 campaign rules before calling OpenAI, then validates the returned and completed
 art direction before saving it. Prompt generation validates its inputs and the
 new prompt document before writing it. Image generation validates all JSON it
-loads before using it.
+loads before using it. Run manifests are validated when created and updated.
 
 The schemas for product data, campaign rules and prompts live in
-`config/product-schema.json`, `config/campaign-rules-schema.json` and
-`config/prompts-schema.json`. Art direction uses
+`config/product-schema.json`, `config/campaign-rules-schema.json`,
+`config/prompts-schema.json` and `config/run-manifest-schema.json`. Art direction uses
 `config/art-direction-output-schema.json`; the runtime validator also accepts
 the `style_references` field that the application adds after the model returns
 its response. Validation errors identify the JSON path and the expected rule.
@@ -252,14 +259,16 @@ its response. Validation errors identify the JSON path and the expected rule.
 
 Final image-generation stage.
 
-It loads:
+It loads the product, art direction, prompts and run manifest from the given
+run directory:
 
 ``` text
-data/art-direction.json
-data/prompts.json
+data/perfumes/<perfume-id>/runs/<run-id>/
 ```
 
-It also loads the appropriate bottle and campaign style references.
+It writes both images to that run's `images/` directory and updates each image
+stage in `manifest.json`. Bottle and style references remain shared in
+`references/`; their stored paths are relative to the run directory.
 
 The current image-generation model is:
 
@@ -671,47 +680,47 @@ For a new perfume:
 npm run scrape -- "PERFUME_URL"
 ```
 
-Creates/updates:
+Creates a new run directory and prints its path. To resolve a normalized-ID
+collision, pass an explicit unique ID with `--id`:
 
 ``` text
-data/product.json
+data/perfumes/<perfume-id>/runs/<run-id>/
 ```
 
 ### Step 2 --- Generate art direction
 
 ``` bash
-npm run generate:art-direction
+npm run generate:art-direction -- "data/perfumes/<perfume-id>/runs/<run-id>"
 ```
 
-Creates:
-
-``` text
-data/art-direction.json
-```
+Creates `art-direction.json` inside that run.
 
 ### Step 3 --- Generate prompts
 
 ``` bash
-npm run generate:prompts
+npm run generate:prompts -- "data/perfumes/<perfume-id>/runs/<run-id>"
 ```
 
-Creates:
-
-``` text
-data/prompts.json
-```
+Creates `prompts.json` inside that run.
 
 ### Step 4 --- Generate campaign images
 
 ``` bash
-npm run generate:images
+npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>"
 ```
 
-Creates:
+Creates two images under that run's `images/` directory. The commands do not
+read or overwrite the legacy files directly under `data/`.
 
 ``` text
-data/images/<perfume>-editorial.png
-data/images/<perfume>-surreal.png
+data/perfumes/<perfume-id>/runs/<run-id>/
+  product.json
+  art-direction.json
+  prompts.json
+  images/
+    editorial_still_life.png
+    immersive_surreal.png
+  manifest.json
 ```
 
 ------------------------------------------------------------------------
@@ -723,11 +732,11 @@ The pipeline is intentionally separated into stages.
 When testing image generation, avoid regenerating upstream stages
 unnecessarily.
 
-If `art-direction.json` and `prompts.json` are already correct, visual
-experimentation can normally be performed with:
+If a run already has valid `art-direction.json` and `prompts.json`, visual
+experimentation can normally be performed by passing its run path:
 
 ``` bash
-npm run generate:images
+npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>"
 ```
 
 This is useful when testing:
@@ -835,12 +844,22 @@ project/
 |   +-- campaign-rules-schema.json
 |   +-- product-schema.json
 |   +-- prompts-schema.json
+|   +-- run-manifest-schema.json
 |
 +-- data/
-|   +-- product.json
-|   +-- art-direction.json
-|   +-- prompts.json
-|   +-- images/
+|   +-- perfumes/
+|       +-- <perfume-id>/
+|           +-- runs/
+|               +-- <run-id>/
+|                   +-- product.json
+|                   +-- art-direction.json
+|                   +-- prompts.json
+|                   +-- images/
+|                   +-- manifest.json
+|   +-- product.json (legacy)
+|   +-- art-direction.json (legacy)
+|   +-- prompts.json (legacy)
+|   +-- images/ (legacy)
 |
 +-- references/
 |   +-- bottles/
@@ -859,6 +878,7 @@ project/
 |   +-- image-prompt.ts
 |   +-- prompt-builders.ts
 |   +-- product-data.ts
+|   +-- pipeline-storage.ts
 |   +-- types.ts
 |   +-- validation.ts
 |
@@ -878,8 +898,10 @@ project/
 +-- README.md
 ```
 
-`data/images/` contains generated assets and may become large as the
-catalogue grows.
+`data/perfumes/` contains isolated perfume runs. Generated image folders
+inside runs are ignored by Git and remain local; the JSON records and manifest
+can still be committed. Files directly under `data/` are legacy examples and
+are not overwritten by the run-based commands.
 
 ------------------------------------------------------------------------
 
