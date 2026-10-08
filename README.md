@@ -748,6 +748,13 @@ npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>" --force
 The scraper starts a new run each time. If scraping fails before it creates a
 run directory, retry the scraper command with the product URL.
 
+### Pipeline logs and errors
+
+Stage logs identify the perfume, perfume ID, run ID and stage. A failure logs a
+sanitized error message and stores the same sanitized message in `manifest.json`.
+API-key and bearer-token patterns are redacted, URL query strings are omitted,
+and handled failures do not print raw API response bodies or stack traces.
+
 ------------------------------------------------------------------------
 
 ## 13. Development Workflow

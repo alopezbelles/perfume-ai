@@ -6,6 +6,7 @@ import "dotenv/config";
 import { getImageGenerationPrompt } from "./src/image-prompt.ts";
 import {
   hasPipelineFlag,
+  logPipelineError,
   relativePathFromRun,
   readRunManifest,
   requireRunDirectory,
@@ -27,6 +28,7 @@ import type { ImageReferenceType } from "./src/types.ts";
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 const runDirectory = requireRunDirectory();
 const force = hasPipelineFlag("--force");
+let activeStage = "image_preflight";
 const ART_DIRECTION_PATH = path.join(runDirectory, "art-direction.json");
 const PROMPTS_PATH = path.join(runDirectory, "prompts.json");
 const CAMPAIGN_RULES_PATH = path.join(projectRoot, "config/campaign-rules.json");
@@ -161,9 +163,6 @@ async function generateImage({
   );
 
   if (!imageGenerationCall) {
-    console.log("\nRespuesta de OpenAI:");
-    console.dir(response.output, { depth: null });
-
     throw new Error("OpenAI no ha devuelto ninguna imagen.");
   }
 
@@ -212,9 +211,6 @@ async function main() {
   // ------------------------------------------------
   // PERFUME
   // ------------------------------------------------
-
-  const perfumeName =
-    prompts.perfume?.name || artDirection.fragrance_data?.name || "perfume";
 
   const manifest = readRunManifest(runDirectory);
   if (
@@ -283,8 +279,6 @@ async function main() {
   // INFO
   // ------------------------------------------------
 
-  console.log(`\nPerfume: ${perfumeName}`);
-
   console.log(`Botella: ${bottleReference}`);
 
   console.log(`Formato: ${SIZE}`);
@@ -296,6 +290,7 @@ async function main() {
 
   console.log("\n[1/2] EDITORIAL STILL LIFE");
 
+  activeStage = "image_editorial";
   await runStage(
     runDirectory,
     "image_editorial",
@@ -320,6 +315,7 @@ async function main() {
 
   console.log("\n[2/2] IMMERSIVE SURREAL");
 
+  activeStage = "image_surreal";
   await runStage(
     runDirectory,
     "image_surreal",
@@ -357,17 +353,7 @@ async function main() {
 // --------------------------------------------------
 
 main().catch((error) => {
-  console.error("\n✗ ERROR:");
-
-  console.error(error.message);
-
-  if (error.status) {
-    console.error(`HTTP status: ${error.status}`);
-  }
-
-  if (error.response) {
-    console.error(error.response);
-  }
+  logPipelineError(error, { stage: activeStage, runDirectory });
 
   process.exit(1);
 });

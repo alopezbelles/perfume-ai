@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { detectGender, extractNotes } from "./src/product-data.ts";
-import { createRunDirectory, normalizePerfumeId, runStage } from "./src/pipeline-storage.ts";
+import { createRunDirectory, logPipelineError, normalizePerfumeId, runStage, safePipelineUrlHint } from "./src/pipeline-storage.ts";
 import { validateProductData } from "./src/validation.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -14,16 +14,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function scrape(url: string, explicitId?: string) {
   console.log("🚀 Iniciando scraper...\n");
-
-  const browser = await chromium.launch({
-    headless: false,
-  });
-
-  const page = await browser.newPage();
+  let browser: Awaited<ReturnType<typeof chromium.launch>> | undefined;
+  let runDirectory: string | undefined;
+  let perfumeHint: string | undefined;
 
   try {
+    browser = await chromium.launch({ headless: false });
+    const page = await browser.newPage();
+
     console.log("🌐 Abriendo página...");
-    console.log(`🔗 ${url}\n`);
+    console.log(`🔗 ${safePipelineUrlHint(url)}\n`);
 
     await page.goto(url, {
       waitUntil: "domcontentloaded",
@@ -55,6 +55,7 @@ async function scrape(url: string, explicitId?: string) {
     }
 
     const name = titleMeta.split("|")[0].trim();
+    perfumeHint = name;
 
     // --------------------------------
     // 2. DESCRIPCIÓN
@@ -102,7 +103,7 @@ async function scrape(url: string, explicitId?: string) {
     // 7. GUARDAR JSON
     // --------------------------------
 
-    const runDirectory = createRunDirectory(product, explicitId);
+    runDirectory = createRunDirectory(product, explicitId);
     const outputPath = path.join(runDirectory, "product.json");
     await runStage(runDirectory, "scrape", "product.json", () => {
       fs.writeFileSync(outputPath, JSON.stringify(product, null, 2), "utf-8");
@@ -112,20 +113,23 @@ async function scrape(url: string, explicitId?: string) {
     // 8. MOSTRAR RESULTADO
     // --------------------------------
 
-    console.log("📦 Producto extraído:\n");
-    console.log(JSON.stringify(product, null, 2));
+    console.log("📦 Producto extraído correctamente.");
 
     console.log(`\n💾 Guardado en: ${outputPath}`);
     console.log("\n✅ Scraping completado correctamente.");
 
   } catch (error) {
-    console.error("\n❌ Error durante el scraping:");
-    console.error(error);
+    logPipelineError(error, {
+      stage: "scrape",
+      runDirectory,
+      perfumeHint,
+      inputHint: safePipelineUrlHint(url),
+    });
 
     process.exitCode = 1;
 
   } finally {
-    await browser.close();
+    await browser?.close();
   }
 }
 
@@ -138,7 +142,7 @@ async function main() {
   );
 
   if (!url) {
-    console.error("❌ Debes proporcionar la URL de un perfume.");
+    logPipelineError(new Error("Debes proporcionar la URL de un perfume."), { stage: "scrape" });
     console.error("Ejemplo:");
     console.error("npm run scrape -- https://perfumarte.com/products/agua-de-vetiver-yly");
     process.exitCode = 1;
@@ -146,7 +150,10 @@ async function main() {
   }
 
   if (idOption >= 0 && (!explicitId || explicitId.startsWith("--"))) {
-    console.error("❌ --id necesita un identificador único, por ejemplo: --id petalos-de-musk-arw");
+    logPipelineError(
+      new Error("--id necesita un identificador único, por ejemplo: --id petalos-de-musk-arw."),
+      { stage: "scrape" },
+    );
     process.exitCode = 1;
     return;
   }

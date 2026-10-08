@@ -19,6 +19,67 @@ function now(): string {
   return new Date().toISOString();
 }
 
+function sanitizeLogField(value: string): string {
+  return value
+    .replace(/\bsk-(?:proj-)?[A-Za-z0-9_-]{12,}\b/g, "[REDACTED_API_KEY]")
+    .replace(/\bBearer\s+[^\s,;]+/gi, "Bearer [REDACTED]")
+    .replace(/((?:authorization|api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|token)\s*[:=]\s*)(?:(?:bearer|basic)\s+)?["']?[^\s"',;]+["']?/gi, "$1[REDACTED]")
+    .replace(/[\r\n\t\u0000-\u001f]/g, " ")
+    .trim()
+    .slice(0, 120);
+}
+
+export function sanitizePipelineError(error: unknown): string {
+  const rawMessage = error instanceof Error ? error.message : String(error);
+  return rawMessage
+    .replaceAll(PROJECT_ROOT, ".")
+    .replace(/\bsk-(?:proj-)?[A-Za-z0-9_-]{12,}\b/g, "[REDACTED_API_KEY]")
+    .replace(/\bBearer\s+[^\s,;]+/gi, "Bearer [REDACTED]")
+    .replace(/((?:authorization|api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|token)\s*[:=]\s*)(?:(?:bearer|basic)\s+)?["']?[^\s"',;]+["']?/gi, "$1[REDACTED]")
+    .replace(/https?:\/\/[^\s"'<>]+/gi, (rawUrl) => {
+      try {
+        const parsed = new URL(rawUrl);
+        return `${parsed.protocol}//${parsed.host}${parsed.pathname}`;
+      } catch {
+        return "[URL]";
+      }
+    })
+    .replace(/[\r\n\t\u0000-\u001f]+/g, " ")
+    .slice(0, 1200);
+}
+
+export function safePipelineUrlHint(rawUrl: string): string {
+  try {
+    const parsed = new URL(rawUrl);
+    return sanitizeLogField(`${parsed.host}${parsed.pathname}`);
+  } catch {
+    return "URL no válida";
+  }
+}
+
+export function logPipelineError(
+  error: unknown,
+  context: { stage: string; runDirectory?: string; perfumeHint?: string; inputHint?: string },
+): void {
+  let manifest: RunManifest | undefined;
+  if (context.runDirectory) {
+    try {
+      manifest = readRunManifest(context.runDirectory);
+    } catch {
+      // The original stage error is more useful than a secondary manifest-read error.
+    }
+  }
+
+  const perfumeId = manifest?.perfume_id
+    ?? (context.runDirectory ? path.basename(path.dirname(path.dirname(context.runDirectory))) : "desconocido");
+  const runId = manifest?.run_id ?? (context.runDirectory ? path.basename(context.runDirectory) : "sin-ejecución");
+  const perfumeName = manifest?.perfume_name ?? context.perfumeHint ?? "desconocido";
+  const inputHint = context.inputHint ? ` entrada="${sanitizeLogField(context.inputHint)}"` : "";
+  const identity = `perfume="${sanitizeLogField(perfumeName)}" id="${sanitizeLogField(perfumeId)}" run="${sanitizeLogField(runId)}"`;
+
+  console.error(`[pipeline] ERROR ${identity} stage="${sanitizeLogField(context.stage)}"${inputHint}: ${sanitizePipelineError(error)}`);
+}
+
 export function normalizePerfumeId(name: string): string {
   const id = name
     .normalize("NFKD")
@@ -82,6 +143,10 @@ function assertIdDoesNotCollide(perfumeDirectory: string, id: string, name: stri
 
 function emptyStages(): Record<PipelineStage, RunStageRecord> {
   return Object.fromEntries(STAGE_NAMES.map((stage) => [stage, { status: "pending" }])) as Record<PipelineStage, RunStageRecord>;
+}
+
+function formatStageContext(manifest: RunManifest, stageName: PipelineStage): string {
+  return `perfume="${sanitizeLogField(manifest.perfume_name)}" id="${sanitizeLogField(manifest.perfume_id)}" run="${sanitizeLogField(manifest.run_id)}" stage="${stageName}"`;
 }
 
 function writeJsonAtomically(filePath: string, data: unknown): void {
@@ -209,15 +274,15 @@ export async function runStage<T>(
     && fs.statSync(outputPath).isFile()
     && fs.statSync(outputPath).size > 0;
   if (stage.status === "completed" && outputExists && !options.force) {
-    console.log(`⏭️ Etapa "${stageName}" ya completada; se conserva ${output}. Usa --force para regenerarla.`);
+    console.log(`[pipeline] SKIP ${formatStageContext(manifest, stageName)} output="${sanitizeLogField(output)}"; usa --force para regenerarla.`);
     return undefined;
   }
   if (stage.status === "failed") {
-    console.log(`🔁 Reintentando etapa "${stageName}" que había fallado.`);
+    console.log(`[pipeline] RETRY ${formatStageContext(manifest, stageName)}; la ejecución anterior falló.`);
   } else if (stage.status === "running") {
-    console.log(`🔁 Reanudando etapa "${stageName}" que quedó interrumpida.`);
+    console.log(`[pipeline] RESUME ${formatStageContext(manifest, stageName)}; la ejecución anterior quedó interrumpida.`);
   } else if (stage.status === "completed" && !outputExists) {
-    console.log(`⚠️ La etapa "${stageName}" figura completada, pero falta su salida; se volverá a ejecutar.`);
+    console.log(`[pipeline] RETRY ${formatStageContext(manifest, stageName)}; falta el archivo de salida.`);
   }
 
   stage.status = "running";
@@ -227,6 +292,7 @@ export async function runStage<T>(
   stage.output = output;
   manifest.status = "running";
   writeManifest(manifest, runDirectory);
+  console.log(`[pipeline] START ${formatStageContext(manifest, stageName)}`);
 
   try {
     const result = await operation();
@@ -239,15 +305,12 @@ export async function runStage<T>(
         ? "completed"
         : "running";
     writeManifest(manifest, runDirectory);
+    console.log(`[pipeline] OK ${formatStageContext(manifest, stageName)}`);
     return result;
   } catch (error) {
     stage.status = "failed";
     stage.completed_at = now();
-    const message = error instanceof Error ? error.message : String(error);
-    stage.error = message
-      .replaceAll(PROJECT_ROOT, ".")
-      .replace(/sk-[A-Za-z0-9_-]+/g, "[redacted]")
-      .slice(0, 1200);
+    stage.error = sanitizePipelineError(error);
     manifest.status = "failed";
     writeManifest(manifest, runDirectory);
     throw error;
