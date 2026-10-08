@@ -1,0 +1,379 @@
+{
+  "campaign": {
+    "name": "Perfumarte AI Art Direction",
+    "objective": "Generate two visually coherent premium campaign images for Rogue Princess (BAC), translating its spicy, floral, resinous and woody identity into a sophisticated oriental visual narrative.",
+    "image_count": 2,
+    "visual_relationship": {
+      "rule": "Both images must represent the same fragrance concept and olfactive identity through saffron, Egyptian jasmine, ambergris, fir and cedar, maintaining a coherent premium oriental atmosphere.",
+      "editorial_role": "Primary hero image.",
+      "surreal_role": "Dynamic conceptual companion image.",
+      "consistency": [
+        "same perfume identity",
+        "same olfactive story",
+        "same core visual elements",
+        "same color family",
+        "same emotional atmosphere"
+      ]
+    }
+  },
+  "format": {
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4"
+  },
+  "hero_product": {
+    "type": "perfume_bottle",
+    "role": "main protagonist",
+    "bottle_reference": "../../../../../references/bottles/male/bottle-black-cap.png",
+    "reference_rule": {
+      "use_reference_image": true,
+      "preserve_exact_design": true,
+      "preserve_shape": true,
+      "preserve_proportions": true,
+      "preserve_cap": true,
+      "preserve_label": true,
+      "preserve_material": true
+    },
+    "composition_rules": {
+      "scale": "medium-dominant",
+      "visibility": "fully visible",
+      "must_not_be_covered": true,
+      "must_not_be_distorted": true,
+      "must_not_be_duplicated": true
+    }
+  },
+  "physical_scale_system": {
+    "bottle_height_cm": 19,
+    "bottle_width_cm": 3.5,
+    "bottle_depth_cm": 3.5,
+    "scale_reference": "Use the perfume bottle as the physical scale reference for the entire scene.",
+    "element_scale_rule": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "relative_scale": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "artistic_scale_override": "Do not create abundance by artificially enlarging ingredients."
+  },
+  "fragrance_data": {
+    "name": "Rogue Princess (BAC)",
+    "url": "https://perfumarte.com/products/rogue-princess-bac",
+    "gender": "unisex",
+    "description": "Rogue Princess (BAC): un perfume nicho amaderado unisex, elegante y oriental\n\nRogue Princess (BAC) es un perfume nicho amaderado unisex de inspiración oriental que combina sofisticación, misterio y lujo en una fragancia envolvente. Su composición mezcla notas gourmand, florales y amaderadas, creando un aroma elegante y profundamente sensorial.\n\nEste perfume nicho amaderado unisex está diseñado para quienes buscan una fragancia con carácter, personalidad y un viaje olfativo único que evoca exotismo y elegancia.\n\n \n\n \n\n¿A qué huele Rogue Princess (BAC)?\n\nRogue Princess (BAC) es un perfume nicho amaderado unisex donde la almendra amarga, el azafrán, el jazmín egipcio, el cedro, el ámbar y el almizcle crean una fragancia cálida, sofisticada y muy envolvente.\n\nUna salida intensa y especiada\n\nLa fragancia se abre con almendra amarga y azafrán, ofreciendo un inicio elegante, ligeramente gourmand y con un toque exótico muy característico.\n\nUn corazón floral y refinado\n\nEn su evolución aparece el jazmín egipcio, aportando un matiz floral blanco, sensual y sofisticado que equilibra la intensidad inicial.\n\nUn fondo cálido, amaderado y seductor\n\nEl cedro, el ámbar y el almizcle forman una base profunda, cremosa y duradera que deja una estela elegante y muy adictiva.",
+    "notes": {
+      "top": [
+        "Azafran",
+        "Jazmin"
+      ],
+      "heart": [
+        "Ámbar gris"
+      ],
+      "base": [
+        "Abeto",
+        "Cedro"
+      ]
+    }
+  },
+  "olfactive_translation": {
+    "principle": "Translate the fragrance into a visual story of rare spice, white floral sensuality, resinous warmth and dry aromatic woods rather than representing every descriptive ingredient literally.",
+    "selection_rules": [
+      "Select only the most visually expressive olfactive elements.",
+      "Prioritize elements that communicate the fragrance identity.",
+      "Do not visually represent every note by default.",
+      "Atmospheric notes may be represented through color, texture, material, smoke, light or environment.",
+      "Never introduce ingredients that are not supported by fragrance_data.notes.",
+      "The selected visual elements must work coherently across both campaign images."
+    ],
+    "selected_visual_notes": [
+      {
+        "note": "Azafran",
+        "olfactive_role": "Spicy, exotic and luminous top note.",
+        "visual_representation": "Several realistic saffron threads and small natural clusters arranged in delicate groups, with crimson-red filaments and subtle golden highlights; no oversized strands.",
+        "reason": "Saffron immediately communicates the perfume's oriental sophistication and intense opening.",
+        "editorial_use": "Use several small saffron clusters in the foreground and midground, partially overlapping cedar and ambergris details while leaving generous negative space around the bottle.",
+        "surreal_use": "Use suspended saffron threads and a restrained swirling trail around the bottle, integrated into the atmospheric flow without touching or obscuring the label."
+      },
+      {
+        "note": "Jazmin",
+        "olfactive_role": "White floral, sensual and refined heart note.",
+        "visual_representation": "A moderate group of realistic small white jasmine blossoms with natural green stems and petals, concentrated rather than scattered.",
+        "reason": "Jasmine provides the elegant floral counterpoint to the spicy and woody structure.",
+        "editorial_use": "Place a compact jasmine grouping behind and to one side of the bottle, with a few softly focused blossoms in the foreground to create depth.",
+        "surreal_use": "Use a few detached jasmine petals moving gently through the air and intact blossoms embedded in the midground environment, never forming an artificial halo."
+      },
+      {
+        "note": "Ámbar gris",
+        "olfactive_role": "Warm, mineral, enveloping and sensual heart-to-base facet.",
+        "visual_representation": "Moderate quantities of small irregular pale ambergris fragments with waxy, weathered mineral texture, placed as tactile natural pieces rather than polished gemstones.",
+        "reason": "Ambergris creates the warm, mysterious and luxurious atmospheric core of the fragrance.",
+        "editorial_use": "Use several physically modest fragments on the supporting surface near the bottle, catching warm highlights and providing sculptural texture.",
+        "surreal_use": "Use a few suspended ambergris fragments within a slow atmospheric current, with warm translucent haze and realistic shadows suggesting weight and volume."
+      },
+      {
+        "note": "Abeto",
+        "olfactive_role": "Aromatic green freshness within the woody base.",
+        "visual_representation": "Several short fir sprigs with realistic needles and restrained natural branching, used in grouped clusters rather than as oversized branches.",
+        "reason": "Fir introduces cool green contrast and gives the dark oriental composition a breathable aromatic dimension.",
+        "editorial_use": "Use fir sprigs in the background and along the outer foreground edges, framing the scene without covering the bottle.",
+        "surreal_use": "Integrate a few fir sprigs into a deep atmospheric forest-like setting, with subtle suspended needles and natural perspective rather than artificial floating arrangements."
+      },
+      {
+        "note": "Cedro",
+        "olfactive_role": "Dry, elegant, structural and long-lasting woody base.",
+        "visual_representation": "Several small cedar wood pieces, thin shavings and compact bark fragments with visible grain, arranged in natural overlapping groups.",
+        "reason": "Cedar establishes the perfume's woody niche character and gives the composition architectural structure.",
+        "editorial_use": "Make cedar the principal supporting material beneath and around the bottle, forming a stable tactile surface and layered foreground texture.",
+        "surreal_use": "Use cedar fragments and shavings as grounded midground elements below the suspended bottle, with a few naturally displaced shavings suggesting controlled airflow."
+      }
+    ]
+  },
+  "shared_visual_identity": {
+    "concept": "The Saffron Cedar Veil: an elegant oriental chamber where luminous saffron, white jasmine, mineral ambergris, cool fir and dry cedar create a mysterious warm-to-cool olfactive transition.",
+    "mood": [
+      "mysterious",
+      "oriental",
+      "sensual",
+      "refined",
+      "warm",
+      "architectural",
+      "luxurious"
+    ],
+    "emotional_goal": "Communicate sophisticated mystery, tactile luxury and an enveloping unisex elegance with a memorable spicy-woody signature.",
+    "palette": [
+      "deep cedar brown",
+      "burnished amber",
+      "saffron gold",
+      "oxblood red",
+      "smoky charcoal",
+      "ivory white",
+      "muted fir green"
+    ],
+    "key_materials": [
+      "raw cedar wood",
+      "cedar shavings",
+      "saffron threads",
+      "white jasmine petals",
+      "weathered ambergris fragments",
+      "fir needles",
+      "matte dark stone",
+      "soft translucent atmospheric haze"
+    ],
+    "environmental_identity": "A dark, refined oriental botanical environment combining a tactile cedar surface with mineral warmth, restrained aromatic greenery and a controlled amber haze.",
+    "visual_anchor_elements": [
+      "fully visible reference bottle",
+      "grouped saffron threads",
+      "white jasmine blossoms",
+      "irregular ambergris fragments",
+      "fir sprigs",
+      "layered cedar pieces and shavings",
+      "warm mineral haze"
+    ]
+  },
+  "editorial_still_life": {
+    "role": "Primary hero image",
+    "concept": "A premium oriental cedar still life in which the vertically stable bottle stands on a realistic dark cedar-and-stone surface, surrounded by grouped saffron, jasmine, ambergris and fir elements in carefully layered depth.",
+    "visual_language": [
+      "premium editorial product photography",
+      "realistic luxury still life",
+      "sophisticated",
+      "elegant",
+      "extreme photorealism"
+    ],
+    "product_position": {
+      "physical_support": true,
+      "floating": false,
+      "surface_required": true
+    },
+    "environment": {
+      "type": "dark architectural botanical studio",
+      "description": "A realistic matte charcoal stone slab with a warm cedar platform supports the completely vertical bottle. Compact ingredient groupings build foreground, midground and background depth: cedar pieces and shavings nearest the camera, ambergris and saffron around the bottle, jasmine and fir receding toward a softly textured dark wall with restrained amber haze.",
+      "background_rule": "Use a dark architectural studio background with subtle mineral texture and warm atmospheric depth; preserve generous clean negative space on one side for Spanish typography without allowing the text to approach or cover the bottle."
+    },
+    "visual_elements": [
+      "one fully visible reference perfume bottle, completely vertical and physically supported",
+      "several realistic cedar blocks, bark fragments and thin shavings",
+      "small grouped saffron threads in crimson and gold",
+      "a moderate compact group of white jasmine blossoms",
+      "several small irregular ambergris fragments",
+      "short fir sprigs with detailed needles",
+      "dark matte stone slab",
+      "subtle translucent amber haze in the background"
+    ],
+    "composition": {
+      "style": "rich layered premium still life",
+      "element_density": "medium",
+      "negative_space": "generous controlled negative space on the upper-left and far-right area for Spanish typography",
+      "depth": "clear foreground, midground and background with cedar shavings close to camera, bottle and core ingredients in the midground, fir and atmospheric wall receding behind",
+      "bottle_priority": "highest; the bottle remains fully visible, sharply legible and unobscured at the central-right visual anchor"
+    },
+    "materials": [
+      "matte charcoal stone",
+      "dry cedar wood",
+      "cedar bark",
+      "fine wood shavings",
+      "saffron filaments",
+      "natural jasmine petals",
+      "weathered ambergris texture",
+      "fir needles",
+      "soft atmospheric haze"
+    ],
+    "palette": [
+      "deep cedar brown",
+      "charcoal black",
+      "burnished amber",
+      "saffron gold",
+      "oxblood red",
+      "ivory white",
+      "muted fir green"
+    ],
+    "lighting": {
+      "style": "premium commercial photography with warm oriental atmosphere",
+      "direction": "large soft key light from upper left, gentle warm rim light from rear right and controlled low fill from the front",
+      "contrast": "medium-high with rich shadows and clear reflective detail on the bottle, never crushing the label",
+      "quality": "naturalistic and controlled"
+    },
+    "typography": {
+      "enabled": true,
+      "language": "Spanish",
+      "elements": [
+        "Rogue Princess (BAC)",
+        "Elegancia que deja estela",
+        "Perfume nicho amaderado unisex",
+        "NOTAS DE SALIDA: Azafran, Jazmin",
+        "NOTAS DE CORAZÓN: Ámbar gris",
+        "NOTAS DE FONDO: Abeto, Cedro"
+      ],
+      "style": {
+        "primary": "elegant editorial serif",
+        "secondary": "refined minimalist sans-serif",
+        "tracking": "generous",
+        "hierarchy": "clear and sophisticated"
+      },
+      "rules": [
+        "Typography must remain in the designated negative space and never cover the perfume bottle.",
+        "Use Spanish text only, with restrained amounts of copy.",
+        "Keep all text legible against the dark background.",
+        "Do not place typography over saffron, jasmine or the bottle label.",
+        "Maintain a premium editorial hierarchy with the perfume name as the primary text element."
+      ]
+    }
+  },
+  "immersive_surreal": {
+    "role": "Dynamic conceptual companion image",
+    "concept": "The suspended Cedar Veil: the bottle floats near the visual centre inside a physically coherent current of warm amber haze, saffron threads and displaced cedar materials, with jasmine and fir forming a deep aromatic environment.",
+    "visual_language": [
+      "cinematic product photography",
+      "dynamic surrealism",
+      "extreme photorealism",
+      "immersive atmosphere",
+      "controlled movement"
+    ],
+    "product_position": {
+      "physical_support": false,
+      "floating": true,
+      "suspended": true
+    },
+    "environment": {
+      "type": "immersive suspended oriental woodland chamber",
+      "description": "A three-dimensional dark cedar environment extends to all image edges. The fully visible bottle is suspended close to the centre on the primary compositional axis, with the cap subtly displaced left and the base subtly displaced right in a fixed elegant 8-degree tilt. The foreground contains nearby out-of-focus cedar shavings and fir needles; the midground concentrates saffron, jasmine, ambergris and the bottle; the background recedes into warm amber haze, dark cedar textures and restrained green botanical depth."
+    },
+    "visual_elements": [
+      "one fully visible reference perfume bottle, suspended near the visual centre with a fixed 8-degree tilt, cap left and base right",
+      "saffron threads moving in a restrained diagonal atmospheric current",
+      "a few naturally falling jasmine petals and several intact blossoms integrated into the midground",
+      "small suspended ambergris fragments with realistic weight and shadow",
+      "fir sprigs rooted or naturally lodged in the dark environmental structure",
+      "cedar bark fragments and shavings distributed through foreground and midground",
+      "deep cedar-textured background",
+      "warm mineral amber haze and subtle particulate atmosphere"
+    ],
+    "movement": {
+      "enabled": true,
+      "types": [
+        "floating",
+        "suspended",
+        "swirling"
+      ],
+      "intensity": "controlled"
+    },
+    "composition": {
+      "style": "dynamic asymmetrical composition with a central suspended product and physically coherent depth",
+      "element_density": "medium-rich, layered but not cluttered",
+      "depth": "strong foreground, midground and background separation with medium-shallow photographic focus",
+      "bottle_priority": "highest; the bottle is isolated clearly against a darker atmospheric pocket, fully visible and never intersected by ingredients",
+      "negative_space": "controlled atmospheric breathing room around the bottle, with environmental depth continuing naturally toward all edges"
+    },
+    "materials": [
+      "transparent amber haze",
+      "dry cedar bark",
+      "fine cedar shavings",
+      "saffron filaments",
+      "white jasmine petals",
+      "weathered ambergris fragments",
+      "fir needles",
+      "dark mineral stone and wood textures"
+    ],
+    "palette": [
+      "smoky charcoal",
+      "deep cedar brown",
+      "burnished amber",
+      "saffron gold",
+      "oxblood red",
+      "ivory white",
+      "muted fir green"
+    ],
+    "lighting": {
+      "style": "cinematic commercial lighting",
+      "direction": "warm directional light from upper right with a soft amber backlight and subtle cool fill from lower left",
+      "contrast": "dramatic controlled contrast, preserving bottle edges, label and material realism",
+      "quality": "dramatic but photorealistic"
+    },
+    "typography": {
+      "enabled": false
+    }
+  },
+  "camera": {
+    "lens": "50mm",
+    "depth_of_field": "medium shallow",
+    "focus": "the perfume bottle",
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4"
+  },
+  "photorealism": {
+    "level": "extreme",
+    "requirements": [
+      "photorealistic materials",
+      "realistic lighting",
+      "realistic shadows",
+      "realistic reflections",
+      "realistic glass",
+      "realistic botanical textures",
+      "realistic physical proportions",
+      "realistic atmospheric effects",
+      "no illustration",
+      "no cartoon",
+      "no obvious CGI",
+      "no generic stock photography"
+    ]
+  },
+  "negative_constraints": [
+    "no people",
+    "no hands",
+    "no extra perfume bottles",
+    "no extra products",
+    "no distorted bottle",
+    "no duplicated bottle",
+    "no malformed bottle",
+    "no covered bottle",
+    "no oversized ingredients",
+    "no giant fruits",
+    "no giant flowers",
+    "no unrealistic ingredient proportions",
+    "no ingredient clutter"
+  ],
+  "style_references": {
+    "lifestyle": {
+      "enabled": true,
+      "reference_path": "../../../../../references/styles/lifestyle-reference.png"
+    },
+    "surreal": {
+      "enabled": true,
+      "reference_path": "../../../../../references/styles/surreal-reference.png"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "perfume_id": "special-vainille-tff",
+  "perfume_name": "Special Vainille (TFF)",
+  "run_id": "20261008T115854Z-209f178a",
+  "input_url": "https://perfumarte.com/products/special-vainille-tff",
+  "status": "failed",
+  "created_at": "2026-10-08T11:58:54.300Z",
+  "updated_at": "2026-10-08T11:59:31.278Z",
+  "stages": {
+    "scrape": {
+      "status": "completed",
+      "started_at": "2026-10-08T11:58:54.306Z",
+      "output": "product.json",
+      "completed_at": "2026-10-08T11:58:54.309Z"
+    },
+    "art_direction": {
+      "status": "failed",
+      "started_at": "2026-10-08T11:58:56.681Z",
+      "output": "art-direction.json",
+      "completed_at": "2026-10-08T11:59:31.278Z",
+      "error": "El género es unknown y no hay referencia de botella. Actualiza gender en product.json antes de continuar."
+    },
+    "prompts": {
+      "status": "pending"
+    },
+    "image_editorial": {
+      "status": "pending"
+    },
+    "image_surreal": {
+      "status": "pending"
+    }
+  }
+}

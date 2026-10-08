@@ -18,7 +18,7 @@
       },
       "required": ["top", "heart", "base"]
     },
-    "gender": { "type": "string", "enum": ["male", "female", "unknown"] }
+    "gender": { "type": "string", "enum": ["male", "female", "unisex", "unknown"] }
   },
   "required": ["schema_version", "id", "name", "url", "description", "notes", "gender"]
 }

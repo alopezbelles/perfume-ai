@@ -8,6 +8,7 @@
     "generate:art-direction": "tsx generate-art-direction.ts",
     "generate:prompts": "tsx generate-prompts.ts",
     "generate:images": "tsx generate-images.ts",
+    "batch": "tsx run-batch.ts",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],

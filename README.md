@@ -193,7 +193,13 @@ Current bottle mapping:
 ``` text
 male   -> references/bottles/male/bottle-black-cap.png
 female -> references/bottles/female/bottle-gold-cap.png
+unisex -> references/bottles/male/bottle-black-cap.png
 ```
+
+The scraper recognizes explicit unisex descriptions. If it cannot determine a
+clear male or female category, it records `unisex` and uses the male bottle
+reference. Existing runs with the legacy value `unknown` remain supported and
+also use the male reference.
 
 The generated art direction is validated before being saved.
 
@@ -748,6 +754,31 @@ npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>" --force
 The scraper starts a new run each time. If scraping fails before it creates a
 run directory, retry the scraper command with the product URL.
 
+### Processing multiple perfumes
+
+Run the full pipeline for several product URLs sequentially with:
+
+``` bash
+npm run batch -- "PERFUME_URL_1" "PERFUME_URL_2"
+```
+
+For a longer list, create a UTF-8 text file with one URL per line. Blank lines
+and lines starting with `#` are ignored, then pass the file path:
+
+``` text
+https://shop.example/products/perfume-one
+https://shop.example/products/perfume-two
+```
+
+``` bash
+npm run batch -- --file "data/perfume-urls.txt"
+```
+
+Each URL gets a new independent run directory. The batch processes URLs one at
+a time and continues with the remaining URLs if one fails. It reports a summary
+and exits with an error status if any URL failed. The individual scrape,
+art-direction, prompt and image commands remain available for manual work.
+
 ### Pipeline logs and errors
 
 Stage logs identify the perfume, perfume ID, run ID and stage. A failure logs a
@@ -924,6 +955,7 @@ project/
 +-- generate-art-direction.ts
 +-- generate-prompts.ts
 +-- generate-images.ts
++-- run-batch.ts
 +-- package.json
 +-- tsconfig.json
 +-- .env

@@ -22,14 +22,17 @@ test("extractNotes returns empty groups when no notes are present", () => {
   assert.deepEqual(extractNotes("Descripción sin notas"), { top: [], heart: [], base: [] });
 });
 
-test("detectGender recognizes Spanish masculine and feminine descriptions", () => {
+test("detectGender recognizes male/female and falls back to unisex", () => {
   assert.equal(detectGender("Perfume masculino para hombre"), "male");
   assert.equal(detectGender("Fragancia femenina para mujer"), "female");
-  assert.equal(detectGender("Fragancia unisex"), "unknown");
+  assert.equal(detectGender("Fragancia unisex"), "unisex");
+  assert.equal(detectGender("Sin indicación de género en la descripción"), "unisex");
+  assert.equal(detectGender("Para hombre y mujer"), "unisex");
 });
 
-test("gender selects the corresponding bottle reference", () => {
+test("unisex and legacy unknown use the male bottle reference", () => {
   assert.equal(getBottleReference("male"), "references/bottles/male/bottle-black-cap.png");
   assert.equal(getBottleReference("female"), "references/bottles/female/bottle-gold-cap.png");
-  assert.equal(getBottleReference("unknown"), null);
+  assert.equal(getBottleReference("unisex"), "references/bottles/male/bottle-black-cap.png");
+  assert.equal(getBottleReference("unknown"), "references/bottles/male/bottle-black-cap.png");
 });

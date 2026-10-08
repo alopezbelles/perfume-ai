@@ -79,7 +79,7 @@ async function scrape(url: string, explicitId?: string) {
     // 4. GÉNERO
     // --------------------------------
 
-    const gender = detectGender(description);
+    const gender = detectGender(`${name}\n${description}`);
 
     // --------------------------------
     // 5. REFERENCIA BOTELLA
@@ -117,6 +117,7 @@ async function scrape(url: string, explicitId?: string) {
 
     console.log(`\n💾 Guardado en: ${outputPath}`);
     console.log("\n✅ Scraping completado correctamente.");
+    console.log(`RUN_DIRECTORY=${path.relative(__dirname, runDirectory).split(path.sep).join("/")}`);
 
   } catch (error) {
     logPipelineError(error, {

@@ -227,6 +227,7 @@
           "enum": [
             "male",
             "female",
+            "unisex",
             "unknown"
           ]
         },

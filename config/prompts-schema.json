@@ -10,7 +10,7 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
         "name": { "type": "string", "minLength": 1 },
-        "gender": { "type": "string", "enum": ["male", "female", "unknown"] },
+        "gender": { "type": "string", "enum": ["male", "female", "unisex", "unknown"] },
         "bottle_reference": { "type": ["string", "null"] }
       },
       "required": ["id", "name", "gender", "bottle_reference"]

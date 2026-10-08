@@ -39,15 +39,23 @@ export function extractNotes(text: string): ProductNotes {
 }
 
 export function detectGender(description: string): Gender {
-  const text = description.toLowerCase();
+  const text = description
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 
-  if (text.includes("masculino") || text.includes("hombre")) return "male";
-  if (text.includes("femenino") || text.includes("mujer")) return "female";
-  return "unknown";
+  if (/\b(?:unisex|unisexo|genderless|para ambos sexos)\b/.test(text)) return "unisex";
+
+  const mentionsMale = /\b(?:masculin[oa]s?|masculine|hombres?|men|male|homme|for him)\b/.test(text);
+  const mentionsFemale = /\b(?:femenin[oa]s?|feminine|mujer(?:es)?|wom[ae]n|female|femme|for her)\b/.test(text);
+
+  if (mentionsMale && mentionsFemale) return "unisex";
+  if (mentionsMale) return "male";
+  if (mentionsFemale) return "female";
+  return "unisex";
 }
 
-export function getBottleReference(gender: Gender): string | null {
-  if (gender === "male") return "references/bottles/male/bottle-black-cap.png";
+export function getBottleReference(gender: Gender): string {
   if (gender === "female") return "references/bottles/female/bottle-gold-cap.png";
-  return null;
+  return "references/bottles/male/bottle-black-cap.png";
 }

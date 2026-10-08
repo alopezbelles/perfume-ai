@@ -284,9 +284,6 @@ el esquema de salida.
 
   // La referencia de botella la decide nuestro sistema.
   const bottleReference = getBottleReference(product.gender);
-  if (!bottleReference) {
-    throw new Error("El género es unknown y no hay referencia de botella. Actualiza gender en product.json antes de continuar.");
-  }
   artDirection.hero_product.bottle_reference = relativePathFromRun(runDirectory, bottleReference);
 
   // Las referencias de estilo son fijas para toda la campaña.

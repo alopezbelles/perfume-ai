@@ -36,7 +36,7 @@ export function validateArtDirection(data: ArtDirection, campaignRules: Campaign
   if (data.format?.aspect_ratio !== campaignRules.format.aspect_ratio) {
     throw new Error("El aspect ratio debe ser 5:4.");
   }
-  if (!["male", "female", "unknown"].includes(data.fragrance_data?.gender)) {
+  if (!["male", "female", "unisex", "unknown"].includes(data.fragrance_data?.gender)) {
     throw new Error("Gender inválido.");
   }
   if (data.physical_scale_system?.bottle_height_cm !== campaignRules.physical_scale.bottle_height_cm) {
