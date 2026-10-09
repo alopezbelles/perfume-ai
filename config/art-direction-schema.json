@@ -231,17 +231,26 @@
         "floating",
         "suspended",
         "swirling",
-        "splashing"
+        "falling"
       ],
       "intensity": "controlled"
     },
 
     "composition": {
-      "style": "dynamic asymmetrical composition",
-      "element_density": "medium_rich",
+      "style": "rich compact asymmetrical enveloping composition",
+      "element_density": "high locally clustered with clear hierarchy",
       "depth": "foreground_midground_background",
-      "bottle_priority": "highest",
-      "negative_space": "controlled"
+      "bottle_priority": "highest; fully visible through contrast, lighting and focus, with ingredients close to its sides and behind its silhouette",
+      "negative_space": "small irregular breathing areas between masses; no empty halo around the bottle",
+      "enveloping_structure": "A dominant material structure derived from the selected notes connects foreground, the space close to the bottle and background; adapt it to each fragrance rather than forcing a liquid ribbon.",
+      "primary_clusters": [
+        "Describe two or three unequal, compact ingredient groupings close to the bottle sides, their dominant selected notes, relative positions and connections."
+      ],
+      "foreground_plan": "Describe nearby overlapping ingredient masses, partially cropped by the frame and softly defocused, at realistic physical scale.",
+      "midground_plan": "Concentrate the principal ingredient groupings close to the bottle and behind its silhouette, maintaining full product visibility through contrast, light and focus.",
+      "background_plan": "Continue the main material structure and ingredient masses behind the bottle into atmospheric depth and toward the image edges.",
+      "overlap_plan": "Specify which ingredients overlap one another and which pass behind the bottle; nothing obscures the bottle, cap or label.",
+      "negative_space_plan": "Place small, irregular breathing areas between ingredient masses; never create a wide empty halo around the bottle."
     },
 
     "materials": [],
@@ -311,13 +320,15 @@
   "surreal": {
     "enabled": true,
     "reference_path": "",
-    "purpose": "Reference the visual language, composition, movement, bottle positioning, depth, lighting and surreal intensity of the immersive image.",
+    "purpose": "Guide density, ingredient proximity to the bottle, organic enclosure, material continuity, overlapping clusters, photographic depth and cinematic richness without copying exact ingredients, colors or positions.",
     "preserve": [
-      "bottle scale",
-      "bottle orientation",
-      "floating position",
-      "element quantity",
-      "movement intensity",
+      "bottle visual importance",
+      "local ingredient density",
+      "ingredient proximity",
+      "compact asymmetric clusters",
+      "material continuity",
+      "organic enclosure",
+      "foreground cropping",
       "spatial depth",
       "layering",
       "lighting language",

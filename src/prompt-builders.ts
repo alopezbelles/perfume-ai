@@ -86,7 +86,28 @@ ${buildFixedRulesPrompt("editorial_still_life", campaignRules)}
 }
 
 export function buildSurrealPrompt(artDirection: PromptSourceArtDirection, campaignRules: CampaignRules): string {
-  const { fragrance_data, hero_product, shared_visual_identity, immersive_surreal } = artDirection;
+  const { fragrance_data, hero_product, olfactive_translation, shared_visual_identity, immersive_surreal } = artDirection;
+  const { composition, movement } = immersive_surreal;
+  const spatialPlan = [
+    ["Enveloping structure", composition.enveloping_structure],
+    ["Primary clusters", composition.primary_clusters?.join("; ")],
+    ["Foreground plan", composition.foreground_plan],
+    ["Midground plan", composition.midground_plan],
+    ["Background plan", composition.background_plan],
+    ["Overlap plan", composition.overlap_plan],
+    ["Negative space plan", composition.negative_space_plan],
+  ].filter(([, value]) => value !== undefined)
+    .map(([label, value]) => `${label}: ${value}`).join("\n");
+  const selectedNotes = olfactive_translation.selected_visual_notes.map((note) => [
+    `Note: ${note.note}`,
+    `Olfactive role: ${note.olfactive_role}`,
+    `Visual representation: ${note.visual_representation}`,
+    ...(note.quantity === undefined ? [] : [`Quantity: ${note.quantity}`]),
+    ...(note.physical_presence === undefined ? [] : [`Physical presence: ${note.physical_presence}`]),
+    ...(note.composition_role === undefined ? [] : [`Composition role: ${note.composition_role}`]),
+    `Selection reason: ${note.reason}`,
+    `Surreal use: ${note.surreal_use}`,
+  ].join("\n")).join("\n\n");
 
   return `
 Create a premium cinematic surreal perfume campaign photograph for "${fragrance_data.name}".
@@ -95,13 +116,29 @@ MAIN PRODUCT:
 Use the exact perfume bottle from the reference image:
 ${hero_product.bottle_reference}
 
-  ${buildProductRulesPrompt(campaignRules)}
+${buildProductRulesPrompt(campaignRules)}
 
 SCENE:
 ${immersive_surreal.concept}
 
 ENVIRONMENT:
 ${immersive_surreal.environment.description}
+
+COMPOSITION AND SPATIAL PLAN:
+Style: ${composition.style}
+Element density: ${composition.element_density}
+Depth: ${composition.depth}
+Bottle priority: ${composition.bottle_priority}
+Negative space: ${composition.negative_space}
+${spatialPlan}
+
+MOVEMENT:
+Enabled: ${movement.enabled}
+Types: ${movement.types.join(", ")}
+Intensity: ${movement.intensity}
+
+SELECTED OLFACTIVE NOTES — SURREAL TREATMENT:
+${selectedNotes}
 
 VISUAL ELEMENTS:
 ${immersive_surreal.visual_elements.join(", ")}

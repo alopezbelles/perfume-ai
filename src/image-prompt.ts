@@ -65,6 +65,12 @@ The reference should guide:
 - bottle scale and visual importance
 - suspended or floating product treatment
 - quantity and controlled movement of visual elements
+- rich local density and compact asymmetric ingredient clusters
+- ingredient masses close to the bottle sides and behind its silhouette
+- an organic enveloping structure with material continuity across the scene
+- overlaps between ingredients and connections between depth layers
+- nearby foreground masses partially cropped by the frame and softly defocused
+- small irregular breathing areas between masses, without an empty bottle halo
 - spatial depth
 - layered composition
 - cinematic lighting
@@ -92,6 +98,14 @@ The result must feel like another image from the SAME premium
 perfume campaign, not like a recreation of the reference image.
 
 The bottle remains the main visual protagonist.
+
+Translate these spatial relationships into the perfume's own selected notes
+and composition plan. Use contrast, lighting and focus to keep the fully
+visible bottle legible within the enveloping scene. Nothing may obscure
+the bottle, cap or label. Naturally curved branches, stems or pods may
+frame it organically when supported by the notes; avoid artificial
+geometric rings or crowns. Droplets, particles and loose petals remain
+secondary accents to the main ingredient masses.
 `;
   }
 

@@ -68,9 +68,26 @@ function validate<T>(validator: ValidateFunction<T>, value: unknown, label: stri
 
 const productValidator = compileSchema<ProductData>(readSchema("product-schema.json"));
 const campaignRulesValidator = compileSchema<CampaignRules>(readSchema("campaign-rules-schema.json"));
-const artDirectionValidator = compileSchema<ArtDirection>(
-  withStyleReferences(readSchema("art-direction-output-schema.json")),
+const artDirectionGenerationSchema = withStyleReferences(readSchema("art-direction-output-schema.json"));
+const artDirectionGenerationValidator = compileSchema<ArtDirection>(artDirectionGenerationSchema);
+
+// New model responses must contain the complete spatial plan and note presence.
+// Historical artifacts may omit just these new fields; do not invent creative values.
+const historicalArtDirectionSchema = structuredClone(artDirectionGenerationSchema) as {
+  properties: {
+    olfactive_translation: { properties: { selected_visual_notes: { items: { required: string[] } } } };
+    immersive_surreal: { properties: { composition: { required: string[] } } };
+  };
+};
+const historicalNotes = historicalArtDirectionSchema.properties.olfactive_translation.properties.selected_visual_notes.items;
+historicalNotes.required = historicalNotes.required.filter(
+  (field) => !["quantity", "physical_presence", "composition_role"].includes(field),
 );
+const historicalComposition = historicalArtDirectionSchema.properties.immersive_surreal.properties.composition;
+historicalComposition.required = historicalComposition.required.filter(
+  (field) => !["enveloping_structure", "primary_clusters", "foreground_plan", "midground_plan", "background_plan", "overlap_plan", "negative_space_plan"].includes(field),
+);
+const artDirectionValidator = compileSchema<ArtDirection>(historicalArtDirectionSchema);
 const promptDocumentValidator = compileSchema<PromptDocument>(readSchema("prompts-schema.json"));
 const runManifestValidator = compileSchema<RunManifest>(readSchema("run-manifest-schema.json"));
 
@@ -84,6 +101,10 @@ export function validateCampaignRules(value: unknown): CampaignRules {
 
 export function validateArtDirectionData(value: unknown): ArtDirection {
   return validate(artDirectionValidator, value, "data/art-direction.json");
+}
+
+export function validateGeneratedArtDirectionData(value: unknown): ArtDirection {
+  return validate(artDirectionGenerationValidator, value, "Nueva dirección artística");
 }
 
 export function validatePromptDocument(value: unknown): PromptDocument {

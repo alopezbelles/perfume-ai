@@ -65,6 +65,10 @@ Contract:
 - Fixed campaign invariants come from `campaign-rules.json`; the generated art direction cannot redefine them.
 - Both campaign concepts are required: `editorial_still_life` and `immersive_surreal`.
 - The output must pass the output JSON Schema and the campaign invariant checks before it is written or passed downstream.
+- New generations require `quantity`, `physical_presence` and `composition_role` for every selected visual note, alongside its existing `surreal_use` and other fields.
+- `immersive_surreal.composition` requires an explicit `enveloping_structure`, two or three `primary_clusters`, `foreground_plan`, `midground_plan`, `background_plan`, `overlap_plan` and `negative_space_plan`. These describe concrete choices for the perfume, including ingredient proximity and connections across depth layers.
+- Surreal ingredient masses approach the bottle sides and continue behind its silhouette. Contrast, lighting and focus maintain full product visibility without a wide empty halo. Ingredients may overlap one another but must not obscure any part of the bottle, cap or label.
+- Organic framing may use naturally curved branches, stems or pods supported by the selected notes; artificial geometric rings and crowns remain prohibited. Particles are secondary accents.
 
 ## Prompt output
 
@@ -94,6 +98,8 @@ Contract:
 - Campaign-specific image rules are incorporated into each prompt.
 - `perfume.id` is copied from the validated product record.
 - The bottle reference path is relative to the run directory.
+- The surreal prompt includes all composition fields, movement enabled/types/intensity and each selected note's olfactive role, visual representation, quantity, physical presence, composition role, reason and `surreal_use`. Editorial-specific note treatment is not included in the surreal prompt.
+- `getImageGenerationPrompt` retains this full prompt and adds the reference interpretation and fixed product constraints. The surreal reference guides local density, proximity, material continuity, overlaps and photographic layers without determining the perfume's ingredients or exact positions.
 
 ## Image-generation result
 
@@ -141,4 +147,24 @@ per-perfume layout above; no automatic migration or copying is performed.
 The manual single-URL workflow uses this product contract and per-run layout.
 The future batch command will use the same format and layout; batch input will
 only be a list of URLs.
+
+New art-direction responses are checked with `validateGeneratedArtDirectionData`,
+which requires the complete spatial plan and note-presence fields. Downstream
+readers use `validateArtDirectionData`, which also accepts historical artifacts
+that omit these new fields. Present fields retain their full schema validation;
+missing creative values are not invented and historical files are not rewritten.
+
+To apply the complete new composition to an existing run, regenerate art direction,
+then prompts, then images in that order using `--force` for completed stages:
+
+```bash
+npm run generate:art-direction -- "data/perfumes/<perfume-id>/runs/<run-id>" --force
+npm run generate:prompts -- "data/perfumes/<perfume-id>/runs/<run-id>" --force
+npm run generate:images -- "data/perfumes/<perfume-id>/runs/<run-id>" --force
+```
+
+These commands call the generation API for art direction and images and replace
+that run's existing outputs. Already saved prompts and images do not change merely
+because the code is updated. Historical art directions can be used to rebuild
+prompts, but regeneration is needed to obtain the explicit new spatial decisions.
 

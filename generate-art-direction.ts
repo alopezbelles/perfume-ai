@@ -6,7 +6,7 @@ import OpenAI from "openai";
 import { applyCampaignRules, validateArtDirection } from "./src/art-direction-rules.ts";
 import { getBottleReference } from "./src/product-data.ts";
 import { hasPipelineFlag, logPipelineError, readRunManifest, relativePathFromRun, requireRunDirectory, runStage } from "./src/pipeline-storage.ts";
-import { validateArtDirectionData, validateCampaignRules, validateProductData } from "./src/validation.ts";
+import { validateGeneratedArtDirectionData, validateCampaignRules, validateProductData } from "./src/validation.ts";
 import type { ArtDirection, JsonObject } from "./src/types.ts";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
@@ -97,7 +97,7 @@ REGLAS DE REFERENCIAS VISUALES:
 - Las referencias visuales de campaña establecen el lenguaje visual, el nivel de calidad y la riqueza compositiva deseada.
 - Las referencias NO deben utilizarse como plantillas compositivas.
 - Cada perfume debe desarrollar una composición propia basada en su identidad olfativa y en sus selected_visual_notes.
-- La posición de la botella, su orientación, la distribución de los ingredientes, el ambiente, la superficie, la iluminación y la profundidad pueden variar entre perfumes.
+- La distribución de los ingredientes, el ambiente, la superficie, la iluminación y la profundidad pueden variar entre perfumes. La posición y orientación de la botella deben respetar las reglas fijas de cada tipo de imagen.
 
 - La variedad compositiva es deseable.
 - La coherencia entre perfumes debe proceder del lenguaje visual común de la campaña, no de repetir la misma composición.
@@ -131,12 +131,27 @@ REGLAS DE LA IMAGEN SURREAL:
 
 - La botella debe estar suspendida o flotando y situarse cerca del centro visual de la imagen, sobre el eje compositivo principal.
 - Evita colocar la botella cerca de los extremos izquierdo o derecho.
-- La botella debe ser siempre el elemento dominante, completamente visible, reconocible y claramente separado de los demás elementos.
+- La botella debe ser siempre el elemento dominante, completamente visible y reconocible mediante contraste, iluminación y enfoque. Los ingredientes deben acercarse a sus laterales y continuar detrás de su silueta sin cubrirla.
+- No utilices la separación espacial como forma de destacar el producto: evita un halo vacío alrededor del frasco.
 - La botella debe presentar una ligera inclinación lateral fija en una única dirección: el tapón y la parte superior deben quedar ligeramente desplazados hacia la izquierda, mientras que la base o parte inferior queda ligeramente desplazada hacia la derecha.
 - Esta dirección de inclinación es obligatoria y debe mantenerse en todas las imágenes surrealistas. Nunca invertir, espejar ni alternar la dirección.
 - Utiliza una inclinación sutil de aproximadamente 5–12 grados respecto a la vertical.
 - La inclinación debe ser elegante, controlada y físicamente creíble. Nunca debe parecer que la botella está cayendo o perdiendo estabilidad.
 - Evita una presentación completamente vertical y estática propia de una fotografía de catálogo.
+
+- Construye una composición rica, compacta y envolvente a partir de una estructura material dominante vinculada a las notas seleccionadas. Esta estructura debe conectar el primer plano, el espacio próximo al frasco y el fondo.
+- La estructura puede proceder de flujos, conjuntos botánicos, ramas, tallos, vainas, madera u otros materiales y fenómenos coherentes con las notas. No fuerces cintas líquidas en todos los perfumes ni incorpores ingredientes ajenos a sus notas.
+- Define dos o tres agrupaciones principales asimétricas, de peso desigual y próximas a los laterales del frasco. Conéctalas mediante continuidad material, superposiciones y profundidad.
+- Prioriza masas de ingredientes y agrupaciones compactas frente a objetos individuales dispersos. Las gotas, partículas y pétalos sueltos son acentos secundarios.
+- Completa todos los campos de immersive_surreal.composition con decisiones concretas para este perfume, no con reglas genéricas:
+  - enveloping_structure: material dominante, forma y conexión espacial.
+  - primary_clusters: dos o tres agrupaciones con ingredientes, peso visual, ubicación respecto al frasco y relación entre ellas.
+  - foreground_plan: masas cercanas a cámara, superpuestas, parcialmente recortadas y desenfocadas.
+  - midground_plan: agrupaciones principales próximas al frasco y elementos detrás de su silueta.
+  - background_plan: continuidad material y profundidad hacia el fondo y los bordes.
+  - overlap_plan: qué ingredientes se superponen entre sí y cuáles pasan detrás del producto, sin cubrirlo.
+  - negative_space_plan: pequeñas zonas irregulares de descanso entre masas, sin halo vacío alrededor del frasco.
+- quantity, physical_presence, composition_role y surreal_use deben describir la contribución de cada nota a este plan envolvente, con jerarquías y cantidades diferentes.
 
 - La escena debe sentirse tridimensional, inmersiva y espacialmente construida, no como una colección de objetos flotando alrededor de la botella.
 - Construye obligatoriamente una estructura clara de primer plano, plano medio y fondo.
@@ -144,7 +159,7 @@ REGLAS DE LA IMAGEN SURREAL:
 - El plano medio debe concentrar los principales ingredientes y elementos visuales alrededor de la botella.
 - Algunos elementos del primer plano pueden estar muy cerca de la cámara, aparecer parcialmente desenfocados, ocupar una parte importante del encuadre o quedar parcialmente recortados por los bordes.
 - El fondo debe aportar contexto, atmósfera y profundidad sin convertirse en un espacio vacío.
-- Evita grandes áreas de espacio vacío alrededor de la botella salvo que sean una decisión compositiva intencionada.
+- Mantén pequeñas zonas irregulares de descanso visual entre las masas de ingredientes. Evita grandes áreas de espacio vacío alrededor de la botella.
 - El entorno debe extenderse naturalmente hacia los bordes de la imagen para crear una sensación de escena completa e inmersiva.
 
 - Los ingredientes y elementos ambientales deben tener una presencia visual suficiente para contribuir claramente a la composición.
@@ -165,7 +180,8 @@ REGLAS DE LA IMAGEN SURREAL:
 - Utiliza movimiento únicamente cuando sea apropiado para el elemento representado.
 - Las trayectorias, curvas, arcos, espirales o flujos deben utilizarse principalmente con elementos dinámicos o fluidos como líquidos, humo, vapor, niebla, polvo, partículas, gotas, pétalos sueltos u otros elementos capaces de transmitir movimiento.
 - Los ingredientes sólidos como flores, ramas, hojas, frutas, semillas, especias, madera o piedras deben mantener un comportamiento natural y físicamente plausible.
-- No organizar ingredientes sólidos artificialmente formando arcos, espirales, coronas, anillos o estructuras geométricas alrededor de la botella salvo que exista una razón visual explícita.
+- Permite encuadres orgánicos envolventes mediante ramas, tallos o vainas naturalmente curvos y agrupaciones botánicas físicamente plausibles, cuando procedan de las notas seleccionadas.
+- No organices ingredientes sólidos como coronas, anillos o estructuras geométricas artificiales ni fuerces objetos independientes a describir una misma trayectoria.
 - No fuerces todos los elementos a seguir una misma trayectoria.
 - El movimiento debe aportar dirección y energía a la escena sin convertirla en una composición caótica.
 - Puede utilizar floating, suspended o swirling.
@@ -180,7 +196,7 @@ REGLAS DE LA IMAGEN SURREAL:
 - El entorno debe depender de la identidad olfativa y del concepto específico del perfume.
 
 - El surrealismo debe proceder principalmente de la suspensión, el movimiento, la profundidad, la interacción entre elementos, la atmósfera y la construcción espacial de la escena.
-- Prioriza las relaciones espaciales y la inmersión antes que aumentar innecesariamente la cantidad de objetos.
+- Prioriza las relaciones espaciales, las agrupaciones compactas y la inmersión. Utiliza cantidades generosas de las notas principales para construir masas materiales con jerarquía clara.
 - No confundas complejidad con acumulación.
 - Evita tanto una escena excesivamente vacía como una escena saturada y caótica.
 - Los ingredientes deben mantener siempre proporciones físicas realistas respecto a la botella.
@@ -262,7 +278,7 @@ el esquema de salida.
   let artDirection: ArtDirection;
 
   try {
-    artDirection = validateArtDirectionData(JSON.parse(response.output_text) as unknown);
+    artDirection = validateGeneratedArtDirectionData(JSON.parse(response.output_text) as unknown);
   } catch (error) {
     throw new Error(
       `La respuesta de OpenAI no cumple el contrato de dirección artística: ${error instanceof Error ? error.message : String(error)}`,
@@ -298,7 +314,7 @@ el esquema de salida.
     },
   };
 
-  validateArtDirectionData(artDirection);
+  validateGeneratedArtDirectionData(artDirection);
 
   // ----------------------------------------
   // VALIDAR

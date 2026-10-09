@@ -310,6 +310,18 @@
               },
               "surreal_use": {
                 "type": "string"
+              },
+              "quantity": {
+                "type": "string",
+                "minLength": 1
+              },
+              "physical_presence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "composition_role": {
+                "type": "string",
+                "minLength": 1
               }
             },
             "required": [
@@ -318,7 +330,10 @@
               "visual_representation",
               "reason",
               "editorial_use",
-              "surreal_use"
+              "surreal_use",
+              "quantity",
+              "physical_presence",
+              "composition_role"
             ]
           }
         }
@@ -659,7 +674,8 @@
                 "enum": [
                   "floating",
                   "suspended",
-                  "swirling"
+                  "swirling",
+                  "falling"
                 ]
               }
             },
@@ -692,6 +708,46 @@
             },
             "negative_space": {
               "type": "string"
+            },
+            "enveloping_structure": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A dominant material structure derived from the selected notes connects foreground, the space close to the bottle and background; adapt it to each fragrance rather than forcing a liquid ribbon."
+            },
+            "primary_clusters": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": "Describe two or three unequal, compact ingredient groupings close to the bottle sides, their dominant selected notes, relative positions and connections."
+            },
+            "foreground_plan": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Describe nearby overlapping ingredient masses, partially cropped by the frame and softly defocused, at realistic physical scale."
+            },
+            "midground_plan": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Concentrate the principal ingredient groupings close to the bottle and behind its silhouette, maintaining full product visibility through contrast, light and focus."
+            },
+            "background_plan": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Continue the main material structure and ingredient masses behind the bottle into atmospheric depth and toward the image edges."
+            },
+            "overlap_plan": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Specify which ingredients overlap one another and which pass behind the bottle; nothing obscures the bottle, cap or label."
+            },
+            "negative_space_plan": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Place small, irregular breathing areas between ingredient masses; never create a wide empty halo around the bottle."
             }
           },
           "required": [
@@ -699,7 +755,14 @@
             "element_density",
             "depth",
             "bottle_priority",
-            "negative_space"
+            "negative_space",
+            "enveloping_structure",
+            "primary_clusters",
+            "foreground_plan",
+            "midground_plan",
+            "background_plan",
+            "overlap_plan",
+            "negative_space_plan"
           ]
         },
         "materials": {

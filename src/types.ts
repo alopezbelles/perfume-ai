@@ -49,6 +49,41 @@ export interface CampaignRules {
   negative_constraints: string[];
 }
 
+export interface SelectedVisualNote {
+  note: string;
+  olfactive_role: string;
+  visual_representation: string;
+  // Optional only when reading art directions saved before the spatial-plan update.
+  quantity?: string;
+  physical_presence?: string;
+  composition_role?: string;
+  reason: string;
+  editorial_use: string;
+  surreal_use: string;
+}
+
+export interface SurrealComposition {
+  style: string;
+  element_density: string;
+  depth: string;
+  bottle_priority: string;
+  negative_space: string;
+  // New generations require these fields; historical artifacts may omit them.
+  enveloping_structure?: string;
+  primary_clusters?: string[];
+  foreground_plan?: string;
+  midground_plan?: string;
+  background_plan?: string;
+  overlap_plan?: string;
+  negative_space_plan?: string;
+}
+
+export interface SurrealMovement {
+  enabled: boolean;
+  types: string[];
+  intensity: string;
+}
+
 export interface ArtDirection {
   campaign: { image_count: number };
   format: { orientation: string; aspect_ratio: string };
@@ -69,6 +104,7 @@ export interface ArtDirection {
     description: string;
     notes: ProductNotes;
   };
+  olfactive_translation: { selected_visual_notes: SelectedVisualNote[] };
   shared_visual_identity: { concept: string; mood: string[] };
   editorial_still_life: {
     concept: string;
@@ -85,7 +121,8 @@ export interface ArtDirection {
     product_position: { floating: boolean; suspended: boolean };
     environment: { description: string };
     visual_elements: string[];
-    movement: { types: string[] };
+    movement: SurrealMovement;
+    composition: SurrealComposition;
     palette: string[];
     materials: string[];
     lighting: { direction: string; contrast: string };
@@ -109,6 +146,7 @@ export interface ArtDirection {
 export interface PromptSourceArtDirection {
   fragrance_data: { name: string };
   hero_product: { bottle_reference: string | null };
+  olfactive_translation: { selected_visual_notes: SelectedVisualNote[] };
   shared_visual_identity: { concept: string; mood: string[] };
   editorial_still_life: {
     concept: string;
@@ -123,6 +161,8 @@ export interface PromptSourceArtDirection {
     concept: string;
     environment: { description: string };
     visual_elements: string[];
+    movement: SurrealMovement;
+    composition: SurrealComposition;
     palette: string[];
     materials: string[];
     lighting: { direction: string; contrast: string };

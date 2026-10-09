@@ -63,6 +63,11 @@ Characteristics:
 -   Strong three-dimensional spatial construction.
 -   Foreground / midground / background.
 -   Environmental integration.
+-   Compact asymmetric ingredient clusters close to the bottle, linked by a
+    dominant material structure across depth layers.
+-   Bottle legibility through contrast, lighting and focus, without an empty halo.
+-   Overlapping ingredients and nearby cropped foreground masses; the bottle
+    remains fully visible.
 -   Dynamic elements and controlled movement.
 -   Rich atmosphere.
 -   Cinematic lighting.
@@ -261,6 +266,12 @@ The schemas for product data, campaign rules and prompts live in
 the `style_references` field that the application adds after the model returns
 its response. Validation errors identify the JSON path and the expected rule.
 
+New model responses must include the complete surreal spatial plan and each
+selected note's quantity, physical presence and composition role. Historical
+artifacts may omit these additions when read downstream; no creative values are
+invented. See [pipeline contracts](docs/pipeline-contracts.md#compatibility-and-migration)
+for regeneration instructions.
+
 ### `generate-images.ts`
 
 Final image-generation stage.
@@ -351,7 +362,7 @@ The translation should remain specific to the perfume.
 
 ### `selected_visual_notes`
 
-Selected notes may contain:
+Newly generated selected notes must contain:
 
 ``` text
 note
@@ -370,6 +381,14 @@ This gives the image-generation stage more precise creative information.
 `generate-prompts.ts` combines each perfume-specific art direction with
 `config/campaign-rules.json`. The resulting prompts preserve the shared
 campaign language while keeping editorial and surreal decisions separate.
+
+The surreal prompt carries every composition field, movement enabled/types/intensity
+and each selected note's surreal treatment, quantity, physical presence and
+composition role through to the image-generation prompt. Its composition includes
+`enveloping_structure`, two or three `primary_clusters`, `foreground_plan`,
+`midground_plan`, `background_plan`, `overlap_plan` and `negative_space_plan`.
+The reference guides ingredient proximity, compact masses, material continuity,
+overlap and depth while each perfume determines its own ingredients and arrangement.
 
 ------------------------------------------------------------------------
 
