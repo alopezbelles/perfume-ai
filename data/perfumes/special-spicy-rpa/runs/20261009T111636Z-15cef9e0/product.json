@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "special-spicy-rpa",
+  "name": "Special Spicy (RPA)",
+  "url": "https://perfumarte.com/products/special-spicy-rpa",
+  "description": "Special Spicy (RPA): un perfume nicho unisex especiado, intenso y elegante\n\nSpecial Spicy (RPA) es un perfume nicho unisex especiado que combina calidez, dulzura y sofisticación en una fragancia compleja y muy envolvente. Diseñado para amantes de los aromas exclusivos, mezcla especias exóticas con flores delicadas y un fondo amaderado de gran profundidad.\n\nEste perfume nicho unisex especiado destaca por su personalidad única, su elegancia moderna y su estela duradera, ideal para quienes buscan algo diferente y memorable.\n\n \n\n \n\n¿A qué huele Special Spicy (RPA)?\n\nSpecial Spicy (RPA) es un perfume nicho unisex especiado donde la bergamota, el higo, la rosa, el oud y el ámbar gris crean una fragancia cálida, floral y profundamente sofisticada.\n\nUna salida cítrica y luminosa\n\nLa fragancia se abre con bergamota, lima y limón, aportando un inicio fresco, chispeante y lleno de energía que equilibra su lado especiado.\n\nUn corazón dulce, floral y elegante\n\nEn su evolución aparecen el higo, el jazmín, la rosa y el ylang-ylang, creando un acorde suave, sensual y ligeramente afrutado que aporta gran riqueza olfativa.\n\nUn fondo cálido, especiado y lujoso\n\nEl ámbar gris, el azafrán, el oud y el pachulí forman una base intensa, misteriosa y muy sofisticada que deja una estela duradera y adictiva.",
+  "notes": {
+    "top": [
+      "Bergamota",
+      "lima",
+      "limon"
+    ],
+    "heart": [
+      "Higo",
+      "Jazmín",
+      "Rosa",
+      "Ylang-ylang"
+    ],
+    "base": [
+      "ambar gris",
+      "azafran",
+      "madera de oud",
+      "patchouli"
+    ]
+  },
+  "gender": "unisex"
+}

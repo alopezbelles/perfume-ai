@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "lima-acuatica-arg",
+  "name": "Lima Acuática (ARG)",
+  "url": "https://perfumarte.com/products/lima-acuatica-arg",
+  "description": "Lima Acuática (ARG): un perfume cítrico fresco masculino, marino y revitalizante\n\nLima Acuática (ARG) es un perfume cítrico fresco masculino pensado para acompañar todas las rutinas del día con una sensación constante de limpieza, energía y vitalidad. Una fragancia inspirada en la brisa marina de la costa italiana, capaz de transmitir la fuerza y la libertad del mar Tirreno.\n\nEste perfume cítrico fresco masculino destaca por su frescor vibrante y su evolución suave hacia matices florales, manteniendo siempre una identidad limpia, moderna y muy fácil de llevar.\n\n \n\n \n\n¿A qué huele Lima Acuática (ARG)?\n\nLima Acuática (ARG) es un perfume cítrico fresco masculino donde el limón mentolado y los acordes marinos crean una sensación refrescante, energética y muy natural sobre la piel.\n\nUna salida cítrica, mentolada y refrescante\n\nLa fragancia se abre con un acorde de limón mentolado que aporta un frescor inmediato, limpio y estimulante, perfecto para revitalizar los sentidos.\n\nUn corazón marino, ligero y energizante\n\nEn el desarrollo aparecen notas marinas que evocan la brisa del mar Tirreno, aportando sensación de amplitud, frescura y libertad.\n\nUn fondo suave con matices florales\n\nCon el paso del tiempo, la fragancia revela un sutil toque floral que suaviza la composición sin perder su carácter cítrico fresco, manteniendo una estela agradable y equilibrada.",
+  "notes": {
+    "top": [
+      "Bergamota",
+      "Lima",
+      "Limon",
+      "Mandarina"
+    ],
+    "heart": [
+      "Ciclamen",
+      "Cilantro",
+      "Fresia",
+      "Notas marinas"
+    ],
+    "base": [
+      "Almizcle",
+      "Madera de cedro",
+      "Musgo",
+      "Patchouli"
+    ]
+  },
+  "gender": "male"
+}

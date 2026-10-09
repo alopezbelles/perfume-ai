@@ -1,0 +1,438 @@
+{
+  "campaign": {
+    "name": "Perfumarte AI Art Direction",
+    "objective": "Generar dos imágenes de campaña premium visualmente coherentes para Lima Acuática (ARG), traduciendo su identidad cítrica, marina, limpia y revitalizante a un lenguaje fotográfico de alta perfumería.",
+    "image_count": 2,
+    "visual_relationship": {
+      "rule": "Ambas imágenes representan la misma identidad de Lima Acuática (ARG), la misma historia olfativa cítrica-marina y los mismos elementos visuales esenciales, adaptados a dos funciones compositivas distintas.",
+      "editorial_role": "Primary hero image.",
+      "surreal_role": "Dynamic conceptual companion image.",
+      "consistency": [
+        "misma identidad del perfume",
+        "misma historia olfativa cítrica, marina y revitalizante",
+        "misma familia cromática de verdes lima, azules agua y neutros minerales",
+        "mismos elementos principales: cítricos frescos, agua marina, ciclamen y cedro",
+        "misma atmósfera limpia, luminosa, energética y sofisticada"
+      ]
+    }
+  },
+  "format": {
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4"
+  },
+  "hero_product": {
+    "type": "perfume_bottle",
+    "role": "main protagonist",
+    "bottle_reference": "../../../../../references/bottles/male/bottle-black-cap.png",
+    "reference_rule": {
+      "use_reference_image": true,
+      "preserve_exact_design": true,
+      "preserve_shape": true,
+      "preserve_proportions": true,
+      "preserve_cap": true,
+      "preserve_label": true,
+      "preserve_material": true
+    },
+    "composition_rules": {
+      "scale": "medium-dominant",
+      "visibility": "fully visible",
+      "must_not_be_covered": true,
+      "must_not_be_distorted": true,
+      "must_not_be_duplicated": true
+    }
+  },
+  "physical_scale_system": {
+    "bottle_height_cm": 19,
+    "bottle_width_cm": 3.5,
+    "bottle_depth_cm": 3.5,
+    "scale_reference": "Use the perfume bottle as the physical scale reference for the entire scene.",
+    "element_scale_rule": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "relative_scale": "Every surrounding ingredient and environmental object must have realistic physical proportions relative to the perfume bottle.",
+    "artistic_scale_override": "Do not create abundance by artificially enlarging ingredients."
+  },
+  "fragrance_data": {
+    "name": "Lima Acuática (ARG)",
+    "url": "https://perfumarte.com/products/lima-acuatica-arg",
+    "gender": "male",
+    "description": "Lima Acuática (ARG): un perfume cítrico fresco masculino, marino y revitalizante\n\nLima Acuática (ARG) es un perfume cítrico fresco masculino pensado para acompañar todas las rutinas del día con una sensación constante de limpieza, energía y vitalidad. Una fragancia inspirada en la brisa marina de la costa italiana, capaz de transmitir la fuerza y la libertad del mar Tirreno.\n\nEste perfume cítrico fresco masculino destaca por su frescor vibrante y su evolución suave hacia matices florales, manteniendo siempre una identidad limpia, moderna y muy fácil de llevar.\n\n \n\n \n\n¿A qué huele Lima Acuática (ARG)?\n\nLima Acuática (ARG) es un perfume cítrico fresco masculino donde el limón mentolado y los acordes marinos crean una sensación refrescante, energética y muy natural sobre la piel.\n\nUna salida cítrica, mentolada y refrescante\n\nLa fragancia se abre con un acorde de limón mentolado que aporta un frescor inmediato, limpio y estimulante, perfecto para revitalizar los sentidos.\n\nUn corazón marino, ligero y energizante\n\nEn el desarrollo aparecen notas marinas que evocan la brisa del mar Tirreno, aportando sensación de amplitud, frescura y libertad.\n\nUn fondo suave con matices florales\n\nCon el paso del tiempo, la fragancia revela un sutil toque floral que suaviza la composición sin perder su carácter cítrico fresco, manteniendo una estela agradable y equilibrada.",
+    "notes": {
+      "top": [
+        "Bergamota",
+        "Lima",
+        "Limon",
+        "Mandarina"
+      ],
+      "heart": [
+        "Ciclamen",
+        "Cilantro",
+        "Fresia",
+        "Notas marinas"
+      ],
+      "base": [
+        "Almizcle",
+        "Madera de cedro",
+        "Musgo",
+        "Patchouli"
+      ]
+    }
+  },
+  "olfactive_translation": {
+    "principle": "Traducir Lima Acuática (ARG) como una experiencia de cítricos recién cortados sobre una atmósfera marina luminosa, suavizada por un acento floral y anclada por madera de cedro húmeda.",
+    "selection_rules": [
+      "Seleccionar únicamente los elementos olfativos más expresivos visualmente.",
+      "Priorizar lima, limón y notas marinas como núcleo de identidad.",
+      "Representar la dimensión marina mediante agua, reflejos, bruma salina y color, sin añadir ingredientes no presentes.",
+      "Usar el ciclamen como matiz floral fresco y el cedro como estructura táctil y base visual.",
+      "Mantener los elementos seleccionados coherentes en ambas imágenes."
+    ],
+    "selected_visual_notes": [
+      {
+        "note": "Lima",
+        "olfactive_role": "Nota cítrica principal, verde, vibrante y refrescante.",
+        "visual_representation": "Limas enteras y cortadas en mitades y gajos pequeños, con cáscara porosa, pulpa translúcida y gotas de condensación.",
+        "reason": "Es el elemento más directamente ligado al nombre y a la identidad fresca del perfume.",
+        "editorial_use": "Grupo principal de limas sobre la superficie, concentrado en un lateral de la botella y extendido en capas controladas hacia el primer plano.",
+        "surreal_use": "Masa cítrica compacta junto al lateral inferior derecho del frasco, con algunas limas cercanas a cámara y gajos suspendidos de forma físicamente plausible.",
+        "quantity": "abundant",
+        "physical_presence": "Alta; ingrediente protagonista secundario, siempre a escala real respecto a la botella.",
+        "composition_role": "Aporta color verde lima, textura, escala y energía visual; crea el foco material más reconocible junto a la botella."
+      },
+      {
+        "note": "Limon",
+        "olfactive_role": "Salida cítrica luminosa, mentolada y estimulante.",
+        "visual_representation": "Limones amarillos pálidos enteros, cáscaras cortadas y finos gajos húmedos, con brillos especulares naturales.",
+        "reason": "Comunica la salida cítrica y mentolada descrita para la fragancia.",
+        "editorial_use": "Agrupación de apoyo mezclada con las limas, con algunos cortes visibles en el plano medio y unidades desenfocadas en primer plano.",
+        "surreal_use": "Cluster desigual en el lateral superior izquierdo, conectado con las limas mediante gajos, gotas y continuidad de humedad; algunos gajos flotan suavemente.",
+        "quantity": "several",
+        "physical_presence": "Media-alta; presencia claramente visible pero subordinada a la lima.",
+        "composition_role": "Introduce contraste amarillo-verde, sensación de frescor inmediato y ritmo diagonal natural."
+      },
+      {
+        "note": "Bergamota",
+        "olfactive_role": "Cítrico aromático de apertura, elegante y ligeramente amargo.",
+        "visual_representation": "Bergamotas enteras y una o dos secciones cortadas, de piel verde amarillenta rugosa y tamaño realista.",
+        "reason": "Aporta sofisticación cítrica y profundidad aromática sin saturar la escena con demasiadas frutas.",
+        "editorial_use": "Pocas unidades integradas detrás de las limas y parcialmente ocultas por ellas, funcionando como volumen y transición tonal.",
+        "surreal_use": "Dos unidades en el plano medio posterior, pasando detrás de la silueta del frasco y conectando visualmente los clusters cítricos sin cubrir la etiqueta.",
+        "quantity": "moderate",
+        "physical_presence": "Media; elemento de soporte y profundidad.",
+        "composition_role": "Refuerza la familia cítrica y crea masas redondeadas que equilibran las formas cortadas de lima y limón."
+      },
+      {
+        "note": "Notas marinas",
+        "olfactive_role": "Corazón expansivo, fresco, limpio y energizante, evocador del mar Tirreno.",
+        "visual_representation": "Agua marina realista, láminas húmedas sobre piedra, bruma salina fina, reflejos azul verdosos y pequeñas salpicaduras controladas.",
+        "reason": "Es la dimensión conceptual esencial de la fragancia y permite construir el entorno sin introducir ingredientes ajenos.",
+        "editorial_use": "Superficie mineral húmeda y fondo de bruma azul verdosa, con reflejos discretos detrás de la botella y pequeños charcos alrededor de los cítricos.",
+        "surreal_use": "Estructura material dominante: una corriente de agua y bruma salina que atraviesa el primer plano, se curva cerca de los laterales del frasco y continúa hacia el fondo sin convertirse en una cinta geométrica.",
+        "quantity": "abundant",
+        "physical_presence": "Muy alta como atmósfera y estructura espacial, sin competir con la botella.",
+        "composition_role": "Une todos los planos, aporta profundidad, frescor, reflejos y el carácter marino del perfume."
+      },
+      {
+        "note": "Ciclamen",
+        "olfactive_role": "Matiz floral ligero, limpio y suavizante en el corazón.",
+        "visual_representation": "Pequeños grupos de flores de ciclamen en tonos rosa frío y blanco rosado, con tallos finos y hojas realistas.",
+        "reason": "Representa la evolución floral sutil descrita en la fragancia sin convertir la imagen en un bodegón floral.",
+        "editorial_use": "Grupos pequeños situados detrás y a un lado de la botella, usados como acento vertical y transición delicada entre cítricos y fondo marino.",
+        "surreal_use": "Dos grupos compactos de ciclamen en el plano medio lateral, con tallos curvados naturalmente por la humedad y algunas flores suavemente suspendidas, nunca formando coronas.",
+        "quantity": "moderate",
+        "physical_presence": "Media-baja pero reconocible; detalle floral de refinamiento.",
+        "composition_role": "Suaviza la energía cítrica, añade escala vertical y un contraste cromático frío sin ocultar el producto."
+      },
+      {
+        "note": "Madera de cedro",
+        "olfactive_role": "Base seca, limpia y estructural.",
+        "visual_representation": "Fragmentos realistas de cedro claro, pequeñas placas de corteza y una base mineral de madera húmeda, sin piezas sobredimensionadas.",
+        "reason": "Aporta anclaje material y expresa la base amaderada de forma táctil y masculina.",
+        "editorial_use": "Plataforma baja y discreta bajo la superficie húmeda, visible en el plano medio y parcialmente cubierta por cítricos.",
+        "surreal_use": "Ramas y placas finas de cedro en el fondo y laterales, algunas pasando detrás del frasco y formando una estructura orgánica que sostiene visualmente la bruma y el agua.",
+        "quantity": "moderate",
+        "physical_presence": "Media; estructura secundaria de soporte.",
+        "composition_role": "Ancla la composición, introduce textura seca frente al agua y evita que la escena sea exclusivamente líquida o cítrica."
+      }
+    ]
+  },
+  "shared_visual_identity": {
+    "concept": "Brisa cítrica sobre piedra húmeda: una corriente marina luminosa que transporta limas, limones y flores frescas alrededor de una estructura discreta de cedro.",
+    "mood": [
+      "fresco",
+      "limpio",
+      "marino",
+      "luminoso",
+      "energético",
+      "sofisticado",
+      "revitalizante"
+    ],
+    "emotional_goal": "Transmitir una sensación inmediata de limpieza, libertad y energía costera, como una ráfaga de aire marino italiano después de cortar cítricos frescos.",
+    "palette": [
+      "verde lima translúcido",
+      "amarillo limón pálido",
+      "azul agua",
+      "verde azulado marino",
+      "blanco salino",
+      "rosa frío de ciclamen",
+      "beige cedro",
+      "gris piedra húmeda"
+    ],
+    "key_materials": [
+      "piel rugosa de lima y limón",
+      "pulpa cítrica translúcida",
+      "agua marina",
+      "piedra mineral mojada",
+      "bruma salina",
+      "pétalos y tallos de ciclamen",
+      "madera clara de cedro",
+      "vidrio realista del frasco"
+    ],
+    "environmental_identity": "Costa mediterránea abstracta y contemporánea, construida mediante piedra húmeda, agua marina, reflejos de luz natural y bruma limpia, sin convertirse en un paisaje literal.",
+    "visual_anchor_elements": [
+      "botella perfectamente legible",
+      "agrupación abundante de limas",
+      "limones y bergamotas en escala real",
+      "superficie de agua sobre piedra",
+      "bruma marina azul verdosa",
+      "ciclamen discreto",
+      "cedro claro como anclaje material"
+    ]
+  },
+  "editorial_still_life": {
+    "role": "Primary hero image",
+    "concept": "Bodegón costero de cítricos recién cortados sobre piedra húmeda, con la botella vertical y estable en el centro de una composición editorial luminosa, limpia y abundante.",
+    "visual_language": [
+      "premium editorial product photography",
+      "realistic luxury still life",
+      "sophisticated",
+      "elegant",
+      "extreme photorealism",
+      "fresh Mediterranean atmosphere",
+      "tactile natural materials"
+    ],
+    "product_position": {
+      "physical_support": true,
+      "floating": false,
+      "surface_required": true
+    },
+    "environment": {
+      "type": "superficie mineral húmeda con fondo de estudio marino",
+      "description": "La botella se apoya completamente vertical sobre una losa baja de piedra gris clara ligeramente húmeda. A su alrededor se agrupan limas, limones y bergamotas en cantidades generosas pero realistas, con pequeñas zonas de agua y bruma azul verdosa al fondo. El ambiente sugiere la costa del mar Tirreno mediante luz, humedad y reflejos, sin mostrar un paisaje literal.",
+      "background_rule": "Fondo amplio de degradado azul agua a blanco salino, con textura atmosférica suave y espacio negativo generoso para la tipografía española; ningún elemento invade la silueta, el tapón o la etiqueta."
+    },
+    "visual_elements": [
+      "grupo abundante de limas enteras, cortadas y en gajos",
+      "varios limones pálidos enteros y parcialmente cortados",
+      "dos o tres bergamotas integradas en el grupo cítrico",
+      "pequeños grupos de ciclamen rosa frío y blanco",
+      "lámina de agua marina sobre piedra",
+      "bruma salina muy sutil",
+      "fragmentos discretos de madera de cedro",
+      "gotas de condensación y reflejos naturales"
+    ],
+    "composition": {
+      "style": "bodegón editorial premium en capas, con una agrupación material concentrada alrededor de la base y un campo limpio para el producto",
+      "element_density": "moderada en torno al bodegón, rica por cantidad y superposición pero sin saturación",
+      "negative_space": "generoso en el tercio superior y en un lateral destinado a texto; pequeños descansos entre los grupos de ingredientes",
+      "depth": "primer plano con gajos y limas parcialmente desenfocados, plano medio con botella y agrupaciones principales, fondo con bruma marina y ciclamen suave",
+      "bottle_priority": "máxima; botella nítida, completamente visible, vertical, estable y separada del fondo mediante contraste tonal y luz controlada"
+    },
+    "materials": [
+      "piedra caliza gris clara húmeda",
+      "agua marina transparente",
+      "piel cítrica rugosa",
+      "pulpa de lima y limón",
+      "pétalos frescos de ciclamen",
+      "madera clara de cedro",
+      "vidrio y material exacto de la botella"
+    ],
+    "palette": [
+      "verde lima",
+      "amarillo limón suave",
+      "azul agua",
+      "verde marino",
+      "gris piedra",
+      "blanco salino",
+      "rosa frío"
+    ],
+    "lighting": {
+      "style": "luz naturalista de mañana costera combinada con iluminación comercial de precisión",
+      "direction": "luz lateral superior izquierda, con relleno suave frontal y reflejo frío procedente del fondo acuático",
+      "contrast": "medio, suficiente para definir el vidrio, la etiqueta y las texturas cítricas sin perder la luminosidad",
+      "quality": "difusa, limpia y controlada, con sombras suaves de contacto y reflejos realistas sobre agua y vidrio"
+    },
+    "typography": {
+      "enabled": true,
+      "language": "Spanish",
+      "elements": [
+        "Lima Acuática (ARG)",
+        "FRESCURA QUE DESPIERTA",
+        "perfume cítrico fresco masculino",
+        "NOTAS DE SALIDA: bergamota, lima, limón, mandarina",
+        "NOTAS DE CORAZÓN: ciclamen, cilantro, fresia, notas marinas",
+        "NOTAS DE FONDO: almizcle, madera de cedro, musgo, patchouli"
+      ],
+      "style": {
+        "primary": "serif editorial elegante, de alto contraste y apariencia contemporánea",
+        "secondary": "sans-serif minimalista refinada para descriptores y notas",
+        "tracking": "generoso, especialmente en mayúsculas y etiquetas de notas",
+        "hierarchy": "nombre del perfume dominante en el espacio negativo; subtítulo breve secundario; notas en cuerpo pequeño y ordenado"
+      },
+      "rules": [
+        "La tipografía debe permanecer siempre fuera de la botella y de su sombra principal.",
+        "Mantener legibilidad sobre zonas claras y tranquilas del fondo.",
+        "No llenar todo el espacio negativo con texto.",
+        "Usar la información en español sin competir con la nitidez del producto.",
+        "No alterar ni recrear la etiqueta original de la botella."
+      ]
+    }
+  },
+  "immersive_surreal": {
+    "role": "Dynamic conceptual companion image",
+    "concept": "La botella suspendida dentro de una corriente marina cítrica: limas, limones, bruma, flores y cedro forman un entorno físico envolvente que parece impulsado por una ráfaga de aire salino.",
+    "visual_language": [
+      "cinematic product photography",
+      "dynamic surrealism",
+      "extreme photorealism",
+      "immersive atmosphere",
+      "controlled movement",
+      "organic material continuity",
+      "premium fragrance campaign"
+    ],
+    "product_position": {
+      "physical_support": false,
+      "floating": true,
+      "suspended": true
+    },
+    "environment": {
+      "type": "corriente marina suspendida con piedra, cítricos y vegetación floral",
+      "description": "La botella flota cerca del centro visual sobre el eje principal, completamente visible y enfocada, con el tapón ligeramente desplazado hacia la izquierda y la base hacia la derecha en una inclinación fija de aproximadamente 8 grados. A su alrededor, una corriente de agua marina, bruma salina y grupos compactos de cítricos construyen profundidad real. Los ingredientes se acercan a los laterales y pasan detrás de la silueta sin cubrir el frasco, mientras ramas finas de cedro y tallos de ciclamen aportan encuadre orgánico."
+    },
+    "visual_elements": [
+      "corriente de agua marina y bruma salina conectando los tres planos",
+      "cluster principal de limas enteras, cortadas y gajos en el lateral inferior derecho",
+      "cluster secundario de limones y bergamotas en el lateral superior izquierdo",
+      "ciclamen en grupos compactos con tallos curvados naturalmente",
+      "ramas y placas finas de cedro detrás del frasco",
+      "gotas y pequeñas salpicaduras como acentos secundarios",
+      "reflejos azul verdosos y partículas de humedad integradas en el aire"
+    ],
+    "movement": {
+      "enabled": true,
+      "types": [
+        "floating",
+        "suspended",
+        "swirling"
+      ],
+      "intensity": "controlled"
+    },
+    "composition": {
+      "style": "composición compacta, asimétrica y envolvente, construida como una ráfaga marina tridimensional alrededor del frasco",
+      "element_density": "alta localmente en dos o tres masas compactas, con jerarquía clara y pequeñas pausas irregulares",
+      "depth": "primer plano muy próximo y desenfocado, plano medio nítido alrededor de la botella, fondo atmosférico con continuidad de agua, cedro y bruma",
+      "bottle_priority": "máxima; frasco completamente visible, inclinado 8 grados hacia la izquierda en la parte superior, enfocado y separado por contraste de los ingredientes cercanos",
+      "negative_space": "pequeños intersticios irregulares entre cítricos, tallos y bruma; no existe un halo vacío alrededor del frasco",
+      "enveloping_structure": "Una corriente físicamente plausible de agua marina y humedad salina nace en el primer plano inferior izquierdo, se divide alrededor de los laterales del frasco y continúa hacia el fondo como superficies húmedas, bruma y reflejos azul verdosos. No forma una cinta geométrica; se integra con piedra, cítricos, tallos de ciclamen y cedro.",
+      "primary_clusters": [
+        "Cluster mayor inferior derecho: abundante agrupación de limas enteras, mitades y gajos, con una o dos bergamotas detrás; se aproxima a la base del frasco sin tocar ni cubrir la botella y conecta con la corriente húmeda del primer plano.",
+        "Cluster menor superior izquierdo: varios limones pálidos, un grupo reducido de ciclamen y una placa de cedro; queda cerca del hombro del frasco, con tallos curvados naturalmente y menor peso visual que el grupo de limas.",
+        "Cluster posterior lateral: ramas finas de cedro, algunas bergamotas y bruma marina detrás de la silueta; funciona como continuidad de fondo y une ambos grupos sin formar una corona ni una trayectoria idéntica."
+      ],
+      "foreground_plan": "En la zona inferior y en los bordes laterales aparecen limas, gajos de limón, placas pequeñas de cedro y gotas de agua a escala real, parcialmente recortados por el encuadre y suavemente desenfocados por su proximidad a la cámara. Las masas se superponen de forma natural y dejan visibles pequeños espacios húmedos entre ellas.",
+      "midground_plan": "La botella ocupa el centro visual y permanece completamente enfocada. Las principales agrupaciones de lima y limón se sitúan próximas a sus laterales, con algunas piezas detrás de la silueta pero fuera de la etiqueta y el tapón. El agua, la bruma, los tallos de ciclamen y las bergamotas forman una estructura compacta de contraste alrededor del producto.",
+      "background_plan": "La corriente marina continúa detrás del frasco hacia ambos bordes y se pierde en capas atmosféricas azul verdosas. Ramas finas de cedro y grupos de ciclamen aparecen progresivamente más suaves y pequeños en el fondo, mientras reflejos de agua y bruma aportan profundidad sin crear un vacío.",
+      "overlap_plan": "Las limas se superponen parcialmente a bergamotas y placas de cedro en el cluster inferior derecho; los limones pasan delante de algunos tallos de ciclamen en el cluster superior izquierdo. El agua y la bruma pasan detrás de la botella y se conectan entre ambos laterales. Ningún cítrico, tallo, rama, gota o reflejo cubre el tapón, la etiqueta, los bordes esenciales o la silueta completa del frasco.",
+      "negative_space_plan": "Mantener pequeñas zonas de aire húmedo entre las masas de lima, limón y ciclamen, especialmente a la altura de los hombros del frasco. Los descansos son estrechos, irregulares y atravesados por bruma o reflejos; nunca se crea un halo amplio o vacío alrededor de la botella."
+    },
+    "materials": [
+      "agua marina en suspensión",
+      "piedra húmeda parcialmente visible",
+      "piel y pulpa de lima, limón y bergamota",
+      "bruma salina",
+      "madera clara de cedro",
+      "tallos y pétalos frescos de ciclamen",
+      "gotas de condensación",
+      "vidrio realista de la botella"
+    ],
+    "palette": [
+      "verde lima luminoso",
+      "amarillo cítrico pálido",
+      "azul turquesa desaturado",
+      "verde marino",
+      "blanco de bruma",
+      "rosa frío",
+      "gris piedra húmeda",
+      "cedro beige claro"
+    ],
+    "lighting": {
+      "style": "iluminación cinematográfica comercial con contraluz acuático y luz principal suave sobre el frasco",
+      "direction": "luz principal desde arriba y ligeramente a la izquierda, contraluz azul verdoso detrás de la botella y relleno frontal neutro para conservar la etiqueta legible",
+      "contrast": "medio-alto en el producto y controlado en las masas, con separación luminosa clara entre botella, agua y cítricos",
+      "quality": "dramática pero físicamente realista, con sombras suspendidas suaves, reflejos precisos en el vidrio, refracciones de agua y volumen atmosférico natural"
+    },
+    "typography": {
+      "enabled": false
+    }
+  },
+  "camera": {
+    "lens": "50mm",
+    "depth_of_field": "medium shallow",
+    "focus": "the perfume bottle",
+    "orientation": "horizontal",
+    "aspect_ratio": "5:4"
+  },
+  "photorealism": {
+    "level": "extreme",
+    "requirements": [
+      "materiales fotorrealistas",
+      "iluminación realista",
+      "sombras realistas",
+      "reflejos realistas",
+      "vidrio realista",
+      "texturas botánicas realistas",
+      "proporciones físicas realistas",
+      "agua marina y condensación realistas",
+      "bruma atmosférica realista",
+      "sin ilustración",
+      "sin cartoon",
+      "sin CGI evidente",
+      "sin apariencia de fotografía de stock genérica"
+    ]
+  },
+  "negative_constraints": [
+    "no people",
+    "no hands",
+    "no extra perfume bottles",
+    "no extra products",
+    "no distorted bottle",
+    "no duplicated bottle",
+    "no malformed bottle",
+    "no covered bottle",
+    "no oversized ingredients",
+    "no giant fruits",
+    "no giant flowers",
+    "no unrealistic ingredient proportions",
+    "no ingredient clutter",
+    "no typography in the immersive_surreal image",
+    "no bottle floating in the editorial_still_life image",
+    "no bottle tilt in the editorial_still_life image",
+    "no wide empty halo around the bottle in the immersive_surreal image",
+    "no artificial geometric rings",
+    "no crowns made of ingredients",
+    "no identical trajectories for solid ingredients",
+    "no ingredients unsupported by fragrance_data.notes",
+    "no illustration",
+    "no cartoon",
+    "no obvious CGI",
+    "no generic stock photography"
+  ],
+  "style_references": {
+    "lifestyle": {
+      "enabled": true,
+      "reference_path": "../../../../../references/styles/lifestyle-reference.png"
+    },
+    "surreal": {
+      "enabled": true,
+      "reference_path": "../../../../../references/styles/surreal-reference.png"
+    }
+  }
+}
